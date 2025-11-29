@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Primary Colors */
+    --color-primary-blue: #003B73;
+    --color-gold: #C9A961;
+    --color-teal: #00B4A8;
+    
+    /* Accent Colors */
+    --color-coral: #FF6B6B;
+    --color-purple: #6B4C9A;
+    --color-green: #10B981;
+    
+    /* Neutrals */
+    --color-charcoal: #333333;
+    --color-slate: #64748B;
+    --color-warm-white: #FAFAFA;
+    --color-cool-gray: #F1F5F9;
+    --color-border: #E5E5E5;
+    
+    /* Logo Colors */
+    --color-logo-gold: #C9A961;
+    --color-logo-dark: #5A5A5A;
+  }
+
+  body {
+    @apply font-sans antialiased bg-warm-white text-charcoal;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display text-primary;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  /* Smooth scroll behavior */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Fade-in animation for tab content */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-in-out;
+  }
+}
+
