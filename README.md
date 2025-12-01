@@ -1,109 +1,279 @@
-# Financial Perspectives Website
+# Financial Perspectives Education Website
 
-A modern, professional website for Financial Perspectives (FP-EDU.COM) - Singapore's premier financial education provider since 1999.
+A modern, responsive website for Financial Perspectives, built with Next.js and configured for static HTML export.
 
-## Features
+🌐 **Live Site:** [Your Domain]  
+📦 **Repository:** https://github.com/foladynasty/fpstatic2026website
 
-- **Responsive Design**: Beautiful, mobile-first design that works on all devices
-- **Modern UI/UX**: Clean, professional interface with smooth animations
-- **13 Key Sections**:
-  1. Hero Slider with 5 rotating slides
-  2. Trust Bar with credentials
-  3. CFP® Certification Pathway
-  4. SCFP-HNWI Advanced Certification
-  5. CPD Courses showcase
-  6. Why Financial Perspectives
-  7. Corporate Training Solutions
-  8. Success Stories & Testimonials
-  9. Latest Resources & Insights
-  10. Upcoming Events & Classes
-  11. Newsletter Signup
-  12. Final CTA Banner
-  13. Comprehensive Footer
+---
 
-## Tech Stack
+## 🎯 Overview
 
-- **Framework**: Next.js 15 (App Router)
-- **Language**: TypeScript
-- **Styling**: Tailwind CSS
-- **Icons**: Lucide React
-- **Animations**: Framer Motion
+This is a professional education website featuring:
+- **CFP® Certification Program** - Complete certification pathway
+- **SCFP-HNWI Program** - Specialized certification with 7 detailed modules
+- **CPD Courses** - 4 continuing professional development courses
+- **Events & Media** - Course schedules and resources
+- **Contact & About** - Company information and contact forms
 
-## Getting Started
+**Total:** 22 fully functional pages with beautiful gold & charcoal design theme.
+
+---
+
+## ✨ Features
+
+- ✅ **Static HTML Export** - No Node.js required on server
+- ✅ **Fully Responsive** - Mobile, tablet, and desktop optimized
+- ✅ **Modern Design** - Gold and charcoal color scheme
+- ✅ **Fast Loading** - Optimized static files
+- ✅ **SEO Friendly** - Pre-rendered pages
+- ✅ **Contact Forms** - Integrated with FormSubmit.co
+- ✅ **Animations** - Smooth transitions with Framer Motion
+- ✅ **Tailwind CSS** - Modern utility-first styling
+
+---
+
+## 🚀 Quick Start
 
 ### Prerequisites
-
 - Node.js 18+ installed
 - npm or yarn package manager
 
 ### Installation
 
-1. Install dependencies:
 ```bash
-npm install
-```
+# Clone the repository
+git clone https://github.com/foladynasty/fpstatic2026website.git
+cd fpstatic2026website
 
-2. Run the development server:
-```bash
+# Install dependencies
+npm install
+
+# Run development server
 npm run dev
 ```
 
-3. Open [http://localhost:3000](http://localhost:3000) in your browser
+Visit `http://localhost:3000` to see the site.
 
-## Project Structure
+---
 
-```
-fp-edu-website/
-├── app/
-│   ├── globals.css          # Global styles
-│   ├── layout.tsx           # Root layout
-│   └── page.tsx             # Homepage
-├── components/
-│   ├── Header.tsx           # Navigation header
-│   ├── HeroSlider.tsx       # Hero slider section
-│   ├── TrustBar.tsx         # Trust indicators
-│   ├── CFPPathway.tsx       # CFP certification info
-│   ├── SCFPHNWISection.tsx  # HNWI certification
-│   ├── CPDCourses.tsx       # CPD courses showcase
-│   ├── WhyFP.tsx            # Why choose FP
-│   ├── CorporateTraining.tsx # Corporate solutions
-│   ├── Testimonials.tsx     # Client testimonials
-│   ├── Resources.tsx        # Resources section
-│   ├── Events.tsx           # Upcoming events
-│   ├── Newsletter.tsx       # Newsletter signup
-│   ├── FinalCTA.tsx         # Final call-to-action
-│   └── Footer.tsx           # Footer section
-├── public/
-│   └── FP logo.png          # Company logo
-└── package.json
+## 📦 Available Scripts
+
+```bash
+# Development server with hot reload
+npm run dev
+
+# Build static HTML for production
+npm run build
+
+# Run production build locally (requires build first)
+npm run start
+
+# Run linter
+npm run lint
 ```
 
-## Build for Production
+---
+
+## 🏗️ Project Structure
+
+```
+fpstatic2026website/
+├── app/                    # Next.js app directory (pages)
+│   ├── about/             # About page
+│   ├── cfp/               # CFP certification page
+│   ├── scfp-hnwi/         # SCFP program + 7 module pages
+│   ├── cpd/               # CPD courses + 4 course pages
+│   ├── events/            # Events page
+│   ├── media/             # Media page
+│   ├── contact/           # Contact page
+│   └── page.tsx           # Homepage
+├── components/            # React components
+│   ├── about/            # About page components
+│   ├── cfp/              # CFP page components
+│   ├── scfp/             # SCFP page components
+│   ├── cpd/              # CPD page components
+│   ├── events/           # Events components
+│   ├── media/            # Media components
+│   ├── contact/          # Contact components
+│   ├── Header.tsx        # Main navigation
+│   └── Footer.tsx        # Site footer
+├── lib/                   # Content and data
+│   ├── cfp-content.ts    # CFP program data
+│   ├── scfp-content.ts   # SCFP program data
+│   ├── cpd-content.ts    # CPD courses data
+│   └── events-content.ts # Events data
+├── public/               # Static assets
+│   └── FP logo.png       # Company logo
+├── next.config.ts        # Next.js configuration
+├── tailwind.config.ts    # Tailwind CSS configuration
+└── package.json          # Dependencies
+```
+
+---
+
+## 🌐 Deployment
+
+### Static HTML Deployment (Recommended)
+
+This site is configured for static HTML export, perfect for:
+- Plesk hosting
+- Shared hosting (GoDaddy, Bluehost, etc.)
+- Free hosting (Netlify, Vercel, Cloudflare Pages)
+
+#### Build for Production:
 
 ```bash
 npm run build
-npm start
 ```
 
-## Customization
+This creates a `static-upload` folder with all static files.
+
+#### Upload to Hosting:
+
+1. Upload contents of `static-upload/` folder to your server
+2. Point domain to the uploaded directory
+3. Done! No Node.js required on server.
+
+**Detailed guides available in:**
+- `STATIC-WEBSITE-SUMMARY.md` - Complete overview
+- `static-upload/STATIC-DEPLOYMENT-GUIDE.txt` - Step-by-step instructions
+- `static-upload/QUICK-START.txt` - Fast deployment guide
+
+---
+
+## 📧 Contact Form Setup
+
+The contact form uses **FormSubmit.co** (free service).
+
+**To activate:**
+1. Open `components/contact/ContactForm.tsx`
+2. Line 29: Replace `YOUR_EMAIL_HERE` with your email
+3. Rebuild: `npm run build`
+4. Re-upload static files
+
+---
+
+## 🔄 Making Changes
+
+### Development Workflow:
+
+1. **Edit code locally**
+   ```bash
+   npm run dev  # Test changes at localhost:3000
+   ```
+
+2. **Build for production**
+   ```bash
+   npm run build
+   ```
+
+3. **Deploy**
+   - Upload `static-upload/` folder contents to your server
+
+---
+
+## 🎨 Customization
 
 ### Colors
-
-The color scheme is defined in `tailwind.config.ts`. Primary colors use a blue palette, with gold accents for premium sections.
+The site uses a gold and charcoal theme defined in `tailwind.config.ts`:
+- Primary (Gold): `#C5A572`
+- Charcoal: `#2C3E50`
+- Teal accent: `#16A085`
 
 ### Content
+Update content in the `lib/` folder:
+- `cfp-content.ts` - CFP program information
+- `scfp-content.ts` - SCFP program details
+- `cpd-content.ts` - CPD courses
+- `events-content.ts` - Event schedules
 
-All content is currently hardcoded in components. To make it dynamic:
-1. Create a CMS integration or
-2. Move content to JSON/Markdown files
-3. Use environment variables for contact information
+---
 
-### Images
+## 🌟 Key Pages
 
-Replace placeholder images in the `/public` folder with actual images.
+| Page | Route | Description |
+|------|-------|-------------|
+| Home | `/` | Landing page with overview |
+| About | `/about` | Company information |
+| CFP | `/cfp` | CFP® Certification program |
+| SCFP-HNWI | `/scfp-hnwi` | Specialized certification |
+| CPD Courses | `/cpd` | Professional development |
+| Events | `/events` | Course schedules |
+| Media | `/media` | Resources and downloads |
+| Contact | `/contact` | Contact form and info |
 
-## License
+**Plus:** 7 SCFP module pages and 4 CPD course detail pages
 
-© 2026 Financial Perspectives Pte Ltd. All rights reserved.
+---
 
+## 🔧 Tech Stack
 
+- **Framework:** Next.js 15.5.6
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS
+- **Animations:** Framer Motion
+- **Icons:** Lucide React
+- **Forms:** FormSubmit.co integration
+- **Deployment:** Static HTML export
+
+---
+
+## 📱 Responsive Design
+
+Fully responsive across all devices:
+- 📱 Mobile (320px - 768px)
+- 📱 Tablet (768px - 1024px)
+- 💻 Laptop (1024px - 1920px)
+- 🖥️ Desktop (1920px+)
+
+---
+
+## 🚀 Future Integrations
+
+### Airtable (Events Management)
+- Dynamic course schedules
+- Real-time updates
+- See: `static-upload/AIRTABLE-INTEGRATION.txt`
+
+### WordPress Blog
+- Install on subdomain: `blog.yourdomain.com`
+- Link from main navigation
+- Independent content management
+
+---
+
+## 📄 License
+
+Private project for Financial Perspectives Education.
+
+---
+
+## 👤 Author
+
+**Financial Perspectives**  
+Website: [Your Domain]  
+Email: [Your Email]
+
+---
+
+## 📞 Support
+
+For technical support or questions:
+- Check documentation in `static-upload/` folder
+- Review `STATIC-WEBSITE-SUMMARY.md`
+- Contact the development team
+
+---
+
+## 🎉 Deployment Status
+
+✅ **Production Ready**  
+✅ **Static HTML Export Configured**  
+✅ **All 22 Pages Functional**  
+✅ **Mobile Responsive**  
+✅ **SEO Optimized**
+
+---
+
+**Built with ❤️ for Financial Perspectives Education**
