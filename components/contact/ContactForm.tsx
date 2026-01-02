@@ -77,7 +77,7 @@ export default function ContactForm() {
   }
 
   return (
-    <div className="bg-white border-2 border-gray-200 rounded-xl p-8 shadow-lg">
+    <div id="enquiry" className="bg-white border-2 border-gray-200 rounded-xl p-8 shadow-lg scroll-mt-32">
       <h2 className="text-2xl font-bold text-primary mb-2">Send Us a Message</h2>
       <p className="text-charcoal mb-6">
         Fill out the form below and we'll respond as soon as possible.

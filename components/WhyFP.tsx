@@ -83,7 +83,7 @@ export default function WhyFP() {
           {/* CTA */}
           <div className="text-center mt-12">
             <a
-              href="#programs"
+              href="/events"
               className="inline-flex items-center justify-center bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all duration-200 hover:shadow-xl hover:scale-105"
             >
               Start Your Journey Today

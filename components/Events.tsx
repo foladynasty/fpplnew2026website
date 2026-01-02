@@ -196,13 +196,13 @@ export default async function Events() {
                       </p>
                     )}
 
-                    {/* CTA Button */}
+                    {/* CTA Button - Links to course details page */}
                     <Link
-                      href={event.registerUrl || event.detailsUrl}
-                      target={event.registerUrl?.startsWith('http') ? '_blank' : undefined}
-                      className={`block w-full text-center bg-gradient-to-r ${style.gradient} hover:opacity-90 text-white px-4 py-3.5 rounded-xl font-semibold transition-all duration-300 hover:shadow-lg`}
+                      href={event.detailsUrl}
+                      className={`flex items-center justify-center gap-2 w-full text-center bg-gradient-to-r ${style.gradient} hover:opacity-90 text-white px-4 py-3.5 rounded-xl font-semibold transition-all duration-300 hover:shadow-lg group`}
                     >
-                      {event.status === 'coming-soon' ? 'Register Interest' : event.category === 'CFP' ? 'Enroll Now' : 'Register Now'}
+                      View Details
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </Link>
                   </div>
                 </div>

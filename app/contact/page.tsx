@@ -12,7 +12,7 @@ export default function ContactPage() {
     <main className="min-h-screen bg-white">
       <Header />
       <ContactHero />
-      
+
       {/* Main Content Grid */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
@@ -20,7 +20,7 @@ export default function ContactPage() {
             <div className="grid lg:grid-cols-2 gap-12">
               {/* Left: Contact Information */}
               <ContactInfo />
-              
+
               {/* Right: Contact Form */}
               <ContactForm />
             </div>
@@ -30,7 +30,7 @@ export default function ContactPage() {
 
       {/* Map and Directions */}
       <ContactMap />
-      
+
       <Footer />
     </main>
   );

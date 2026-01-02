@@ -7,12 +7,13 @@
       "static/chunks/main-app-58ddd285593e6aa3.js",
       "static/chunks/app/_not-found/page-ab3470cda4e33403.js"
     ],
-    "/api/newsletter/route": [
+    "/layout": [
       "static/chunks/webpack-1017649d66d1259f.js",
       "static/chunks/4bd1b696-c023c6e3521b1417.js",
       "static/chunks/255-c3a39d0e76cdc841.js",
       "static/chunks/main-app-58ddd285593e6aa3.js",
-      "static/chunks/app/api/newsletter/route-48d1c5e8f2708af8.js"
+      "static/css/a1936d38bd8bc109.css",
+      "static/chunks/app/layout-13b62bda2e7f86db.js"
     ],
     "/api/contact/route": [
       "static/chunks/webpack-1017649d66d1259f.js",
@@ -20,6 +21,13 @@
       "static/chunks/255-c3a39d0e76cdc841.js",
       "static/chunks/main-app-58ddd285593e6aa3.js",
       "static/chunks/app/api/contact/route-48d1c5e8f2708af8.js"
+    ],
+    "/api/newsletter/route": [
+      "static/chunks/webpack-1017649d66d1259f.js",
+      "static/chunks/4bd1b696-c023c6e3521b1417.js",
+      "static/chunks/255-c3a39d0e76cdc841.js",
+      "static/chunks/main-app-58ddd285593e6aa3.js",
+      "static/chunks/app/api/newsletter/route-48d1c5e8f2708af8.js"
     ],
     "/robots.txt/route": [
       "static/chunks/webpack-1017649d66d1259f.js",
@@ -35,14 +43,6 @@
       "static/chunks/main-app-58ddd285593e6aa3.js",
       "static/chunks/app/sitemap.xml/route-48d1c5e8f2708af8.js"
     ],
-    "/layout": [
-      "static/chunks/webpack-1017649d66d1259f.js",
-      "static/chunks/4bd1b696-c023c6e3521b1417.js",
-      "static/chunks/255-c3a39d0e76cdc841.js",
-      "static/chunks/main-app-58ddd285593e6aa3.js",
-      "static/css/ad4dbf0010d9c7be.css",
-      "static/chunks/app/layout-13b62bda2e7f86db.js"
-    ],
     "/contact/page": [
       "static/chunks/webpack-1017649d66d1259f.js",
       "static/chunks/4bd1b696-c023c6e3521b1417.js",
@@ -51,7 +51,7 @@
       "static/chunks/24-7b367c912b1a3960.js",
       "static/chunks/725-0b0fd9bce2c49117.js",
       "static/chunks/743-5d301adff2588a41.js",
-      "static/chunks/app/contact/page-2eee8df5d4d03e5c.js"
+      "static/chunks/app/contact/page-ede0157cce9aba71.js"
     ],
     "/media/page": [
       "static/chunks/webpack-1017649d66d1259f.js",
@@ -72,6 +72,15 @@
       "static/chunks/725-0b0fd9bce2c49117.js",
       "static/chunks/app/page-43fd10117716cf9b.js"
     ],
+    "/cfp/page": [
+      "static/chunks/webpack-1017649d66d1259f.js",
+      "static/chunks/4bd1b696-c023c6e3521b1417.js",
+      "static/chunks/255-c3a39d0e76cdc841.js",
+      "static/chunks/main-app-58ddd285593e6aa3.js",
+      "static/chunks/24-7b367c912b1a3960.js",
+      "static/chunks/725-0b0fd9bce2c49117.js",
+      "static/chunks/app/cfp/page-51397ea418ef1e62.js"
+    ],
     "/about/page": [
       "static/chunks/webpack-1017649d66d1259f.js",
       "static/chunks/4bd1b696-c023c6e3521b1417.js",
@@ -81,16 +90,14 @@
       "static/chunks/725-0b0fd9bce2c49117.js",
       "static/chunks/app/about/page-14b2be04d44f16c7.js"
     ],
-    "/cpd/estate-legacy-planning/page": [
+    "/cpd/page": [
       "static/chunks/webpack-1017649d66d1259f.js",
       "static/chunks/4bd1b696-c023c6e3521b1417.js",
       "static/chunks/255-c3a39d0e76cdc841.js",
       "static/chunks/main-app-58ddd285593e6aa3.js",
       "static/chunks/24-7b367c912b1a3960.js",
       "static/chunks/725-0b0fd9bce2c49117.js",
-      "static/chunks/743-5d301adff2588a41.js",
-      "static/chunks/275-69759643c846e35c.js",
-      "static/chunks/app/cpd/estate-legacy-planning/page-07e26fad6458f025.js"
+      "static/chunks/app/cpd/page-058889ff2fcbdd0f.js"
     ],
     "/cpd/aum-growth/page": [
       "static/chunks/webpack-1017649d66d1259f.js",
@@ -103,25 +110,7 @@
       "static/chunks/275-69759643c846e35c.js",
       "static/chunks/app/cpd/aum-growth/page-9708a24807039642.js"
     ],
-    "/cfp/page": [
-      "static/chunks/webpack-1017649d66d1259f.js",
-      "static/chunks/4bd1b696-c023c6e3521b1417.js",
-      "static/chunks/255-c3a39d0e76cdc841.js",
-      "static/chunks/main-app-58ddd285593e6aa3.js",
-      "static/chunks/24-7b367c912b1a3960.js",
-      "static/chunks/725-0b0fd9bce2c49117.js",
-      "static/chunks/app/cfp/page-51397ea418ef1e62.js"
-    ],
-    "/cpd/page": [
-      "static/chunks/webpack-1017649d66d1259f.js",
-      "static/chunks/4bd1b696-c023c6e3521b1417.js",
-      "static/chunks/255-c3a39d0e76cdc841.js",
-      "static/chunks/main-app-58ddd285593e6aa3.js",
-      "static/chunks/24-7b367c912b1a3960.js",
-      "static/chunks/725-0b0fd9bce2c49117.js",
-      "static/chunks/app/cpd/page-058889ff2fcbdd0f.js"
-    ],
-    "/cpd/master-fund-advisor/page": [
+    "/cpd/estate-legacy-planning/page": [
       "static/chunks/webpack-1017649d66d1259f.js",
       "static/chunks/4bd1b696-c023c6e3521b1417.js",
       "static/chunks/255-c3a39d0e76cdc841.js",
@@ -130,7 +119,7 @@
       "static/chunks/725-0b0fd9bce2c49117.js",
       "static/chunks/743-5d301adff2588a41.js",
       "static/chunks/275-69759643c846e35c.js",
-      "static/chunks/app/cpd/master-fund-advisor/page-d45c3ee4424a6bee.js"
+      "static/chunks/app/cpd/estate-legacy-planning/page-07e26fad6458f025.js"
     ],
     "/cpd/ilp-sales-masterclass/page": [
       "static/chunks/webpack-1017649d66d1259f.js",
@@ -143,28 +132,6 @@
       "static/chunks/275-69759643c846e35c.js",
       "static/chunks/app/cpd/ilp-sales-masterclass/page-ab1bb102895b993c.js"
     ],
-    "/scfp-hnwi/customer-onboarding-ethics/page": [
-      "static/chunks/webpack-1017649d66d1259f.js",
-      "static/chunks/4bd1b696-c023c6e3521b1417.js",
-      "static/chunks/255-c3a39d0e76cdc841.js",
-      "static/chunks/main-app-58ddd285593e6aa3.js",
-      "static/chunks/24-7b367c912b1a3960.js",
-      "static/chunks/725-0b0fd9bce2c49117.js",
-      "static/chunks/743-5d301adff2588a41.js",
-      "static/chunks/597-4c238978624ada1c.js",
-      "static/chunks/app/scfp-hnwi/customer-onboarding-ethics/page-1b8a4890fece5220.js"
-    ],
-    "/scfp-hnwi/gig-economy-planning/page": [
-      "static/chunks/webpack-1017649d66d1259f.js",
-      "static/chunks/4bd1b696-c023c6e3521b1417.js",
-      "static/chunks/255-c3a39d0e76cdc841.js",
-      "static/chunks/main-app-58ddd285593e6aa3.js",
-      "static/chunks/24-7b367c912b1a3960.js",
-      "static/chunks/725-0b0fd9bce2c49117.js",
-      "static/chunks/743-5d301adff2588a41.js",
-      "static/chunks/597-4c238978624ada1c.js",
-      "static/chunks/app/scfp-hnwi/gig-economy-planning/page-fada83a5b81b8385.js"
-    ],
     "/scfp-hnwi/advising-hnw-individuals/page": [
       "static/chunks/webpack-1017649d66d1259f.js",
       "static/chunks/4bd1b696-c023c6e3521b1417.js",
@@ -175,6 +142,48 @@
       "static/chunks/743-5d301adff2588a41.js",
       "static/chunks/597-4c238978624ada1c.js",
       "static/chunks/app/scfp-hnwi/advising-hnw-individuals/page-cdeb4ea1e8b59f1d.js"
+    ],
+    "/cpd/master-fund-advisor/page": [
+      "static/chunks/webpack-1017649d66d1259f.js",
+      "static/chunks/4bd1b696-c023c6e3521b1417.js",
+      "static/chunks/255-c3a39d0e76cdc841.js",
+      "static/chunks/main-app-58ddd285593e6aa3.js",
+      "static/chunks/24-7b367c912b1a3960.js",
+      "static/chunks/725-0b0fd9bce2c49117.js",
+      "static/chunks/743-5d301adff2588a41.js",
+      "static/chunks/275-69759643c846e35c.js",
+      "static/chunks/app/cpd/master-fund-advisor/page-d45c3ee4424a6bee.js"
+    ],
+    "/events/[slug]/page": [
+      "static/chunks/webpack-1017649d66d1259f.js",
+      "static/chunks/4bd1b696-c023c6e3521b1417.js",
+      "static/chunks/255-c3a39d0e76cdc841.js",
+      "static/chunks/main-app-58ddd285593e6aa3.js",
+      "static/chunks/24-7b367c912b1a3960.js",
+      "static/chunks/725-0b0fd9bce2c49117.js",
+      "static/chunks/app/events/[slug]/page-74c9552bb54d7c58.js"
+    ],
+    "/scfp-hnwi/financial-planning-sme/page": [
+      "static/chunks/webpack-1017649d66d1259f.js",
+      "static/chunks/4bd1b696-c023c6e3521b1417.js",
+      "static/chunks/255-c3a39d0e76cdc841.js",
+      "static/chunks/main-app-58ddd285593e6aa3.js",
+      "static/chunks/24-7b367c912b1a3960.js",
+      "static/chunks/725-0b0fd9bce2c49117.js",
+      "static/chunks/743-5d301adff2588a41.js",
+      "static/chunks/597-4c238978624ada1c.js",
+      "static/chunks/app/scfp-hnwi/financial-planning-sme/page-374a5a8e214613b7.js"
+    ],
+    "/scfp-hnwi/customer-onboarding-ethics/page": [
+      "static/chunks/webpack-1017649d66d1259f.js",
+      "static/chunks/4bd1b696-c023c6e3521b1417.js",
+      "static/chunks/255-c3a39d0e76cdc841.js",
+      "static/chunks/main-app-58ddd285593e6aa3.js",
+      "static/chunks/24-7b367c912b1a3960.js",
+      "static/chunks/725-0b0fd9bce2c49117.js",
+      "static/chunks/743-5d301adff2588a41.js",
+      "static/chunks/597-4c238978624ada1c.js",
+      "static/chunks/app/scfp-hnwi/customer-onboarding-ethics/page-1b8a4890fece5220.js"
     ],
     "/scfp-hnwi/products-structures/page": [
       "static/chunks/webpack-1017649d66d1259f.js",
@@ -187,7 +196,7 @@
       "static/chunks/597-4c238978624ada1c.js",
       "static/chunks/app/scfp-hnwi/products-structures/page-8fa377b280b4388b.js"
     ],
-    "/scfp-hnwi/financial-planning-sme/page": [
+    "/scfp-hnwi/retirement-planning-hnw/page": [
       "static/chunks/webpack-1017649d66d1259f.js",
       "static/chunks/4bd1b696-c023c6e3521b1417.js",
       "static/chunks/255-c3a39d0e76cdc841.js",
@@ -196,7 +205,7 @@
       "static/chunks/725-0b0fd9bce2c49117.js",
       "static/chunks/743-5d301adff2588a41.js",
       "static/chunks/597-4c238978624ada1c.js",
-      "static/chunks/app/scfp-hnwi/financial-planning-sme/page-374a5a8e214613b7.js"
+      "static/chunks/app/scfp-hnwi/retirement-planning-hnw/page-b41833b87566be22.js"
     ],
     "/scfp-hnwi/page": [
       "static/chunks/webpack-1017649d66d1259f.js",
@@ -218,16 +227,7 @@
       "static/chunks/597-4c238978624ada1c.js",
       "static/chunks/app/scfp-hnwi/segmentation-targeting/page-3410a7a34ca8a132.js"
     ],
-    "/media/[slug]/page": [
-      "static/chunks/webpack-1017649d66d1259f.js",
-      "static/chunks/4bd1b696-c023c6e3521b1417.js",
-      "static/chunks/255-c3a39d0e76cdc841.js",
-      "static/chunks/main-app-58ddd285593e6aa3.js",
-      "static/chunks/24-7b367c912b1a3960.js",
-      "static/chunks/725-0b0fd9bce2c49117.js",
-      "static/chunks/app/media/[slug]/page-74c9552bb54d7c58.js"
-    ],
-    "/scfp-hnwi/retirement-planning-hnw/page": [
+    "/scfp-hnwi/gig-economy-planning/page": [
       "static/chunks/webpack-1017649d66d1259f.js",
       "static/chunks/4bd1b696-c023c6e3521b1417.js",
       "static/chunks/255-c3a39d0e76cdc841.js",
@@ -236,16 +236,16 @@
       "static/chunks/725-0b0fd9bce2c49117.js",
       "static/chunks/743-5d301adff2588a41.js",
       "static/chunks/597-4c238978624ada1c.js",
-      "static/chunks/app/scfp-hnwi/retirement-planning-hnw/page-b41833b87566be22.js"
+      "static/chunks/app/scfp-hnwi/gig-economy-planning/page-fada83a5b81b8385.js"
     ],
-    "/events/[slug]/page": [
+    "/media/[slug]/page": [
       "static/chunks/webpack-1017649d66d1259f.js",
       "static/chunks/4bd1b696-c023c6e3521b1417.js",
       "static/chunks/255-c3a39d0e76cdc841.js",
       "static/chunks/main-app-58ddd285593e6aa3.js",
       "static/chunks/24-7b367c912b1a3960.js",
       "static/chunks/725-0b0fd9bce2c49117.js",
-      "static/chunks/app/events/[slug]/page-74c9552bb54d7c58.js"
+      "static/chunks/app/media/[slug]/page-74c9552bb54d7c58.js"
     ],
     "/testimonials/page": [
       "static/chunks/webpack-1017649d66d1259f.js",
