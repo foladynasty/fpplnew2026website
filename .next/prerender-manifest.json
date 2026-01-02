@@ -26,32 +26,7 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/about": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "next-action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": 3600,
-      "initialExpireSeconds": 31536000,
-      "srcRoute": "/about",
-      "dataRoute": "/about.rsc",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
-    "/cpd": {
+    "/contact": {
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -64,8 +39,8 @@
         }
       ],
       "initialRevalidateSeconds": false,
-      "srcRoute": "/cpd",
-      "dataRoute": "/cpd.rsc",
+      "srcRoute": "/contact",
+      "dataRoute": "/contact.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -95,6 +70,30 @@
       "initialRevalidateSeconds": false,
       "srcRoute": "/sitemap.xml",
       "dataRoute": null,
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/cpd": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/cpd",
+      "dataRoute": "/cpd.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -152,102 +151,6 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/scfp-hnwi/gig-economy-planning": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "next-action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": false,
-      "srcRoute": "/scfp-hnwi/gig-economy-planning",
-      "dataRoute": "/scfp-hnwi/gig-economy-planning.rsc",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
-    "/contact": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "next-action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": false,
-      "srcRoute": "/contact",
-      "dataRoute": "/contact.rsc",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
-    "/scfp-hnwi": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "next-action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": false,
-      "srcRoute": "/scfp-hnwi",
-      "dataRoute": "/scfp-hnwi.rsc",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
-    "/scfp-hnwi/segmentation-targeting": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "next-action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": false,
-      "srcRoute": "/scfp-hnwi/segmentation-targeting",
-      "dataRoute": "/scfp-hnwi/segmentation-targeting.rsc",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
     "/robots.txt": {
       "initialHeaders": {
         "cache-control": "public, max-age=0, must-revalidate",
@@ -277,7 +180,7 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/scfp-hnwi/retirement-planning-hnw": {
+    "/about": {
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -289,9 +192,10 @@
           "value": "multipart/form-data;.*"
         }
       ],
-      "initialRevalidateSeconds": false,
-      "srcRoute": "/scfp-hnwi/retirement-planning-hnw",
-      "dataRoute": "/scfp-hnwi/retirement-planning-hnw.rsc",
+      "initialRevalidateSeconds": 3600,
+      "initialExpireSeconds": 31536000,
+      "srcRoute": "/about",
+      "dataRoute": "/about.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -325,6 +229,54 @@
         "x-next-revalidate-tag-token"
       ]
     },
+    "/scfp-hnwi": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/scfp-hnwi",
+      "dataRoute": "/scfp-hnwi.rsc",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/scfp-hnwi/gig-economy-planning": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/scfp-hnwi/gig-economy-planning",
+      "dataRoute": "/scfp-hnwi/gig-economy-planning.rsc",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
     "/scfp-hnwi/products-structures": {
       "experimentalBypassFor": [
         {
@@ -340,6 +292,30 @@
       "initialRevalidateSeconds": false,
       "srcRoute": "/scfp-hnwi/products-structures",
       "dataRoute": "/scfp-hnwi/products-structures.rsc",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/scfp-hnwi/segmentation-targeting": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/scfp-hnwi/segmentation-targeting",
+      "dataRoute": "/scfp-hnwi/segmentation-targeting.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -374,6 +350,30 @@
         "x-next-revalidate-tag-token"
       ]
     },
+    "/scfp-hnwi/retirement-planning-hnw": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/scfp-hnwi/retirement-planning-hnw",
+      "dataRoute": "/scfp-hnwi/retirement-planning-hnw.rsc",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
     "/scfp-hnwi/financial-planning-sme": {
       "experimentalBypassFor": [
         {
@@ -389,206 +389,6 @@
       "initialRevalidateSeconds": false,
       "srcRoute": "/scfp-hnwi/financial-planning-sme",
       "dataRoute": "/scfp-hnwi/financial-planning-sme.rsc",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
-    "/events/holistic-estate-legacy-planning-help-professional": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "next-action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": 3600,
-      "initialExpireSeconds": 31536000,
-      "srcRoute": "/events/[slug]",
-      "dataRoute": "/events/holistic-estate-legacy-planning-help-professional.rsc",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
-    "/events/master-fund-advisor-mfa": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "next-action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": 3600,
-      "initialExpireSeconds": 31536000,
-      "srcRoute": "/events/[slug]",
-      "dataRoute": "/events/master-fund-advisor-mfa.rsc",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
-    "/events/module-1-foundations-in-financial-planning": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "next-action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": 3600,
-      "initialExpireSeconds": 31536000,
-      "srcRoute": "/events/[slug]",
-      "dataRoute": "/events/module-1-foundations-in-financial-planning.rsc",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
-    "/events/module-4-investment-planning": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "next-action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": 3600,
-      "initialExpireSeconds": 31536000,
-      "srcRoute": "/events/[slug]",
-      "dataRoute": "/events/module-4-investment-planning.rsc",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
-    "/events/module-5-retirement-planning": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "next-action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": 3600,
-      "initialExpireSeconds": 31536000,
-      "srcRoute": "/events/[slug]",
-      "dataRoute": "/events/module-5-retirement-planning.rsc",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
-    "/events/module-6-financial-plan-construction-and-professional-responsibilities": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "next-action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": 3600,
-      "initialExpireSeconds": 31536000,
-      "srcRoute": "/events/[slug]",
-      "dataRoute": "/events/module-6-financial-plan-construction-and-professional-responsibilities.rsc",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
-    "/events/risk-management-and-insurance-planning": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "next-action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": 3600,
-      "initialExpireSeconds": 31536000,
-      "srcRoute": "/events/[slug]",
-      "dataRoute": "/events/risk-management-and-insurance-planning.rsc",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
-    "/events/tax-planning-and-estate-planning": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "next-action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": 3600,
-      "initialExpireSeconds": 31536000,
-      "srcRoute": "/events/[slug]",
-      "dataRoute": "/events/tax-planning-and-estate-planning.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -624,12 +424,37 @@
         "x-next-revalidated-tags",
         "x-next-revalidate-tag-token"
       ]
+    },
+    "/media/[slug]": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "routeRegex": "^/media/([^/]+?)(?:/)?$",
+      "dataRoute": "/media/[slug].rsc",
+      "fallback": null,
+      "dataRouteRegex": "^/media/([^/]+?)\\.rsc$",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
     }
   },
   "notFoundRoutes": [],
   "preview": {
-    "previewModeId": "7685a37ce8c3b52ec24a1fc3c38be331",
-    "previewModeSigningKey": "871cb7c17dc095d4d61d31f3dba3f578fe7df444cfd57e650c18497604723e9a",
-    "previewModeEncryptionKey": "4f681b0283ccf1c17ceac45b370f7af14398bb971e1aa8758c3e9ed9391436a2"
+    "previewModeId": "bf8694f201a4a6c8acf8942bbd7e0c7f",
+    "previewModeSigningKey": "f3adfa16ef7a9d8cdccaacb2ca9cbce2725f48a62b854953190169e6a04813bc",
+    "previewModeEncryptionKey": "70d1c798ab6d265378064b7b757d4cd502b4703e9f05a08ebe77cd1c27fb870a"
   }
 }
