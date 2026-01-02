@@ -93,7 +93,7 @@ export default function Footer() {
               <li><a href="/media" className="hover:text-primary-400 transition-colors">Download Brochures</a></li>
               <li><a href="/cfp#faqs" className="hover:text-primary-400 transition-colors">FAQs</a></li>
               <li><a href="/cfp#funding" className="hover:text-primary-400 transition-colors">IBF-STS Funding Guide</a></li>
-              <li><a href="https://lms.fp-edu.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary-400 transition-colors">Student Portal (Login)</a></li>
+              <li><a href="https://online.fp-edu.com/" target="_blank" rel="noopener noreferrer" className="hover:text-primary-400 transition-colors">Student Portal (Login)</a></li>
               <li><a href="/media" className="hover:text-primary-400 transition-colors">Career Resources</a></li>
               <li><a href="/media" className="hover:text-primary-400 transition-colors">Industry Updates</a></li>
               <li><a href="/events" className="hover:text-primary-400 transition-colors">Course Calendar</a></li>

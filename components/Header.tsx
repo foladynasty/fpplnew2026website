@@ -236,7 +236,7 @@ export default function Header() {
               <a href="/events" className="text-white hover:text-white/80 font-medium transition-colors whitespace-nowrap">
                 Upcoming Events Calendar
               </a>
-              <a href="#online-learning" className="text-white hover:text-white/80 font-medium transition-colors whitespace-nowrap">
+              <a href="https://online.fp-edu.com/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-white/80 font-medium transition-colors whitespace-nowrap">
                 eLearning Portal
               </a>
               <div className="relative group">
@@ -396,7 +396,9 @@ export default function Header() {
               <div className="border-t border-gray-100 my-2"></div>
 
               <a
-                href="#online-learning"
+                href="https://online.fp-edu.com/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="block px-6 py-3 text-charcoal hover:bg-gold/10 hover:text-gold font-medium transition-colors border-l-4 border-transparent hover:border-gold"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
