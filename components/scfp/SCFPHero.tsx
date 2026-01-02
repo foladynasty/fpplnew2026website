@@ -22,7 +22,7 @@ export default function SCFPHero() {
         }}></div>
       </div>
 
-      <div className="container mx-auto px-4 py-20 lg:py-28 relative z-10">
+      <div className="container mx-auto px-4 pt-32 pb-20 lg:pt-48 lg:pb-28 relative z-10">
         <div className="max-w-5xl mx-auto text-center">
           {/* NEW 2026 Badge */}
           <div className="inline-flex items-center space-x-2 bg-teal backdrop-blur-sm px-6 py-3 rounded-full mb-6 shadow-xl">
@@ -37,7 +37,7 @@ export default function SCFPHero() {
           </p>
 
           {/* Main Headline */}
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight text-purple-100">
             Specialist Certificate in Financial Planning
           </h1>
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6 text-gold">
@@ -84,7 +84,7 @@ export default function SCFPHero() {
               </div>
               <h3 className="text-xl font-bold mb-2">Dual Certification</h3>
               <p className="text-white/80 text-sm">
-                SCFP-HNWI™ + IBF-Advanced (Level II) credentials
+                HNWI and Family-Owned Businesses™ Certification + IBF-Advanced (Level II) credentials
               </p>
             </div>
 
@@ -95,7 +95,7 @@ export default function SCFPHero() {
               </div>
               <h3 className="text-xl font-bold mb-2">Elite Clientele</h3>
               <p className="text-white/80 text-sm">
-                Serve UHNW individuals and family enterprises
+                Serve HNWI individuals and family enterprises
               </p>
             </div>
 

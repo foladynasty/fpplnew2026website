@@ -13,23 +13,23 @@ const config: Config = {
         'financial-blue': '#003B73',
         'achievement-gold': '#C9A961',
         'momentum-teal': '#00B4A8',
-        
+
         // ACCENT COLORS
         'action-coral': '#FF6B6B',
         'excellence-purple': '#6B4C9A',
         'achievement-green': '#10B981',
-        
+
         // NEUTRALS
         'charcoal': '#333333',
         'slate-gray': '#64748B',
         'warm-white': '#FAFAFA',
         'cool-gray': '#F1F5F9',
         'border-gray': '#E5E5E5',
-        
+
         // LOGO COLORS
         'logo-gold': '#C9A961',
         'logo-dark': '#5A5A5A',
-        
+
         // Tailwind-compatible naming for easier use
         primary: {
           DEFAULT: '#003B73',
@@ -103,7 +103,7 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/typography')],
 };
 export default config;
 

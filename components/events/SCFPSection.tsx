@@ -39,7 +39,7 @@ export default function SCFPSection({ events }: SCFPSectionProps) {
                   The Future of HNWI Advisory Excellence
                 </h3>
                 <p className="text-charcoal leading-relaxed mb-4">
-                  Singapore's first specialized certification for High-Net-Worth Individual advisory. Master family office strategies, multi-generational wealth planning, and sophisticated investment solutions for ultra-wealthy clients.
+                  Singapore's first specialized certification for High-Net-Worth Individual advisory. Master family business strategies, multi-generational wealth planning, and sophisticated investment solutions for ultra-wealthy clients.
                 </p>
                 <div className="grid md:grid-cols-2 gap-3 text-sm">
                   <div className="flex items-start gap-2">
@@ -48,7 +48,7 @@ export default function SCFPSection({ events }: SCFPSectionProps) {
                   </div>
                   <div className="flex items-start gap-2">
                     <span className="text-purple-600 mt-1">✓</span>
-                    <span>Family office strategies</span>
+                    <span>Family business strategies</span>
                   </div>
                   <div className="flex items-start gap-2">
                     <span className="text-purple-600 mt-1">✓</span>

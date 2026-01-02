@@ -120,43 +120,43 @@ export default function WhyCFP() {
               <div className="flex items-start space-x-3">
                 <CheckCircle className="w-6 h-6 text-gold flex-shrink-0 mt-1" />
                 <div>
-                  <h4 className="font-semibold text-primary mb-1">Singapore's CFP® Pioneer</h4>
-                  <p className="text-charcoal text-sm">First FPSB-certified provider since 1999. We literally wrote the book on CFP® training in Singapore.</p>
+                  <h4 className="font-semibold text-primary mb-1">CFP® Certified Lecturers</h4>
+                  <p className="text-charcoal text-sm">You will have access to an experienced and motivated team of CFP® certified lecturers who are also industry veterans and leaders.</p>
                 </div>
               </div>
               <div className="flex items-start space-x-3">
                 <CheckCircle className="w-6 h-6 text-gold flex-shrink-0 mt-1" />
                 <div>
-                  <h4 className="font-semibold text-primary mb-1">Expert Practitioners as Trainers</h4>
-                  <p className="text-charcoal text-sm">Learn from CFP® professionals with 20+ years real-world experience in wealth management and financial planning.</p>
+                  <h4 className="font-semibold text-primary mb-1">Learning Tools</h4>
+                  <p className="text-charcoal text-sm">Time-tested in-house comprehensive learning tools – Our in-house study materials have been specially developed to complement the FPAS guidebooks issued by the association</p>
                 </div>
               </div>
               <div className="flex items-start space-x-3">
                 <CheckCircle className="w-6 h-6 text-gold flex-shrink-0 mt-1" />
                 <div>
-                  <h4 className="font-semibold text-primary mb-1">Flexible Study Options</h4>
-                  <p className="text-charcoal text-sm">Weekday, weekend, evening, and online options. Study at your pace with comprehensive materials and support.</p>
+                  <h4 className="font-semibold text-primary mb-1">Practice Mock Exam Questions</h4>
+                  <p className="text-charcoal text-sm">Over 2,000 online practice mock exam questions to prepare for the CFP® exam through our online Learning Management System (LMS)</p>
                 </div>
               </div>
               <div className="flex items-start space-x-3">
                 <CheckCircle className="w-6 h-6 text-gold flex-shrink-0 mt-1" />
                 <div>
-                  <h4 className="font-semibold text-primary mb-1">IBF-STS Funding Support</h4>
-                  <p className="text-charcoal text-sm">Up to 90% course fee support for eligible Singaporeans and PRs. Maximize your investment with available funding.</p>
+                  <h4 className="font-semibold text-primary mb-1">e-Learning Courseware</h4>
+                  <p className="text-charcoal text-sm">You will have access to our interactive e-learning courseware to support reverse classroom and flexible learning options</p>
                 </div>
               </div>
               <div className="flex items-start space-x-3">
                 <CheckCircle className="w-6 h-6 text-gold flex-shrink-0 mt-1" />
                 <div>
-                  <h4 className="font-semibold text-primary mb-1">Proven Success Rate</h4>
-                  <p className="text-charcoal text-sm">Our students consistently achieve above-average pass rates thanks to structured curriculum and exam preparation.</p>
+                  <h4 className="font-semibold text-primary mb-1">FP Alumni</h4>
+                  <p className="text-charcoal text-sm">You will be part of an exclusive alumnus, and gain access to our regular alumni meetings to be informed of the latest developments in the practice</p>
                 </div>
               </div>
               <div className="flex items-start space-x-3">
                 <CheckCircle className="w-6 h-6 text-gold flex-shrink-0 mt-1" />
                 <div>
-                  <h4 className="font-semibold text-primary mb-1">Lifetime Career Support</h4>
-                  <p className="text-charcoal text-sm">Join our 20,000+ alumni network. Access continuing education, industry updates, and career opportunities.</p>
+                  <h4 className="font-semibold text-primary mb-1">Mentoring and Coaching</h4>
+                  <p className="text-charcoal text-sm">You will have access to personal mentoring and coaching with our lecturers</p>
                 </div>
               </div>
             </div>

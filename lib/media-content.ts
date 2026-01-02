@@ -171,14 +171,14 @@ export const publications: MediaItem[] = [
   {
     id: 'pub-4',
     type: 'publication',
-    title: 'HNWI Advisory Excellence: Best Practices for Family Office Professionals',
+    title: 'HNWI Advisory Excellence: Best Practices for Family Business Professionals',
     description: 'Insights into serving ultra-high-net-worth families, from succession planning to multi-generational wealth transfer.',
     date: '2025-10-01',
     author: 'Financial Perspectives SCFP Team',
     category: 'Article',
     downloadUrl: '/resources/hnwi-best-practices.pdf',
     featured: true,
-    tags: ['HNWI', 'Family Office', 'Best Practices']
+    tags: ['HNWI', 'Family Business', 'Best Practices']
   }
 ];
 
@@ -327,7 +327,7 @@ export function getMediaByCategory(category: string): MediaItem[] {
 
 export function formatMediaDate(dateString: string): string {
   const date = new Date(dateString);
-  return date.toLocaleDateString('en-SG', { 
+  return date.toLocaleDateString('en-SG', {
     day: 'numeric',
     month: 'long',
     year: 'numeric'

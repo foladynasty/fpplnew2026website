@@ -1,29 +1,46 @@
 import { Star, Quote } from 'lucide-react';
+import { getFeaturedTestimonials, EndorsalTestimonial } from '@/lib/endorsal';
 
-const testimonials = [
+// Type for displayed testimonials
+interface DisplayTestimonial {
+  id: string;
+  content: string;
+  name: string;
+  credentials: string;
+  role: string;
+  company: string;
+  avatar?: string;
+  rating: number;
+}
+
+// Fallback testimonials if Endorsal is unavailable
+const fallbackTestimonials: DisplayTestimonial[] = [
   {
-    id: 1,
+    id: '1',
     content: "The CFP® pathway at Financial Perspectives gave me more than just a certification — it gave me confidence and credibility. The comprehensive curriculum and expert instructors prepared me to handle complex client situations with professionalism. Today, I'm managing portfolios and serving clients I never thought possible when I started.",
     name: "Michael Chen",
     credentials: "CFP® Professional",
     role: "Senior Wealth Manager",
     company: "[Financial Institution]",
+    rating: 5,
   },
   {
-    id: 2,
+    id: '2',
     content: "As a career changer entering financial services, I was nervous about the transition. Financial Perspectives didn't just teach me financial planning — they mentored me through the entire journey. The practical focus, supportive environment, and real-world case studies made all the difference. Best career decision I ever made.",
     name: "Sarah Lim",
-    credentials: "AWP®",
+    credentials: "AWP<sup>CM</sup>",
     role: "Wealth Advisor",
     company: "[Advisory Firm]",
+    rating: 5,
   },
   {
-    id: 3,
-    content: "The SCFP-HNWI advanced certification took my advisory practice to a completely new level. I'm now confidently serving ultra-high-net-worth clients and family offices, thanks to the advanced strategies, frameworks, and specialized knowledge I gained. This certification differentiated me in a competitive market.",
+    id: '3',
+    content: "The SCFP-HNWI advanced certification took my advisory practice to a completely new level. I'm now confidently serving ultra-high-net-worth clients and family businesses, thanks to the advanced strategies, frameworks, and specialized knowledge I gained. This certification differentiated me in a competitive market.",
     name: "David Tan",
     credentials: "CFP® Professional",
     role: "Private Banker",
     company: "[Private Bank]",
+    rating: 5,
   },
 ];
 
@@ -34,14 +51,36 @@ const stats = [
   { value: "#1", label: "CFP® Provider in Singapore" },
 ];
 
-export default function Testimonials() {
+// Map Endorsal testimonial to display format
+function mapEndorsalToDisplay(testimonial: EndorsalTestimonial): DisplayTestimonial {
+  return {
+    id: testimonial._id,
+    content: testimonial.comments, // Correct field name from Endorsal API
+    name: testimonial.name,
+    credentials: testimonial.position || '', // Job title/position
+    role: testimonial.position || '',
+    company: testimonial.company || '',
+    avatar: testimonial.avatar?.url, // Avatar is an object with url property
+    rating: testimonial.rating || 5,
+  };
+}
+
+export default async function Testimonials() {
+  // Fetch testimonials from Endorsal
+  const endorsalTestimonials = await getFeaturedTestimonials(3);
+
+  // Use Endorsal testimonials if available, otherwise use fallback
+  const displayTestimonials: DisplayTestimonial[] = endorsalTestimonials.length > 0
+    ? endorsalTestimonials.map(mapEndorsalToDisplay)
+    : fallbackTestimonials;
+
   return (
     <section id="testimonials" className="py-20 bg-gradient-to-br from-primary-600 to-blue-800 text-white">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold mb-4">
+            <h2 className="text-4xl lg:text-5xl font-bold mb-4 text-primary-200">
               Trusted by Singapore's Financial Professionals
             </h2>
             <p className="text-xl text-white/90 max-w-3xl mx-auto">
@@ -51,16 +90,23 @@ export default function Testimonials() {
 
           {/* Testimonials Grid */}
           <div className="grid md:grid-cols-3 gap-8 mb-16">
-            {testimonials.map((testimonial) => (
+            {displayTestimonials.map((testimonial) => (
               <div
                 key={testimonial.id}
                 className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 hover:bg-white/20 transition-all duration-300"
               >
                 <Quote className="w-10 h-10 text-white/40 mb-4" />
-                
+
+                {/* Star Rating */}
                 <div className="flex mb-4">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
+                    <Star
+                      key={i}
+                      className={`w-5 h-5 ${i < testimonial.rating
+                        ? 'text-yellow-400 fill-current'
+                        : 'text-white/30'
+                        }`}
+                    />
                   ))}
                 </div>
 
@@ -68,12 +114,27 @@ export default function Testimonials() {
                   "{testimonial.content}"
                 </p>
 
-                <div className="border-t border-white/20 pt-4">
-                  <p className="font-bold text-white text-lg">{testimonial.name}</p>
-                  <p className="text-white/80 text-sm">{testimonial.credentials}</p>
-                  <p className="text-white/70 text-sm mt-1">
-                    {testimonial.role}, {testimonial.company}
-                  </p>
+                <div className="border-t border-white/20 pt-4 flex items-center gap-4">
+                  {/* Avatar (if available from Endorsal) */}
+                  {testimonial.avatar && (
+                    <img
+                      src={testimonial.avatar}
+                      alt={testimonial.name}
+                      className="w-12 h-12 rounded-full object-cover border-2 border-white/30"
+                    />
+                  )}
+                  <div>
+                    <p className="font-bold text-white text-lg">{testimonial.name}</p>
+                    {testimonial.credentials && (
+                      <p className="text-white/80 text-sm" dangerouslySetInnerHTML={{ __html: testimonial.credentials }} />
+                    )}
+                    {testimonial.company && (
+                      <p className="text-white/70 text-sm mt-1">
+                        {testimonial.role && testimonial.role !== testimonial.credentials ? `${testimonial.role}, ` : ''}
+                        {testimonial.company}
+                      </p>
+                    )}
+                  </div>
                 </div>
               </div>
             ))}
@@ -99,5 +160,3 @@ export default function Testimonials() {
     </section>
   );
 }
-
-

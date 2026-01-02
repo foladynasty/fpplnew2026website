@@ -17,7 +17,7 @@ export default function SCFPFAQs() {
 
   const filteredFaqs = scfpFAQs.filter(faq => {
     const matchesCategory = selectedCategory === 'All' || faq.category === selectedCategory;
-    const matchesSearch = searchTerm === '' || 
+    const matchesSearch = searchTerm === '' ||
       faq.question.toLowerCase().includes(searchTerm.toLowerCase()) ||
       faq.answer.toLowerCase().includes(searchTerm.toLowerCase());
     return matchesCategory && matchesSearch;
@@ -60,11 +60,10 @@ export default function SCFPFAQs() {
               <button
                 key={category}
                 onClick={() => setSelectedCategory(category)}
-                className={`px-4 py-2 rounded-lg font-semibold text-sm transition-all ${
-                  selectedCategory === category
+                className={`px-4 py-2 rounded-lg font-semibold text-sm transition-all ${selectedCategory === category
                     ? 'bg-purple text-white'
                     : 'bg-white text-charcoal hover:bg-purple/10'
-                }`}
+                  }`}
               >
                 {category}
               </button>
@@ -88,9 +87,8 @@ export default function SCFPFAQs() {
                       <h3 className="text-lg font-bold text-purple">{faq.question}</h3>
                     </div>
                     <ChevronDown
-                      className={`w-6 h-6 text-purple flex-shrink-0 transition-transform ${
-                        openFaq === faq.id ? 'transform rotate-180' : ''
-                      }`}
+                      className={`w-6 h-6 text-purple flex-shrink-0 transition-transform ${openFaq === faq.id ? 'transform rotate-180' : ''
+                        }`}
                     />
                   </button>
 
@@ -117,7 +115,9 @@ export default function SCFPFAQs() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="tel:+6512345678"
+                href="https://wa.me/6581117890?text=Hi%2C%20I%20would%20like%20to%20schedule%20a%20call%20about%20the%20SCFP-HNWI%20program."
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center bg-purple hover:bg-purple-700 text-white px-6 py-3 rounded-lg font-bold transition-all duration-200"
               >
                 <MessageCircle className="mr-2 w-5 h-5" />

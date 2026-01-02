@@ -65,7 +65,7 @@ Successfully created a premium, conversion-optimized SCFP-HNWI (Specialist Certi
   - CFP® Professionals
   - Private Bankers
   - Wealth Managers
-  - Family Office Advisors
+  - Family Business Advisors
 - Minimum prerequisites (Qualification, Experience, Commitment)
 - 6-step enrollment process
 - Limited seats notice
@@ -125,7 +125,7 @@ Successfully created a premium, conversion-optimized SCFP-HNWI (Specialist Certi
 2. **Badge:** "NEW 2026 - LAUNCHING Q1" prominently featured
 3. **Tone:** Exclusive, elite, specialist vs. accessible, comprehensive
 4. **CTAs:** "Register Interest" vs. "Enroll Now" (reflecting pre-launch status)
-5. **Content Focus:** HNWI/family office advisory vs. general financial planning
+5. **Content Focus:** HNWI/family business advisory vs. general financial planning
 
 ### Same High-Quality Standards
 ✅ Progressive CTA strategy
@@ -175,13 +175,13 @@ Successfully created a premium, conversion-optimized SCFP-HNWI (Specialist Certi
 1. CFP® professionals wanting to specialize
 2. Private bankers serving HNW clients
 3. Wealth managers with affluent clientele
-4. Family office advisors
+4. Family business advisors
 
 ### Unique Selling Points
 - Singapore's first specialized HNWI certification
 - Dual credentials (SCFP-HNWI™ + IBF-Advanced)
-- Learn from practitioners managing $1B+ assets
-- Real case studies from family office engagements
+- Learn from practitioners with actual experience planning for HNWI
+- Real case studies from family business clients
 - Small cohorts for personalized attention
 - Elite advisor network access
 

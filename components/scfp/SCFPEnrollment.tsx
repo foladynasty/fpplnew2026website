@@ -1,7 +1,7 @@
 'use client';
 
-import { GraduationCap, Briefcase, Award, CheckCircle, ArrowRight } from 'lucide-react';
-import { targetAudience, enrollmentProcess } from '@/lib/scfp-content';
+import { CheckCircle, ArrowRight } from 'lucide-react';
+import { targetAudience } from '@/lib/scfp-content';
 
 export default function SCFPEnrollment() {
   return (
@@ -14,20 +14,20 @@ export default function SCFPEnrollment() {
               Exclusive Program
             </p>
             <h2 className="text-4xl lg:text-5xl font-bold text-purple mb-6">
-              Who Should Apply?
+              Who Should Enrol?
             </h2>
-            <p className="text-xl text-slate-gray max-w-3xl mx-auto leading-relaxed">
-              This advanced certification is designed for experienced financial professionals ready to specialize in high-net-worth advisory.
+            <p className="text-xl text-slate-gray max-w-4xl mx-auto leading-relaxed">
+              This Program is suitable for licensed representatives working as Financial Planners, Insurance Agents and Bancassurance Specialists seeking highly rewarding career opportunities in the HNWIs and Family-Owned Business segment. Learners will differentiate themselves amongst competitors as a specialist certified professional in the Financial Services industry. Existing practitioners looking to advance their career opportunities will find the Program a significant boost to their career breakthrough.
             </p>
           </div>
 
           {/* Target Audience Cards */}
-          <div className="grid md:grid-cols-2 gap-8 mb-16">
+          <div className="grid md:grid-cols-3 gap-8 mb-16">
             {targetAudience.map((audience, index) => (
-              <div key={index} className="bg-gradient-to-br from-purple/5 to-purple/10 rounded-xl p-8 border-2 border-purple/20">
+              <div key={index} className="bg-gradient-to-br from-purple/5 to-purple/10 rounded-xl p-8 border-2 border-purple/20 hover:shadow-lg transition-all h-full flex flex-col">
                 <h3 className="text-2xl font-bold text-purple mb-4">{audience.title}</h3>
-                <p className="text-charcoal mb-6">{audience.description}</p>
-                <div className="space-y-3">
+                <p className="text-charcoal mb-6 flex-grow">{audience.description}</p>
+                <div className="space-y-3 mt-auto">
                   {audience.criteria.map((item, idx) => (
                     <div key={idx} className="flex items-start space-x-3">
                       <CheckCircle className="w-5 h-5 text-gold flex-shrink-0 mt-0.5" />
@@ -40,56 +40,15 @@ export default function SCFPEnrollment() {
           </div>
 
           {/* Prerequisites Section */}
-          <div className="bg-cool-gray rounded-2xl p-10 mb-12">
-            <h3 className="text-2xl font-bold text-purple mb-6 text-center">Minimum Prerequisites</h3>
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="text-center">
-                <div className="w-16 h-16 bg-purple rounded-full flex items-center justify-center mx-auto mb-4">
-                  <GraduationCap className="w-8 h-8 text-white" />
-                </div>
-                <h4 className="font-bold text-purple mb-2">Qualification</h4>
-                <p className="text-charcoal text-sm">CFP® certification or equivalent professional designation</p>
-              </div>
-              <div className="text-center">
-                <div className="w-16 h-16 bg-purple rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Briefcase className="w-8 h-8 text-white" />
-                </div>
-                <h4 className="font-bold text-purple mb-2">Experience</h4>
-                <p className="text-charcoal text-sm">Minimum 3-5 years advising affluent or high-net-worth clients</p>
-              </div>
-              <div className="text-center">
-                <div className="w-16 h-16 bg-purple rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Award className="w-8 h-8 text-white" />
-                </div>
-                <h4 className="font-bold text-purple mb-2">Commitment</h4>
-                <p className="text-charcoal text-sm">12-15 months part-time study while maintaining practice</p>
-              </div>
-            </div>
-          </div>
 
-          {/* Enrollment Process */}
-          <div className="mb-12">
-            <h3 className="text-3xl font-bold text-purple mb-8 text-center">Your Enrollment Journey</h3>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {enrollmentProcess.map((step) => (
-                <div key={step.step} className="bg-white rounded-xl p-6 border-2 border-purple/10 hover:border-purple/30 transition-all">
-                  <div className="flex items-center space-x-3 mb-4">
-                    <div className="w-10 h-10 bg-gradient-to-br from-purple to-purple-700 rounded-full flex items-center justify-center">
-                      <span className="text-white font-bold">{step.step}</span>
-                    </div>
-                    <h4 className="font-bold text-purple">{step.title}</h4>
-                  </div>
-                  <p className="text-sm text-charcoal">{step.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
+
+
 
           {/* Important Notice */}
           <div className="bg-gradient-to-r from-gold/10 to-gold/5 rounded-xl p-6 border-l-4 border-gold mb-8">
             <p className="font-semibold text-purple mb-2">⚠️ Limited Seats Available</p>
             <p className="text-charcoal text-sm">
-              To maintain program quality and enable personalized attention, we limit each cohort to 25-30 participants. Early registration is strongly encouraged for the inaugural Q1 2026 intake.
+              To maintain program quality and enable personalized attention, we limit each cohort to 15 participants. Early registration is strongly encouraged for the inaugural Q1 2026 intake.
             </p>
           </div>
 

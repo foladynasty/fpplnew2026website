@@ -21,7 +21,7 @@ export default function CFPPathway() {
           {/* Body Content */}
           <div className="mb-12">
             <p className="text-lg text-charcoal leading-relaxed mb-8">
-              Join 20,000+ professionals who've transformed their careers through Singapore's most trusted CFP® training provider. Our proven three-stage pathway—<strong>AFP®, AWP®, and CFP®</strong>—takes you from entry-level advisor to globally recognized financial planning professional.
+              Achieve the globally recognized CFP® certification through Singapore's most established training partner. Navigate the <strong>AFP<sup>CM</sup>, AWP<sup>CM</sup>, and CFP®</strong> levels with expert guidance, comprehensive materials, and unwavering support from trainers who understand the certification journey inside and out.
             </p>
             <p className="text-lg text-charcoal leading-relaxed mb-10">
               Whether you're starting fresh or advancing your existing practice, we'll guide you every step with expert trainers, comprehensive materials, and unmatched support.
@@ -30,42 +30,49 @@ export default function CFPPathway() {
             {/* Why Choose Section */}
             <div className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-2xl p-8 mb-10 border border-primary/20">
               <h3 className="text-2xl font-bold text-primary mb-6">
-                Why Choose Our CFP® Pathway:
+                Why Choose Financial Perspectives:
               </h3>
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="flex items-start space-x-3">
                   <CheckCircle className="w-6 h-6 text-gold flex-shrink-0 mt-1" />
                   <div>
-                    <h4 className="font-semibold text-primary mb-1">Proven Track Record</h4>
-                    <p className="text-charcoal">26 years as Singapore's #1 CFP® provider</p>
+                    <h4 className="font-semibold text-primary mb-1">CFP®-Certified Trainers</h4>
+                    <p className="text-charcoal">Learn from industry veterans and leaders who hold the CFP® certification themselves</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
                   <CheckCircle className="w-6 h-6 text-gold flex-shrink-0 mt-1" />
                   <div>
-                    <h4 className="font-semibold text-primary mb-1">Globally Recognized</h4>
-                    <p className="text-charcoal">Open doors worldwide with international certification</p>
+                    <h4 className="font-semibold text-primary mb-1">Time-Tested Study Materials</h4>
+                    <p className="text-charcoal">Comprehensive in-house materials specially developed to complement FPAS guidebooks</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
                   <CheckCircle className="w-6 h-6 text-gold flex-shrink-0 mt-1" />
                   <div>
-                    <h4 className="font-semibold text-primary mb-1">Flexible Learning</h4>
-                    <p className="text-charcoal">Study options that fit your schedule and lifestyle</p>
+                    <h4 className="font-semibold text-primary mb-1">Extensive Exam Preparation</h4>
+                    <p className="text-charcoal">2,000+ online practice questions through our Learning Management System (LMS)</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
                   <CheckCircle className="w-6 h-6 text-gold flex-shrink-0 mt-1" />
                   <div>
-                    <h4 className="font-semibold text-primary mb-1">Complete Support</h4>
-                    <p className="text-charcoal">From enrollment through exam success and beyond</p>
+                    <h4 className="font-semibold text-primary mb-1">Flexible Learning Options</h4>
+                    <p className="text-charcoal">Interactive e-learning courseware supporting reverse classroom and self-paced study</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
                   <CheckCircle className="w-6 h-6 text-gold flex-shrink-0 mt-1" />
                   <div>
-                    <h4 className="font-semibold text-primary mb-1">IBF-STS Funding</h4>
-                    <p className="text-charcoal">Maximize your investment with available funding support</p>
+                    <h4 className="font-semibold text-primary mb-1">Personal Mentoring</h4>
+                    <p className="text-charcoal">One-on-one coaching and guidance with experienced lecturers throughout your journey</p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <CheckCircle className="w-6 h-6 text-gold flex-shrink-0 mt-1" />
+                  <div>
+                    <h4 className="font-semibold text-primary mb-1">Exclusive Alumni Network</h4>
+                    <p className="text-charcoal">Join regular alumni meetings and stay informed on industry developments</p>
                   </div>
                 </div>
               </div>
@@ -74,16 +81,16 @@ export default function CFPPathway() {
             {/* The Journey - Horizontal Flow */}
             <div className="mb-10">
               <h3 className="text-2xl font-bold text-primary mb-10 text-center">The Journey:</h3>
-              
+
               {/* Desktop Horizontal Timeline */}
               <div className="hidden md:block">
                 <div className="relative">
                   {/* Connecting Line */}
                   <div className="absolute top-16 left-0 right-0 h-1 bg-gradient-to-r from-primary via-primary to-gold"></div>
-                  
+
                   {/* Journey Steps */}
                   <div className="grid grid-cols-3 gap-8 relative">
-                    {/* Step 1: AFP */}
+                    {/* Step 1: AFPCM */}
                     <div className="text-center">
                       <div className="relative inline-block mb-6">
                         <div className="w-32 h-32 bg-gradient-to-br from-primary to-primary-700 rounded-full flex items-center justify-center shadow-xl relative z-10">
@@ -100,7 +107,7 @@ export default function CFPPathway() {
                         </div>
                       </div>
                       <div className="bg-white rounded-xl p-6 shadow-lg border-2 border-primary/20 hover:border-primary/40 transition-all">
-                        <h4 className="text-xl font-bold text-primary mb-2">AFP®</h4>
+                        <h4 className="text-xl font-bold text-primary mb-2">AFP<sup>CM</sup></h4>
                         <p className="text-sm font-semibold text-charcoal mb-2">Foundation Level</p>
                         <div className="inline-block bg-primary/10 px-4 py-2 rounded-full">
                           <p className="text-sm font-bold text-primary">3-6 months</p>
@@ -108,7 +115,7 @@ export default function CFPPathway() {
                       </div>
                     </div>
 
-                    {/* Step 2: AWP */}
+                    {/* Step 2: AWPCM */}
                     <div className="text-center">
                       <div className="relative inline-block mb-6">
                         <div className="w-32 h-32 bg-gradient-to-br from-primary to-primary-700 rounded-full flex items-center justify-center shadow-xl relative z-10">
@@ -125,7 +132,7 @@ export default function CFPPathway() {
                         </div>
                       </div>
                       <div className="bg-white rounded-xl p-6 shadow-lg border-2 border-primary/20 hover:border-primary/40 transition-all">
-                        <h4 className="text-xl font-bold text-primary mb-2">AWP®</h4>
+                        <h4 className="text-xl font-bold text-primary mb-2">AWP<sup>CM</sup></h4>
                         <p className="text-sm font-semibold text-charcoal mb-2">Wealth Planning Specialist</p>
                         <div className="inline-block bg-primary/10 px-4 py-2 rounded-full">
                           <p className="text-sm font-bold text-primary">6-9 months</p>
@@ -167,7 +174,7 @@ export default function CFPPathway() {
                 <div className="relative pl-8 border-l-4 border-primary/30">
                   <div className="absolute -left-3 top-0 w-6 h-6 bg-primary rounded-full border-4 border-white"></div>
                   <div className="pb-8">
-                    <h4 className="text-xl font-bold text-primary mb-2">AFP® → Foundation Level</h4>
+                    <h4 className="text-xl font-bold text-primary mb-2">AFP<sup>CM</sup> → Foundation Level</h4>
                     <p className="text-slate-gray">3-6 months</p>
                   </div>
                 </div>
@@ -175,7 +182,7 @@ export default function CFPPathway() {
                 <div className="relative pl-8 border-l-4 border-primary/30">
                   <div className="absolute -left-3 top-0 w-6 h-6 bg-primary rounded-full border-4 border-white"></div>
                   <div className="pb-8">
-                    <h4 className="text-xl font-bold text-primary mb-2">AWP® → Wealth Planning Specialist</h4>
+                    <h4 className="text-xl font-bold text-primary mb-2">AWP<sup>CM</sup> → Wealth Planning Specialist</h4>
                     <p className="text-slate-gray">6-9 months</p>
                   </div>
                 </div>
@@ -213,4 +220,5 @@ export default function CFPPathway() {
     </section>
   );
 }
+
 

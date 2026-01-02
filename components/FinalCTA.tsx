@@ -14,11 +14,11 @@ export default function FinalCTA() {
               <p className="text-gray-700 leading-relaxed mb-6">
                 Speak with our course advisor to find the right program for your career goals and experience level. We're here to help you succeed.
               </p>
-              
+
               <div className="space-y-4 mb-6">
                 <div className="flex items-center space-x-3 text-gray-700">
                   <Phone className="w-5 h-5 text-primary-600" />
-                  <span className="font-semibold">[Phone Number]</span>
+                  <span className="font-semibold">+65 8111 7890</span>
                 </div>
                 <div className="flex items-center space-x-3 text-gray-700">
                   <Mail className="w-5 h-5 text-primary-600" />
@@ -27,7 +27,9 @@ export default function FinalCTA() {
               </div>
 
               <a
-                href="#contact"
+                href="https://wa.me/6581117890?text=Hi%2C%20I%20would%20like%20to%20schedule%20a%20call%20to%20discuss%20your%20courses."
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center w-full bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-lg font-bold transition-all duration-200 hover:shadow-lg"
               >
                 <Calendar className="mr-2 w-5 h-5" />

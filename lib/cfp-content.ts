@@ -37,7 +37,7 @@ export interface Trainer {
 export const curriculumModules: CurriculumModule[] = [
   {
     id: "module-1",
-    title: "Module 1: Foundations of Financial Planning",
+    title: "Module 1: Foundations in Financial Planning",
     description: "Build a solid foundation in financial planning principles, ethics, and professional standards.",
     topics: [
       "Introduction to Financial Planning Process",
@@ -50,20 +50,33 @@ export const curriculumModules: CurriculumModule[] = [
   },
   {
     id: "module-2",
-    title: "Module 2: Insurance and Risk Management",
+    title: "Module 2: Risk Management and Insurance Planning",
     description: "Master insurance planning and risk management strategies for comprehensive client protection.",
     topics: [
+      "Risk Assessment and Management Techniques",
       "Life Insurance Planning and Needs Analysis",
       "Health and Medical Insurance Strategies",
       "Disability and Long-Term Care Planning",
-      "Property and Liability Insurance",
-      "Risk Assessment and Management Techniques"
+      "Property and Liability Insurance"
     ],
-    duration: "45 hours"
+    duration: "40 hours"
   },
   {
     id: "module-3",
-    title: "Module 3: Investment Planning",
+    title: "Module 3: Tax Planning and Estate Planning",
+    description: "Understand tax-efficient strategies and estate planning for wealth preservation and transfer.",
+    topics: [
+      "Singapore Income Tax System & Planning",
+      "Business and Corporate Tax Planning",
+      "Estate Planning and Wealth Transfer",
+      "Wills, Trusts, and Probate",
+      "Succession Planning for Business Owners"
+    ],
+    duration: "40 hours"
+  },
+  {
+    id: "module-4",
+    title: "Module 4: Investment Planning",
     description: "Develop expertise in investment strategies, portfolio management, and asset allocation.",
     topics: [
       "Investment Vehicles and Asset Classes",
@@ -72,46 +85,33 @@ export const curriculumModules: CurriculumModule[] = [
       "Alternative Investments and Derivatives",
       "Performance Measurement and Portfolio Rebalancing"
     ],
-    duration: "50 hours"
-  },
-  {
-    id: "module-4",
-    title: "Module 4: Tax Planning",
-    description: "Understand tax-efficient strategies for individuals and businesses in Singapore.",
-    topics: [
-      "Singapore Income Tax System",
-      "Personal Tax Planning Strategies",
-      "Business and Corporate Tax Planning",
-      "GST and Property Tax Considerations",
-      "International Tax Planning Fundamentals"
-    ],
-    duration: "35 hours"
+    duration: "40 hours"
   },
   {
     id: "module-5",
-    title: "Module 5: Retirement and Estate Planning",
-    description: "Learn comprehensive retirement and estate planning strategies for long-term wealth management.",
+    title: "Module 5: Retirement Planning",
+    description: "Learn comprehensive retirement planning strategies for long-term financial security.",
     topics: [
-      "CPF Optimization and Retirement Planning",
+      "Retirement Needs Analysis",
+      "CPF Optimization Strategies",
       "SRS and Private Retirement Schemes",
-      "Estate Planning and Wealth Transfer",
-      "Wills, Trusts, and Probate",
-      "Succession Planning for Business Owners"
+      "Retirement Income Streams",
+      "Managing Longevity Risk"
     ],
     duration: "40 hours"
   },
   {
     id: "module-6",
-    title: "Module 6: Comprehensive Financial Plan Development",
+    title: "Module 6: Financial Plan Construction & Professional Responsibilities",
     description: "Integrate all planning areas to create comprehensive financial plans for diverse client scenarios.",
     topics: [
       "Financial Planning Case Analysis",
       "Comprehensive Plan Development",
       "Client Presentation and Communication",
       "Implementation and Monitoring Strategies",
-      "Practice Management and Business Development"
+      "Practice Management and Professional Responsibility"
     ],
-    duration: "45 hours"
+    duration: "40 hours"
   }
 ];
 
@@ -208,39 +208,75 @@ export const pricingData: PricingTier[] = [
 export const trainersData: Trainer[] = [
   {
     id: "trainer-1",
-    name: "Dr. Michael Tan",
-    title: "Lead CFP® Instructor",
-    credentials: ["CFP®", "CFA", "PhD in Finance"],
-    experience: "25+ years in financial planning and wealth management",
-    image: "/trainers/michael-tan.jpg",
-    bio: "Former Head of Wealth Management at a leading private bank, Dr. Tan has trained over 5,000 financial professionals across Asia. His practical approach combines academic rigor with real-world insights."
+    name: "Ronald Wong",
+    title: "MBA, CFP®, CHFC®, CWM®, CHMA, AEPP, STEP ASSOCIATE",
+    credentials: ["CFP®", "MFA", "Comprehensive Planning"],
+    experience: "INSTRUCTOR FOR CFP AND CPD PROGRAMS (MFA)",
+    image: "/trainers/ronald-wong.jpg",
+    bio: "An experienced instructor specializing in comprehensive financial planning and wealth management."
   },
   {
     id: "trainer-2",
-    name: "Sarah Lim",
-    title: "Senior Investment Planning Instructor",
-    credentials: ["CFP®", "CFA", "FRM"],
-    experience: "20+ years in investment advisory and portfolio management",
-    image: "/trainers/sarah-lim.jpg",
-    bio: "Sarah brings extensive experience from her time as Chief Investment Strategist at a major financial institution. She specializes in making complex investment concepts accessible and actionable."
+    name: "Bernard Soh",
+    title: "CFP®, MPA(SMU DEAN'S LIST), INSEAD MBA, B ENG (HONS)",
+    credentials: ["CFP®", "Wealth Management"],
+    experience: "INSTRUCTOR FOR CFP PROGRAM",
+    image: "/trainers/bernard-soh.jpg",
+    bio: "Specializes in wealth management and general management consulting with a strong academic background."
   },
   {
     id: "trainer-3",
-    name: "David Wong",
-    title: "Estate & Tax Planning Specialist",
-    credentials: ["CFP®", "TEP", "LLB"],
-    experience: "18+ years in estate planning and tax advisory",
-    image: "/trainers/david-wong.jpg",
-    bio: "A qualified lawyer and CFP® professional, David has helped hundreds of high-net-worth families with sophisticated estate planning strategies. His case-based teaching style is highly rated by students."
+    name: "Aaron Graham Tay",
+    title: "BSC(BANKING & FINANCE), CFP®, CERTIFIED BEHAVIORAL & CAREER CONSULTANT™",
+    credentials: ["CFP®", "Behavioral Finance"],
+    experience: "INSTRUCTOR FOR CFP PROGRAM",
+    image: "/trainers/aaron-graham-tay.jpg",
+    bio: "Expert in behavioral finance and career consulting, bringing a unique psychological perspective to financial planning."
   },
   {
     id: "trainer-4",
-    name: "Jennifer Chen",
-    title: "Insurance & Risk Management Expert",
-    credentials: ["CFP®", "ChFC", "CLU"],
-    experience: "22+ years in insurance and risk advisory",
-    image: "/trainers/jennifer-chen.jpg",
-    bio: "Jennifer has served as an insurance consultant for major insurance companies and brings deep expertise in comprehensive protection planning. She's known for her practical, client-focused teaching approach."
+    name: "Lim Chung Wei",
+    title: "LLB(HONS), MSC(MARKETING), CFP®, ADV. CERT-IN-TEACHING, ACTA",
+    credentials: ["CFP®", "CPD", "Legal Planning"],
+    experience: "INSTRUCTOR FOR CFP AND FA-CPD PROGRAMS",
+    image: "/trainers/lim-chung-wei.jpg",
+    bio: "Brings legal expertise to financial planning education, ensuring a robust understanding of regulatory and estate matters."
+  },
+  {
+    id: "trainer-5",
+    name: "Chew Hock Beng",
+    title: "CFP®, CHFC®, CLU, IBFA, MFA, CIWA, CFOS, CBFC, AEPP®, ACTA",
+    credentials: ["Estate Planning", "HELP", "CPD"],
+    experience: "INSTRUCTOR FOR CPD PROGRAM (HELP PROFESSIONAL)",
+    image: "/trainers/chew-hock-beng.jpg",
+    bio: "A veteran in estate planning and specialized CPD programs, with a vast array of professional designations."
+  },
+  {
+    id: "trainer-6",
+    name: "Joshua Jimmy Tan",
+    title: "MBA(STRATEGIC WEALTH MANAGEMENT), CFP®, CWM®, RFC®, ASEP®, CHMA®, CBC",
+    credentials: ["CFP®", "Strategic Wealth Management"],
+    experience: "INSTRUCTOR FOR CFP PROGRAM",
+    image: "/trainers/joshua-jimmy-tan.jpg",
+    bio: "Focuses on strategic wealth management and financial planning, helping students master complex wealth strategies."
+  },
+  {
+    id: "trainer-7",
+    name: "William Cai",
+    title: "MSC(FINANCE), CFP®, CHFC®, CMFC®",
+    credentials: ["CFP®", "MFA", "Investment Planning"],
+    experience: "INSTRUCTOR FOR CFP AND CPD PROGRAMS",
+    image: "/trainers/william-cai.jpg",
+    bio: "Specializes in investment planning and finance, providing deep insights into portfolio construction and analysis."
+  },
+  {
+    id: "trainer-8",
+    name: "Kenny Loh",
+    title: "MBA, CFP®, IBFA, AEPP®",
+    credentials: ["CPD", "ARIA", "Wealth Advisory"],
+    experience: "INSTRUCTOR FOR CPD PROGRAM (ARIA)",
+    image: "/trainers/kenny-loh.jpg",
+    bio: "Expert in wealth advisory and REITs investment, guiding professionals in specialized investment areas."
   }
 ];
 

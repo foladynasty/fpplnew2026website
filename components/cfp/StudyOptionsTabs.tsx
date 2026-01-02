@@ -1,13 +1,123 @@
 'use client';
 
-import { useState } from 'react';
-import { Calendar, BookOpen, HeadphonesIcon, CheckCircle, Clock, Video, FileText, Users, ArrowRight } from 'lucide-react';
-import { studyMaterials } from '@/lib/cfp-content';
+import { useState, useEffect, Suspense } from 'react';
+import { useSearchParams } from 'next/navigation';
+import { Calendar, BookOpen, HeadphonesIcon, CheckCircle, Clock, Video, FileText, Users, ArrowRight, GraduationCap, Laptop } from 'lucide-react';
 
-type TabType = 'schedule' | 'materials' | 'support';
+type TabType = 'options' | 'schedule' | 'materials';
 
-export default function StudyOptionsTabs() {
-  const [activeTab, setActiveTab] = useState<TabType>('schedule');
+const scheduleData = [
+  {
+    module: "Module 1A",
+    title: "Foundations in Financial Planning",
+    sessions: [
+      { id: 1, date: "Fri, Oct 3, 2025", time: "9:30am - 1:00pm (3.5)" },
+      { id: 2, date: "Fri, Oct 3, 2025", time: "2:00pm - 5:30pm (3.5)" },
+      { id: 3, date: "Fri, Oct 10, 2025", time: "9:30am - 1:00pm (3.5)" },
+      { id: 4, date: "Fri, Oct 10, 2025", time: "2:00pm - 5:30pm (3.5)" },
+      { id: 5, date: "Fri, Oct 17, 2025", time: "9:30am - 1:00pm (3.5)" },
+      { id: 6, date: "Fri, Oct 17, 2025", time: "2:00pm - 5:30pm (3.5)" },
+      { id: 7, date: "Fri, Oct 24, 2025", time: "9:30am - 1:00pm (3.5)" },
+      { id: 8, date: "Fri, Oct 24, 2025", time: "2:00pm - 5:30pm (3.5)" },
+      { id: 9, date: "Sat, Nov 1, 2025", time: "9:30am - 1:30pm (4)" },
+    ],
+    exam: "Wed, 12 November 2025",
+    examTime: "2:00PM-5:00PM (3.0 HRS)",
+    duration: "35 HRS (Inclusive of Assessment)"
+  },
+  {
+    module: "Module 2A",
+    title: "Risk Management & Insurance Planning",
+    sessions: [
+      { id: 1, date: "Tues, 21 Oct 2025", time: "9:30am - 1:00pm (3.5)" },
+      { id: 2, date: "Tues, 21 Oct 2025", time: "2:00pm - 5:30pm (3.5)" },
+      { id: 3, date: "Tues, 28 Oct 2025", time: "9:30am - 1:00pm (3.5)" },
+      { id: 4, date: "Tues, 28 Oct 2025", time: "2:00pm - 5:30pm (3.5)" },
+      { id: 5, date: "Tues, 4 Nov 2025", time: "9:30am - 1:00pm (3.5)" },
+      { id: 6, date: "Tues, 4 Nov 2025", time: "2:00pm - 5:30pm (3.5)" },
+    ],
+    exam: "Fri, 14 November 2025",
+    examTime: "2:00PM-5:00PM (3.0 HRS)",
+    duration: "24 HRS (Inclusive of Assessment)"
+  },
+  {
+    module: "Module 3A",
+    title: "Tax Planning & Estate Planning",
+    sessions: [
+      { id: 1, date: "Wed, Oct 22, 2025", time: "9:30am - 1:00pm (3.5)" },
+      { id: 2, date: "Wed, Oct 22, 2025", time: "2:00pm - 5:30pm (3.5)" },
+      { id: 3, date: "Wed, Oct 29, 2025", time: "9:30am - 1:00pm (3.5)" },
+      { id: 4, date: "Wed, Oct 29, 2025", time: "2:00pm - 5:30pm (3.5)" },
+      { id: 5, date: "Wed, Nov 5, 2025", time: "9:30am - 1:00pm (3.5)" },
+      { id: 6, date: "Wed, Nov 5, 2025", time: "2:00pm - 5:30pm (3.5)" },
+    ],
+    exam: "Wed, 19 November 2025",
+    examTime: "2:00PM-5:00PM (3.0 HRS)",
+    duration: "24 HRS (Inclusive of Assessment)"
+  },
+  {
+    module: "Module 4A",
+    title: "Investment Planning",
+    sessions: [
+      { id: 1, date: "Thurs, Oct 23, 2025", time: "9:30am - 1:00pm (3.5)" },
+      { id: 2, date: "Thurs, Oct 23, 2025", time: "2:00pm - 5:30pm (3.5)" },
+      { id: 3, date: "Thurs, Oct 30, 2025", time: "9:30am - 1:00pm (3.5)" },
+      { id: 4, date: "Thurs, Oct 30, 2025", time: "2:00pm - 5:30pm (3.5)" },
+      { id: 5, date: "Thurs, Nov 6, 2025", time: "9:30am - 1:00pm (3.5)" },
+      { id: 6, date: "Thurs, Nov 6, 2025", time: "2:00pm - 5:30pm (3.5)" },
+    ],
+    exam: "Fri, 21 November 2025",
+    examTime: "2:00PM-5:00PM (3.0 HRS)",
+    duration: "24 HRS (Inclusive of Assessment)"
+  },
+  {
+    module: "Module 5A",
+    title: "Retirement Planning",
+    sessions: [
+      { id: 1, date: "Mon, Oct 27, 2025", time: "9:30am - 1:00pm (3.5)" },
+      { id: 2, date: "Mon, Oct 27, 2025", time: "2:00pm - 5:30pm (3.5)" },
+      { id: 3, date: "Mon, Nov 3, 2025", time: "9:30am - 1:00pm (3.5)" },
+      { id: 4, date: "Mon, Nov 3, 2025", time: "2:00pm - 5:30pm (3.5)" },
+      { id: 5, date: "Mon, Nov 10, 2025", time: "9:30am - 1:00pm (3.5)" },
+      { id: 6, date: "Mon, Nov 10, 2025", time: "2:00pm - 5:30pm (3.5)" },
+    ],
+    exam: "Wed, 26 November 2025",
+    examTime: "2:00PM-5:00PM (3.0 HRS)",
+    duration: "24 HRS (Inclusive of Assessment)"
+  },
+  {
+    module: "Module 6A",
+    title: "Financial Plan Construction & Professional Responsibilities",
+    sessions: [
+      { id: 1, date: "Fri, Oct 31, 2025", time: "9:30am - 1:00pm (3.5)" },
+      { id: 2, date: "Fri, Oct 31, 2025", time: "2:00pm - 5:30pm (3.5)" },
+      { id: 3, date: "Fri, Nov 7, 2025", time: "9:30am - 1:00pm (3.5)" },
+      { id: 4, date: "Fri, Nov 7, 2025", time: "2:00pm - 5:30pm (3.5)" },
+      { id: 5, date: "Thurs, Nov 13, 2025", time: "9:30am - 1:00pm (3.5)" },
+      { id: 6, date: "Thurs, Nov 13, 2025", time: "2:00pm - 5:30pm (3.5)" },
+    ],
+    exam: "Onsite Exam: Fri, 28 November 2025",
+    examTime: "2:00PM-5:30PM (3.5 HRS)",
+    duration: "24 HRS (Inclusive of Assessment)"
+  }
+];
+
+// Inner component that uses useSearchParams
+function StudyOptionsTabsContent() {
+  const [activeTab, setActiveTab] = useState<TabType>('options');
+  const searchParams = useSearchParams();
+
+  useEffect(() => {
+    try {
+      const tab = searchParams.get('tab');
+      if (tab === 'schedule' || tab === 'materials' || tab === 'options') {
+        setActiveTab(tab);
+      }
+    } catch (error) {
+      // Handle build-time rendering
+      console.log('Search params not available during build');
+    }
+  }, [searchParams]);
 
   return (
     <section className="py-20 bg-white">
@@ -21,340 +131,277 @@ export default function StudyOptionsTabs() {
             <h2 className="text-4xl lg:text-5xl font-bold text-primary mb-6">
               Study Options & Support
             </h2>
-            <p className="text-xl text-slate-gray max-w-3xl mx-auto leading-relaxed">
-              Learn your way with flexible schedules, comprehensive materials, and unmatched support throughout your CFP® journey.
+            <p className="text-xl text-slate-gray max-w-4xl mx-auto leading-relaxed">
+              Financial Perspectives is committed to helping our students better prepare for the CFP® certification examinations. Our team of lecturers are committed to helping you pass on your first exam attempt. To cater to different learning needs, we offer two different study options.
             </p>
           </div>
 
           {/* Tabs */}
           <div className="flex flex-col md:flex-row gap-4 mb-8">
             <button
+              onClick={() => setActiveTab('options')}
+              className={`flex-1 flex items-center justify-center space-x-3 px-6 py-4 rounded-lg font-bold text-lg transition-all ${activeTab === 'options'
+                ? 'bg-primary text-white shadow-lg'
+                : 'bg-cool-gray text-charcoal hover:bg-primary/10'
+                }`}
+            >
+              <GraduationCap className="w-6 h-6" />
+              <span>Study Options</span>
+            </button>
+            <button
               onClick={() => setActiveTab('schedule')}
-              className={`flex-1 flex items-center justify-center space-x-3 px-6 py-4 rounded-lg font-bold text-lg transition-all ${
-                activeTab === 'schedule'
-                  ? 'bg-primary text-white shadow-lg'
-                  : 'bg-cool-gray text-charcoal hover:bg-primary/10'
-              }`}
+              className={`flex-1 flex items-center justify-center space-x-3 px-6 py-4 rounded-lg font-bold text-lg transition-all ${activeTab === 'schedule'
+                ? 'bg-primary text-white shadow-lg'
+                : 'bg-cool-gray text-charcoal hover:bg-primary/10'
+                }`}
             >
               <Calendar className="w-6 h-6" />
               <span>Course Schedule</span>
             </button>
             <button
               onClick={() => setActiveTab('materials')}
-              className={`flex-1 flex items-center justify-center space-x-3 px-6 py-4 rounded-lg font-bold text-lg transition-all ${
-                activeTab === 'materials'
-                  ? 'bg-primary text-white shadow-lg'
-                  : 'bg-cool-gray text-charcoal hover:bg-primary/10'
-              }`}
+              className={`flex-1 flex items-center justify-center space-x-3 px-6 py-4 rounded-lg font-bold text-lg transition-all ${activeTab === 'materials'
+                ? 'bg-primary text-white shadow-lg'
+                : 'bg-cool-gray text-charcoal hover:bg-primary/10'
+                }`}
             >
               <BookOpen className="w-6 h-6" />
-              <span>Study Materials</span>
-            </button>
-            <button
-              onClick={() => setActiveTab('support')}
-              className={`flex-1 flex items-center justify-center space-x-3 px-6 py-4 rounded-lg font-bold text-lg transition-all ${
-                activeTab === 'support'
-                  ? 'bg-primary text-white shadow-lg'
-                  : 'bg-cool-gray text-charcoal hover:bg-primary/10'
-              }`}
-            >
-              <HeadphonesIcon className="w-6 h-6" />
-              <span>Support & Funding</span>
+              <span>Materials & Support</span>
             </button>
           </div>
 
           {/* Tab Content */}
           <div className="bg-cool-gray rounded-2xl p-8 md:p-10 min-h-[500px]">
+
+            {/* Study Options Tab */}
+            {activeTab === 'options' && (
+              <div className="animate-fade-in space-y-8">
+                {/* Classroom Option */}
+                <div className="bg-white rounded-xl p-8 shadow-md border-l-4 border-primary">
+                  <div className="flex items-center space-x-4 mb-6">
+                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                      <Users className="w-6 h-6 text-primary" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-primary">Classroom Option</h3>
+                  </div>
+
+                  <p className="text-lg text-charcoal mb-6 font-medium">
+                    For candidates who prefer a structured learning process by attending a series of classroom tutorials for each module.
+                  </p>
+
+                  <div className="grid md:grid-cols-2 gap-8 mb-6">
+                    <div>
+                      <h4 className="font-bold text-primary mb-3">Key Features:</h4>
+                      <ul className="space-y-3">
+                        <li className="flex items-start space-x-3">
+                          <CheckCircle className="w-5 h-5 text-teal flex-shrink-0 mt-0.5" />
+                          <span className="text-charcoal">Conducted by FP's dedicated and experienced lecturers</span>
+                        </li>
+                        <li className="flex items-start space-x-3">
+                          <CheckCircle className="w-5 h-5 text-teal flex-shrink-0 mt-0.5" />
+                          <span className="text-charcoal">Reinforced with slides, notes, and quiz questions</span>
+                        </li>
+                        <li className="flex items-start space-x-3">
+                          <CheckCircle className="w-5 h-5 text-teal flex-shrink-0 mt-0.5" />
+                          <span className="text-charcoal">Supplementary interactive e-learning & "reverse classroom" videos</span>
+                        </li>
+                        <li className="flex items-start space-x-3">
+                          <CheckCircle className="w-5 h-5 text-teal flex-shrink-0 mt-0.5" />
+                          <span className="text-charcoal">Practice exam & review of solutions</span>
+                        </li>
+                        <li className="flex items-start space-x-3">
+                          <CheckCircle className="w-5 h-5 text-teal flex-shrink-0 mt-0.5" />
+                          <span className="text-charcoal">Personal help and direct access to mentoring</span>
+                        </li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-primary mb-3">Online Study Materials*:</h4>
+                      <ul className="space-y-2 text-charcoal">
+                        <li>1. Over 20 hours of Classroom Tutorial Sessions per module</li>
+                        <li>2. Tutorial Slides</li>
+                        <li>3. Over 50 hours of supplementary content (videos, webinars, practice papers, etc.) on LMS</li>
+                      </ul>
+                      <div className="mt-6 bg-gold/10 p-4 rounded-lg border border-gold/20">
+                        <p className="text-sm text-charcoal">
+                          <strong>NOTE:</strong> Candidates are eligible for MAS Enhanced Training Support (IBF-STS) Subsidy of 80% of Course Fee. Can register as company-sponsored or self-sponsored.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <p className="text-xs text-slate-gray italic">
+                    *Online materials are accessible for the registered intake only. Course e-guides available for 2 years.
+                  </p>
+                </div>
+
+                {/* Self-Study Option */}
+                <div className="bg-white rounded-xl p-8 shadow-md border-l-4 border-slate-gray">
+                  <div className="flex items-center space-x-4 mb-6">
+                    <div className="w-12 h-12 bg-slate-gray/10 rounded-lg flex items-center justify-center">
+                      <Laptop className="w-6 h-6 text-slate-gray" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-primary">Self-Study / Distant Learning Option</h3>
+                  </div>
+
+                  <p className="text-lg text-charcoal mb-6 font-medium">
+                    For candidates who prefer to study independently without attending classroom tutorials.
+                  </p>
+
+                  <div className="grid md:grid-cols-2 gap-8 mb-6">
+                    <div>
+                      <h4 className="font-bold text-primary mb-3">Ideal For:</h4>
+                      <ul className="space-y-3">
+                        <li className="flex items-start space-x-3">
+                          <CheckCircle className="w-5 h-5 text-slate-gray flex-shrink-0 mt-0.5" />
+                          <span className="text-charcoal">Working professionals with tight schedules</span>
+                        </li>
+                        <li className="flex items-start space-x-3">
+                          <CheckCircle className="w-5 h-5 text-slate-gray flex-shrink-0 mt-0.5" />
+                          <span className="text-charcoal">Individuals unable to commit to fixed lectures</span>
+                        </li>
+                        <li className="flex items-start space-x-3">
+                          <CheckCircle className="w-5 h-5 text-slate-gray flex-shrink-0 mt-0.5" />
+                          <span className="text-charcoal">Candidates temporarily based overseas</span>
+                        </li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-primary mb-3">Online Study Materials*:</h4>
+                      <p className="text-charcoal mb-4">
+                        Over 50 hours worth of supplementary content (revision videos, online practice papers, interactive e-learning course ware, etc) hosted on our Learning Management System.
+                      </p>
+                      <div className="bg-red-50 p-4 rounded-lg border border-red-100">
+                        <p className="text-sm text-red-800">
+                          <strong>NOTE:</strong> This option DOES NOT QUALIFY for IBF-STS Funding support.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+
             {/* Schedule Tab */}
             {activeTab === 'schedule' && (
               <div className="animate-fade-in">
-                <h3 className="text-3xl font-bold text-primary mb-6">Course Schedules</h3>
-                <p className="text-lg text-charcoal mb-8 leading-relaxed">
-                  Choose from multiple study formats designed to fit your lifestyle and career commitments. All options lead to the same certification.
-                </p>
-
-                <div className="grid md:grid-cols-2 gap-6 mb-8">
-                  {/* Weekday Classes */}
-                  <div className="bg-white rounded-xl p-6 border-2 border-primary/20 hover:border-primary/40 transition-all">
-                    <div className="flex items-center space-x-3 mb-4">
-                      <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
-                        <Calendar className="w-6 h-6 text-white" />
-                      </div>
-                      <h4 className="text-xl font-bold text-primary">Weekday Classes</h4>
-                    </div>
-                    <p className="text-charcoal mb-4">Perfect for full-time students or those with flexible work schedules.</p>
-                    <ul className="space-y-2 mb-4">
-                      <li className="flex items-center space-x-2">
-                        <CheckCircle className="w-4 h-4 text-teal" />
-                        <span className="text-sm text-charcoal">Monday to Friday, 9am - 5pm</span>
-                      </li>
-                      <li className="flex items-center space-x-2">
-                        <CheckCircle className="w-4 h-4 text-teal" />
-                        <span className="text-sm text-charcoal">Intensive format, complete faster</span>
-                      </li>
-                      <li className="flex items-center space-x-2">
-                        <CheckCircle className="w-4 h-4 text-teal" />
-                        <span className="text-sm text-charcoal">In-person at training center</span>
-                      </li>
-                    </ul>
-                    <div className="inline-block bg-teal/10 px-3 py-1 rounded-full">
-                      <span className="text-sm font-semibold text-teal">Most Intensive</span>
-                    </div>
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
+                  <div>
+                    <h3 className="text-3xl font-bold text-primary mb-2">77th Intake Lecture Schedule</h3>
+                    <p className="text-lg text-slate-gray font-semibold">(November 2025 Exam)</p>
                   </div>
-
-                  {/* Weekend Classes */}
-                  <div className="bg-white rounded-xl p-6 border-2 border-gold/40 hover:border-gold/60 transition-all ring-2 ring-gold/20">
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="flex items-center space-x-3">
-                        <div className="w-12 h-12 bg-gold rounded-lg flex items-center justify-center">
-                          <Calendar className="w-6 h-6 text-white" />
-                        </div>
-                        <h4 className="text-xl font-bold text-gold">Weekend Classes</h4>
-                      </div>
-                      <span className="text-xs font-bold text-gold bg-gold/10 px-3 py-1 rounded-full">POPULAR</span>
-                    </div>
-                    <p className="text-charcoal mb-4">Ideal for working professionals balancing career and studies.</p>
-                    <ul className="space-y-2 mb-4">
-                      <li className="flex items-center space-x-2">
-                        <CheckCircle className="w-4 h-4 text-teal" />
-                        <span className="text-sm text-charcoal">Saturdays or Sundays, 9am - 5pm</span>
-                      </li>
-                      <li className="flex items-center space-x-2">
-                        <CheckCircle className="w-4 h-4 text-teal" />
-                        <span className="text-sm text-charcoal">Don't disrupt your weekday work</span>
-                      </li>
-                      <li className="flex items-center space-x-2">
-                        <CheckCircle className="w-4 h-4 text-teal" />
-                        <span className="text-sm text-charcoal">In-person at training center</span>
-                      </li>
-                    </ul>
-                    <div className="inline-block bg-teal/10 px-3 py-1 rounded-full">
-                      <span className="text-sm font-semibold text-teal">Most Popular</span>
-                    </div>
-                  </div>
-
-                  {/* Evening Classes */}
-                  <div className="bg-white rounded-xl p-6 border-2 border-primary/20 hover:border-primary/40 transition-all">
-                    <div className="flex items-center space-x-3 mb-4">
-                      <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
-                        <Clock className="w-6 h-6 text-white" />
-                      </div>
-                      <h4 className="text-xl font-bold text-primary">Evening Classes</h4>
-                    </div>
-                    <p className="text-charcoal mb-4">Study after work without sacrificing your weekends.</p>
-                    <ul className="space-y-2 mb-4">
-                      <li className="flex items-center space-x-2">
-                        <CheckCircle className="w-4 h-4 text-teal" />
-                        <span className="text-sm text-charcoal">Weekday evenings, 7pm - 10pm</span>
-                      </li>
-                      <li className="flex items-center space-x-2">
-                        <CheckCircle className="w-4 h-4 text-teal" />
-                        <span className="text-sm text-charcoal">Keep your weekends free</span>
-                      </li>
-                      <li className="flex items-center space-x-2">
-                        <CheckCircle className="w-4 h-4 text-teal" />
-                        <span className="text-sm text-charcoal">In-person or online options</span>
-                      </li>
-                    </ul>
-                    <div className="inline-block bg-teal/10 px-3 py-1 rounded-full">
-                      <span className="text-sm font-semibold text-teal">Most Flexible</span>
-                    </div>
-                  </div>
-
-                  {/* Online/Hybrid */}
-                  <div className="bg-white rounded-xl p-6 border-2 border-primary/20 hover:border-primary/40 transition-all">
-                    <div className="flex items-center space-x-3 mb-4">
-                      <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
-                        <Video className="w-6 h-6 text-white" />
-                      </div>
-                      <h4 className="text-xl font-bold text-primary">Online/Hybrid</h4>
-                    </div>
-                    <p className="text-charcoal mb-4">Maximum flexibility with live online sessions and recorded lectures.</p>
-                    <ul className="space-y-2 mb-4">
-                      <li className="flex items-center space-x-2">
-                        <CheckCircle className="w-4 h-4 text-teal" />
-                        <span className="text-sm text-charcoal">Live virtual classes + recordings</span>
-                      </li>
-                      <li className="flex items-center space-x-2">
-                        <CheckCircle className="w-4 h-4 text-teal" />
-                        <span className="text-sm text-charcoal">Study from anywhere</span>
-                      </li>
-                      <li className="flex items-center space-x-2">
-                        <CheckCircle className="w-4 h-4 text-teal" />
-                        <span className="text-sm text-charcoal">Optional in-person workshops</span>
-                      </li>
-                    </ul>
-                    <div className="inline-block bg-teal/10 px-3 py-1 rounded-full">
-                      <span className="text-sm font-semibold text-teal">Remote Friendly</span>
-                    </div>
+                  <div className="mt-4 md:mt-0 bg-white px-4 py-2 rounded-lg shadow-sm border border-primary/10">
+                    <span className="text-sm font-bold text-primary">Applicable for 50% IBF-STS Funding*</span>
                   </div>
                 </div>
 
-                <div className="bg-primary/5 rounded-xl p-6 border border-primary/20">
-                  <p className="text-charcoal font-semibold mb-2">📅 Next Intake Starting Soon!</p>
-                  <p className="text-sm text-slate-gray">New cohorts begin every quarter. Contact us for exact dates and availability for your preferred schedule.</p>
+                <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-6">
+                  {scheduleData.map((module, idx) => (
+                    <div key={idx} className="bg-white rounded-xl overflow-hidden shadow-md border border-gray-200 hover:shadow-lg transition-all">
+                      <div className="bg-primary p-4">
+                        <div className="text-gold font-bold text-sm uppercase mb-1">{module.module}</div>
+                        <h4 className="text-white font-bold text-lg leading-tight">{module.title}</h4>
+                      </div>
+
+                      <div className="p-4">
+                        <div className="overflow-x-auto">
+                          <table className="w-full text-sm mb-4">
+                            <thead>
+                              <tr className="border-b border-gray-200">
+                                <th className="text-left py-2 text-slate-gray font-semibold w-12">No.</th>
+                                <th className="text-left py-2 text-slate-gray font-semibold">Date</th>
+                                <th className="text-right py-2 text-slate-gray font-semibold">Time</th>
+                              </tr>
+                            </thead>
+                            <tbody className="divide-y divide-gray-100">
+                              {module.sessions.map((session) => (
+                                <tr key={session.id}>
+                                  <td className="py-2 text-charcoal">{session.id}</td>
+                                  <td className="py-2 text-charcoal font-medium">{session.date}</td>
+                                  <td className="py-2 text-right text-slate-gray text-xs">{session.time}</td>
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        </div>
+
+                        <div className="bg-cool-gray rounded-lg p-3 border border-gray-200">
+                          <div className="flex items-start mb-2">
+                            <div className="font-bold text-primary text-xs uppercase w-16 flex-shrink-0 mt-0.5">Exam:</div>
+                            <div className="text-sm text-charcoal">
+                              <div className="font-bold">{module.exam}</div>
+                              <div className="text-slate-gray text-xs">{module.examTime}</div>
+                            </div>
+                          </div>
+                          <div className="flex items-center pt-2 border-t border-gray-200">
+                            <div className="font-bold text-primary text-xs uppercase w-16 flex-shrink-0">Duration:</div>
+                            <div className="text-xs font-bold text-charcoal">{module.duration}</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="mt-8 text-center text-sm text-slate-gray italic">
+                  * All dates are correct at the time of printing. FP reserves the right to make changes to the dates listed.
                 </div>
               </div>
             )}
 
-            {/* Materials Tab */}
+            {/* Materials & Support Tab */}
             {activeTab === 'materials' && (
               <div className="animate-fade-in">
-                <h3 className="text-3xl font-bold text-primary mb-6">Comprehensive Study Materials</h3>
+                <h3 className="text-3xl font-bold text-primary mb-6">About Our Study Materials</h3>
                 <p className="text-lg text-charcoal mb-8 leading-relaxed">
-                  Everything you need to succeed, from printed textbooks to online resources. We've invested in quality materials that enhance your learning experience.
+                  We provide comprehensive resources to ensure you are fully prepared for your examinations.
                 </p>
 
-                <div className="grid md:grid-cols-2 gap-8 mb-8">
-                  <div>
-                    <h4 className="text-xl font-bold text-primary mb-4 flex items-center">
-                      <FileText className="w-6 h-6 mr-2 text-gold" />
-                      What's Included
-                    </h4>
-                    <ul className="space-y-3">
-                      {studyMaterials.materials.map((material, idx) => (
-                        <li key={idx} className="flex items-start space-x-3">
-                          <CheckCircle className="w-5 h-5 text-gold flex-shrink-0 mt-0.5" />
-                          <span className="text-charcoal">{material}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div>
-                    <h4 className="text-xl font-bold text-primary mb-4 flex items-center">
-                      <Users className="w-6 h-6 mr-2 text-gold" />
-                      Learning Support
-                    </h4>
-                    <ul className="space-y-3">
-                      {studyMaterials.support.map((item, idx) => (
-                        <li key={idx} className="flex items-start space-x-3">
-                          <CheckCircle className="w-5 h-5 text-gold flex-shrink-0 mt-0.5" />
-                          <span className="text-charcoal">{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-
-                <div className="grid md:grid-cols-3 gap-6">
-                  <div className="bg-white rounded-xl p-6 text-center">
-                    <div className="w-16 h-16 bg-teal/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <BookOpen className="w-8 h-8 text-teal" />
+                <div className="grid md:grid-cols-2 gap-8">
+                  {/* Tutorial Slide Pack */}
+                  <div className="bg-white rounded-xl p-6 shadow-md">
+                    <div className="w-12 h-12 bg-teal/10 rounded-lg flex items-center justify-center mb-4">
+                      <FileText className="w-6 h-6 text-teal" />
                     </div>
-                    <h5 className="font-bold text-primary mb-2">Printed Materials</h5>
-                    <p className="text-sm text-charcoal">Comprehensive textbooks and workbooks for each module</p>
-                  </div>
-                  <div className="bg-white rounded-xl p-6 text-center">
-                    <div className="w-16 h-16 bg-teal/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <Video className="w-8 h-8 text-teal" />
-                    </div>
-                    <h5 className="font-bold text-primary mb-2">Digital Access</h5>
-                    <p className="text-sm text-charcoal">24/7 access to video lectures and online resources</p>
-                  </div>
-                  <div className="bg-white rounded-xl p-6 text-center">
-                    <div className="w-16 h-16 bg-teal/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <FileText className="w-8 h-8 text-teal" />
-                    </div>
-                    <h5 className="font-bold text-primary mb-2">Practice Exams</h5>
-                    <p className="text-sm text-charcoal">Extensive question banks and mock examinations</p>
-                  </div>
-                </div>
-              </div>
-            )}
-
-            {/* Support Tab */}
-            {activeTab === 'support' && (
-              <div className="animate-fade-in">
-                <h3 className="text-3xl font-bold text-primary mb-6">Support & Funding</h3>
-                <p className="text-lg text-charcoal mb-8 leading-relaxed">
-                  Maximize your investment with IBF-STS funding support and MAS Enhanced schemes. We'll guide you through the application process.
-                </p>
-
-                {/* IBF-STS Funding */}
-                <div className="bg-white rounded-xl p-8 mb-6">
-                  <div className="flex items-start space-x-4 mb-6">
-                    <div className="w-14 h-14 bg-gold rounded-lg flex items-center justify-center flex-shrink-0">
-                      <span className="text-2xl font-bold text-white">90%</span>
-                    </div>
-                    <div>
-                      <h4 className="text-2xl font-bold text-primary mb-2">IBF Standards Training Scheme (IBF-STS)</h4>
-                      <p className="text-charcoal">
-                        Singapore Citizens and PRs working in financial institutions may qualify for up to 90% course fee support.
-                      </p>
-                    </div>
-                  </div>
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div>
-                      <h5 className="font-bold text-primary mb-3">Eligibility:</h5>
-                      <ul className="space-y-2">
-                        <li className="flex items-start space-x-2">
-                          <CheckCircle className="w-4 h-4 text-teal flex-shrink-0 mt-1" />
-                          <span className="text-sm text-charcoal">Singapore Citizen or PR</span>
-                        </li>
-                        <li className="flex items-start space-x-2">
-                          <CheckCircle className="w-4 h-4 text-teal flex-shrink-0 mt-1" />
-                          <span className="text-sm text-charcoal">Employed in financial services sector</span>
-                        </li>
-                        <li className="flex items-start space-x-2">
-                          <CheckCircle className="w-4 h-4 text-teal flex-shrink-0 mt-1" />
-                          <span className="text-sm text-charcoal">Employer is IBF member</span>
-                        </li>
-                      </ul>
-                    </div>
-                    <div>
-                      <h5 className="font-bold text-primary mb-3">Funding Coverage:</h5>
-                      <ul className="space-y-2">
-                        <li className="flex items-start space-x-2">
-                          <CheckCircle className="w-4 h-4 text-teal flex-shrink-0 mt-1" />
-                          <span className="text-sm text-charcoal">Up to 90% of course fees</span>
-                        </li>
-                        <li className="flex items-start space-x-2">
-                          <CheckCircle className="w-4 h-4 text-teal flex-shrink-0 mt-1" />
-                          <span className="text-sm text-charcoal">Covers all 6 CFP® modules</span>
-                        </li>
-                        <li className="flex items-start space-x-2">
-                          <CheckCircle className="w-4 h-4 text-teal flex-shrink-0 mt-1" />
-                          <span className="text-sm text-charcoal">We handle application support</span>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-
-                {/* MAS Enhanced Support */}
-                <div className="bg-white rounded-xl p-8 mb-6">
-                  <h4 className="text-2xl font-bold text-primary mb-4">MAS Enhanced Support</h4>
-                  <p className="text-charcoal mb-4">
-                    Additional support available for financial advisors undertaking professional certification. Speak with our course advisors to check your eligibility and maximize available funding.
-                  </p>
-                  <div className="bg-cool-gray rounded-lg p-4">
-                    <p className="text-sm text-charcoal">
-                      <strong>Note:</strong> Funding is subject to approval and eligibility criteria. Terms and conditions apply. We recommend applying early to ensure smooth processing.
+                    <h4 className="text-xl font-bold text-primary mb-3">1) Tutorial Slide Pack</h4>
+                    <p className="text-charcoal text-sm leading-relaxed">
+                      Provided for candidates who sign up for the Classroom-Tutorial Option to be used in the tutorial sessions.
                     </p>
                   </div>
-                </div>
 
-                {/* Student Benefits */}
-                <div className="bg-white rounded-xl p-8">
-                  <h4 className="text-xl font-bold text-primary mb-4">Student Membership Benefits</h4>
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div className="flex items-start space-x-3">
-                      <CheckCircle className="w-5 h-5 text-gold flex-shrink-0 mt-0.5" />
-                      <span className="text-charcoal text-sm">Access to FPAS events and networking</span>
+                  {/* Exam Preparation Class */}
+                  <div className="bg-white rounded-xl p-6 shadow-md">
+                    <div className="w-12 h-12 bg-gold/10 rounded-lg flex items-center justify-center mb-4">
+                      <Users className="w-6 h-6 text-gold" />
                     </div>
-                    <div className="flex items-start space-x-3">
-                      <CheckCircle className="w-5 h-5 text-gold flex-shrink-0 mt-0.5" />
-                      <span className="text-charcoal text-sm">Industry resources and publications</span>
+                    <h4 className="text-xl font-bold text-primary mb-3">2) Exam Preparation Class</h4>
+                    <p className="text-charcoal text-sm leading-relaxed">
+                      Intensive coaching in key syllabus areas and guidance on handling exam questions. Trainers engage candidates in discussions of practice questions and work out solutions systematically, providing invaluable insights.
+                    </p>
+                  </div>
+
+                  {/* E-Learning Content */}
+                  <div className="bg-white rounded-xl p-6 shadow-md">
+                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                      <Video className="w-6 h-6 text-primary" />
                     </div>
-                    <div className="flex items-start space-x-3">
-                      <CheckCircle className="w-5 h-5 text-gold flex-shrink-0 mt-0.5" />
-                      <span className="text-charcoal text-sm">Career development support</span>
+                    <h4 className="text-xl font-bold text-primary mb-3">3) Additional E-Learning & Practice</h4>
+                    <p className="text-charcoal text-sm leading-relaxed mb-3">
+                      Access to our LMS portal containing interactive content, video lessons, exam revision breakdowns, calculator workshops, and practice exam simulations.
+                    </p>
+                    <p className="text-charcoal text-sm leading-relaxed">
+                      Practice exams help identify weak areas and are essential for passing. Passing the exam is mandatory for IBF-STS funding eligibility.
+                    </p>
+                  </div>
+
+                  {/* Student Support */}
+                  <div className="bg-white rounded-xl p-6 shadow-md">
+                    <div className="w-12 h-12 bg-teal/10 rounded-lg flex items-center justify-center mb-4">
+                      <HeadphonesIcon className="w-6 h-6 text-teal" />
                     </div>
-                    <div className="flex items-start space-x-3">
-                      <CheckCircle className="w-5 h-5 text-gold flex-shrink-0 mt-0.5" />
-                      <span className="text-charcoal text-sm">Continuing education opportunities</span>
-                    </div>
+                    <h4 className="text-xl font-bold text-primary mb-3">4) Student Support</h4>
+                    <p className="text-charcoal text-sm leading-relaxed">
+                      FP provides excellent student support. Candidates can email queries to <a href="mailto:support@fp-edu.com" className="text-primary font-bold hover:underline">support@fp-edu.com</a> and our lecturers will provide detailed answers. We are committed to helping you pass on your first attempt!
+                    </p>
                   </div>
                 </div>
               </div>
@@ -377,3 +424,11 @@ export default function StudyOptionsTabs() {
   );
 }
 
+// Wrapper component with Suspense boundary
+export default function StudyOptionsTabs() {
+  return (
+    <Suspense fallback={<div className="py-20 bg-white text-center">Loading...</div>}>
+      <StudyOptionsTabsContent />
+    </Suspense>
+  );
+}

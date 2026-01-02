@@ -22,11 +22,11 @@ export default function Home() {
       <CFPPathway />
       <SCFPHNWISection />
       <CPDCourses />
+      <Events />
       <WhyFP />
       <CorporateTraining />
       <Testimonials />
       <Resources />
-      <Events />
       <Newsletter />
       <FinalCTA />
       <Footer />

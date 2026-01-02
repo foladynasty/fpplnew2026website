@@ -1,4 +1,4 @@
-import { Award, CheckCircle, Users, Lightbulb } from 'lucide-react';
+import { Award, CheckCircle, Users, Lightbulb, ArrowRight } from 'lucide-react';
 
 const pillars = [
   {
@@ -78,6 +78,17 @@ export default function WhyFP() {
                 </div>
               </div>
             ))}
+          </div>
+
+          {/* CTA */}
+          <div className="text-center mt-12">
+            <a
+              href="#programs"
+              className="inline-flex items-center justify-center bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all duration-200 hover:shadow-xl hover:scale-105"
+            >
+              Start Your Journey Today
+              <ArrowRight className="ml-2 w-5 h-5" />
+            </a>
           </div>
         </div>
       </div>

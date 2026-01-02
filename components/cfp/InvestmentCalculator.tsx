@@ -26,11 +26,10 @@ export default function InvestmentCalculator() {
             {pricingData.map((tier, index) => (
               <div
                 key={tier.level}
-                className={`rounded-2xl p-8 border-2 transition-all hover:shadow-2xl hover:-translate-y-1 ${
-                  tier.level === 'CFP®'
+                className={`rounded-2xl p-8 border-2 transition-all hover:shadow-2xl hover:-translate-y-1 ${tier.level === 'CFP®'
                     ? 'bg-gradient-to-br from-gold/10 to-gold/5 border-gold/40 ring-2 ring-gold/20'
                     : 'bg-white border-primary/20'
-                }`}
+                  }`}
               >
                 {/* Header */}
                 <div className="text-center mb-6">
@@ -39,9 +38,8 @@ export default function InvestmentCalculator() {
                       GOLD STANDARD
                     </div>
                   )}
-                  <h3 className={`text-3xl font-bold mb-2 ${
-                    tier.level === 'CFP®' ? 'text-gold' : 'text-primary'
-                  }`}>
+                  <h3 className={`text-3xl font-bold mb-2 ${tier.level === 'CFP®' ? 'text-gold' : 'text-primary'
+                    }`}>
                     {tier.level}
                   </h3>
                   <p className="text-slate-gray text-sm">{tier.duration}</p>
@@ -87,11 +85,10 @@ export default function InvestmentCalculator() {
                 </ul>
 
                 {/* CTA */}
-                <button className={`w-full py-3 rounded-lg font-bold transition-all ${
-                  tier.level === 'CFP®'
+                <button className={`w-full py-3 rounded-lg font-bold transition-all ${tier.level === 'CFP®'
                     ? 'bg-gold hover:bg-gold-600 text-white'
                     : 'bg-primary hover:bg-primary-700 text-white'
-                }`}>
+                  }`}>
                   Enroll in {tier.level}
                 </button>
               </div>
@@ -107,7 +104,7 @@ export default function InvestmentCalculator() {
               <div>
                 <h3 className="text-2xl font-bold text-primary mb-3">Complete Pathway Bundle</h3>
                 <p className="text-charcoal mb-4 leading-relaxed">
-                  Commit to the full AFP® → AWP® → CFP® pathway and save 15% on total fees. Plus, enjoy priority enrollment and dedicated career advisory support.
+                  Commit to the full AFP<sup>CM</sup> → AWP<sup>CM</sup> → CFP® pathway and save 15% on total fees. Plus, enjoy priority enrollment and dedicated career advisory support.
                 </p>
                 <div className="flex flex-wrap gap-4 items-center">
                   <div>
@@ -231,4 +228,5 @@ export default function InvestmentCalculator() {
     </section>
   );
 }
+
 

@@ -74,7 +74,7 @@ export default function CorporateTraining() {
 
             {/* What We Offer */}
             <div className="bg-gray-900 rounded-2xl p-8 text-white mb-10">
-              <h3 className="text-2xl font-bold mb-6">What We Offer:</h3>
+              <h3 className="text-2xl font-bold mb-6 text-primary-100">What We Offer:</h3>
               <div className="grid md:grid-cols-2 gap-4">
                 <div className="flex items-start space-x-3">
                   <CheckCircle className="w-6 h-6 text-green-400 flex-shrink-0 mt-1" />

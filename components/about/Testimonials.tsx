@@ -1,12 +1,14 @@
-'use client';
-
-import { testimonials } from '@/lib/about-content';
 import { Quote, Star } from 'lucide-react';
-import { useState } from 'react';
+import { getTestimonials, EndorsalTestimonial } from '@/lib/endorsal';
+import Link from 'next/link';
 
-export default function Testimonials() {
-  const [showAll, setShowAll] = useState(false);
-  const displayedTestimonials = showAll ? testimonials : testimonials.filter(t => t.featured);
+// Wrapper component to make this a server component
+export default async function Testimonials() {
+  // Fetch testimonials from Endorsal API
+  const allTestimonials = await getTestimonials();
+
+  // Show first 6 testimonials, with a link to see all
+  const displayedTestimonials = allTestimonials.slice(0, 6);
 
   return (
     <section id="testimonials" className="py-20 bg-white scroll-mt-32">
@@ -27,52 +29,27 @@ export default function Testimonials() {
           </div>
 
           {/* Testimonials Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-            {displayedTestimonials.map((testimonial) => (
-              <div
-                key={testimonial.id}
-                className="bg-cool-gray rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 border-2 border-transparent hover:border-primary/20 relative"
-              >
-                {/* Quote Icon */}
-                <div className="absolute top-4 right-4 text-primary/10">
-                  <Quote className="w-12 h-12 fill-current" />
-                </div>
+          {displayedTestimonials.length === 0 ? (
+            <div className="text-center py-12 text-charcoal">
+              <p>No testimonials available at the moment.</p>
+            </div>
+          ) : (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+              {displayedTestimonials.map((testimonial) => (
+                <TestimonialCard key={testimonial._id} testimonial={testimonial} />
+              ))}
+            </div>
+          )}
 
-                {/* Rating */}
-                {testimonial.rating && (
-                  <div className="flex gap-1 mb-3">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 text-gold fill-current" />
-                    ))}
-                  </div>
-                )}
-
-                {/* Content */}
-                <p className="text-charcoal italic mb-4 leading-relaxed relative z-10 text-sm">
-                  "{testimonial.content}"
-                </p>
-
-                {/* Author */}
-                <div className="border-t border-gray-300 pt-4">
-                  <p className="font-bold text-primary">{testimonial.name}</p>
-                  {testimonial.title && (
-                    <p className="text-xs text-slate-gray">{testimonial.title}</p>
-                  )}
-                  <p className="text-xs text-teal font-semibold mt-1">{testimonial.program}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Show More Button */}
-          {!showAll && testimonials.length > displayedTestimonials.length && (
+          {/* Show More Button - Link to Wall of Love */}
+          {allTestimonials.length > 6 && (
             <div className="text-center">
-              <button
-                onClick={() => setShowAll(true)}
+              <Link
+                href="/testimonials"
                 className="inline-block bg-primary hover:bg-primary-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors"
               >
-                Read More Testimonials
-              </button>
+                Read All {allTestimonials.length} Testimonials →
+              </Link>
             </div>
           )}
 
@@ -105,3 +82,42 @@ export default function Testimonials() {
   );
 }
 
+// Individual Testimonial Card
+function TestimonialCard({ testimonial }: { testimonial: EndorsalTestimonial }) {
+  const rating = testimonial.rating || 5;
+
+  return (
+    <div className="bg-cool-gray rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 border-2 border-transparent hover:border-primary/20 relative">
+      {/* Quote Icon */}
+      <div className="absolute top-4 right-4 text-primary/10">
+        <Quote className="w-12 h-12 fill-current" />
+      </div>
+
+      {/* Rating */}
+      <div className="flex gap-1 mb-3">
+        {[...Array(5)].map((_, i) => (
+          <Star
+            key={i}
+            className={`w-4 h-4 ${i < rating ? 'text-gold fill-current' : 'text-gray-300'}`}
+          />
+        ))}
+      </div>
+
+      {/* Content */}
+      <p className="text-charcoal italic mb-4 leading-relaxed relative z-10 text-sm">
+        "{testimonial.comments}"
+      </p>
+
+      {/* Author */}
+      <div className="border-t border-gray-300 pt-4">
+        <p className="font-bold text-primary">{testimonial.name}</p>
+        {testimonial.company && (
+          <p className="text-xs text-slate-gray">{testimonial.company}</p>
+        )}
+        {testimonial.position && (
+          <p className="text-xs text-teal font-semibold mt-1">{testimonial.position}</p>
+        )}
+      </div>
+    </div>
+  );
+}

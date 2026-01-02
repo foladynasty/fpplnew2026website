@@ -25,7 +25,7 @@ export default function CFPScheduleSection({ events }: CFPScheduleSectionProps) 
                 CFP® Certification Schedule
               </h2>
               <p className="text-slate-gray">
-                AFP® → AWP® → CFP® | Singapore's #1 CFP® Provider
+                AFP<sup>CM</sup> → AWP<sup>CM</sup> → CFP® | Singapore's #1 CFP® Provider
               </p>
             </div>
           </div>
@@ -34,7 +34,7 @@ export default function CFPScheduleSection({ events }: CFPScheduleSectionProps) 
           <div className="bg-primary-50 border-2 border-primary-200 rounded-xl p-6 mb-8">
             <h3 className="font-bold text-primary mb-2">About CFP® Certification</h3>
             <p className="text-charcoal text-sm leading-relaxed mb-3">
-              The CFP® certification is the global gold standard for financial planning professionals. Our three-stage pathway (AFP® → AWP® → CFP®) is recognized worldwide and has been trusted by over 20,000 professionals in Singapore.
+              The CFP® certification is the global gold standard for financial planning professionals. Our three-stage pathway (AFP<sup>CM</sup> → AWP<sup>CM</sup> → CFP®) is recognized worldwide and has been trusted by over 20,000 professionals in Singapore.
             </p>
             <div className="flex flex-wrap gap-4 text-sm">
               <div className="flex items-center gap-2">
@@ -80,4 +80,5 @@ export default function CFPScheduleSection({ events }: CFPScheduleSectionProps) 
     </section>
   );
 }
+
 

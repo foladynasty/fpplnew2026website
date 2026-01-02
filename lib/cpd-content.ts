@@ -445,7 +445,7 @@ export const cpdCourses: Course[] = [
     },
     perfectFor: [
       "Advisors Serving HNWIs",
-      "Family Office Professionals",
+      "Family Business Professionals",
       "Wealth Planners",
       "Private Bankers",
       "Senior Financial Advisors"
@@ -507,8 +507,8 @@ export const cpdCourses: Course[] = [
         description: "Financial advisers working with high-net-worth and ultra-high-net-worth clients"
       },
       {
-        title: "Family Office Professionals",
-        description: "Professionals managing family office operations and multi-generational wealth"
+        title: "Family Business Professionals",
+        description: "Professionals managing family business operations and multi-generational wealth"
       },
       {
         title: "Wealth Planners",

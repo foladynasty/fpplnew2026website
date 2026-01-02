@@ -77,7 +77,7 @@ export default function MediaCard({ item }: MediaCardProps) {
             <Calendar className="w-4 h-4" />
             <span>{formattedDate}</span>
           </div>
-          
+
           {item.source && (
             <div className="flex items-center gap-2">
               <Building2 className="w-4 h-4" />
@@ -125,17 +125,13 @@ export default function MediaCard({ item }: MediaCardProps) {
           {item.url && (
             <Link
               href={item.url}
+              target={item.url.startsWith('http') ? '_blank' : undefined}
+              rel={item.url.startsWith('http') ? 'noopener noreferrer' : undefined}
               className="flex-1 flex items-center justify-center gap-2 bg-teal hover:bg-teal-600 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors"
             >
               {item.type === 'video' ? 'Watch' : 'Read More'}
               <ArrowRight className="w-4 h-4" />
             </Link>
-          )}
-          {!item.url && !item.downloadUrl && (
-            <button className="flex-1 flex items-center justify-center gap-2 bg-cool-gray hover:bg-gray-200 text-charcoal px-4 py-2 rounded-lg text-sm font-semibold transition-colors">
-              <ExternalLink className="w-4 h-4" />
-              View
-            </button>
           )}
         </div>
       </div>

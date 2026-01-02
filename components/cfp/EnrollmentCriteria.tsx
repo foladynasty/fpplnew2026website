@@ -1,198 +1,212 @@
 'use client';
 
-import { CheckCircle, GraduationCap, Briefcase, FileText, UserCheck, Calendar, ArrowRight } from 'lucide-react';
-import { enrollmentSteps } from '@/lib/cfp-content';
+import { CheckCircle, GraduationCap, Briefcase, FileText, UserCheck, Calendar, ArrowRight, ChevronDown, ChevronUp, AlertCircle } from 'lucide-react';
+import { useState } from 'react';
 
 export default function EnrollmentCriteria() {
+  const [openSection, setOpenSection] = useState<string | null>('new-students');
+
+  const toggleSection = (section: string) => {
+    setOpenSection(openSection === section ? null : section);
+  };
+
   return (
     <section className="py-20 bg-white">
       <div className="container mx-auto px-4">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-4xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-16">
+          <div className="text-center mb-12">
             <p className="text-primary font-semibold text-sm uppercase tracking-wide mb-3">
               Start Your Journey
             </p>
             <h2 className="text-4xl lg:text-5xl font-bold text-primary mb-6">
-              Who Can Enroll?
+              Enrollment Criteria & Procedures
             </h2>
-            <p className="text-xl text-slate-gray max-w-3xl mx-auto leading-relaxed">
-              Whether you're starting fresh or advancing your career, we have a pathway for you. Here's what you need to know about eligibility and enrollment.
+            <p className="text-xl text-slate-gray leading-relaxed">
+              Everything you need to know to apply for the CFP® Certification Education Program.
             </p>
           </div>
 
-          {/* Eligibility Cards */}
-          <div className="grid md:grid-cols-3 gap-8 mb-16">
-            {/* AFP Criteria */}
-            <div className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-xl p-8 border-2 border-primary/20">
-              <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mb-5">
-                <span className="text-2xl font-bold text-white">1</span>
-              </div>
-              <h3 className="text-2xl font-bold text-primary mb-4">AFP® Level</h3>
-              <p className="text-slate-gray mb-6">Foundation entry point for aspiring financial planners.</p>
-              
-              <div className="space-y-3">
-                <div className="flex items-start space-x-3">
-                  <GraduationCap className="w-5 h-5 text-gold flex-shrink-0 mt-1" />
-                  <div>
-                    <div className="font-semibold text-primary text-sm">Academic</div>
-                    <div className="text-sm text-charcoal">Diploma or Degree in any discipline</div>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <FileText className="w-5 h-5 text-gold flex-shrink-0 mt-1" />
-                  <div>
-                    <div className="font-semibold text-primary text-sm">FPAS Exam</div>
-                    <div className="text-sm text-charcoal">Pass Rules & Regulations exam</div>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <UserCheck className="w-5 h-5 text-gold flex-shrink-0 mt-1" />
-                  <div>
-                    <div className="font-semibold text-primary text-sm">Membership</div>
-                    <div className="text-sm text-charcoal">FPAS student member</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* AWP Criteria */}
-            <div className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-xl p-8 border-2 border-primary/20">
-              <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mb-5">
-                <span className="text-2xl font-bold text-white">2</span>
-              </div>
-              <h3 className="text-2xl font-bold text-primary mb-4">AWP® Level</h3>
-              <p className="text-slate-gray mb-6">Intermediate specialization in wealth planning.</p>
-              
-              <div className="space-y-3">
-                <div className="flex items-start space-x-3">
-                  <CheckCircle className="w-5 h-5 text-gold flex-shrink-0 mt-1" />
-                  <div>
-                    <div className="font-semibold text-primary text-sm">Prerequisites</div>
-                    <div className="text-sm text-charcoal">Completed AFP® certification</div>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <Briefcase className="w-5 h-5 text-gold flex-shrink-0 mt-1" />
-                  <div>
-                    <div className="font-semibold text-primary text-sm">Experience</div>
-                    <div className="text-sm text-charcoal">1 year relevant work (recommended)</div>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <UserCheck className="w-5 h-5 text-gold flex-shrink-0 mt-1" />
-                  <div>
-                    <div className="font-semibold text-primary text-sm">Membership</div>
-                    <div className="text-sm text-charcoal">FPAS member in good standing</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* CFP Criteria */}
-            <div className="bg-gradient-to-br from-gold/10 to-gold/5 rounded-xl p-8 border-2 border-gold/40">
-              <div className="w-12 h-12 bg-gold rounded-lg flex items-center justify-center mb-5">
-                <span className="text-2xl font-bold text-white">3</span>
-              </div>
-              <h3 className="text-2xl font-bold text-gold mb-4">CFP® Level</h3>
-              <p className="text-slate-gray mb-6">The global gold standard certification.</p>
-              
-              <div className="space-y-3">
-                <div className="flex items-start space-x-3">
-                  <CheckCircle className="w-5 h-5 text-gold flex-shrink-0 mt-1" />
-                  <div>
-                    <div className="font-semibold text-primary text-sm">Prerequisites</div>
-                    <div className="text-sm text-charcoal">AFP® and AWP® completed</div>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <GraduationCap className="w-5 h-5 text-gold flex-shrink-0 mt-1" />
-                  <div>
-                    <div className="font-semibold text-primary text-sm">Academic</div>
-                    <div className="text-sm text-charcoal">Bachelor's degree or equivalent</div>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <Briefcase className="w-5 h-5 text-gold flex-shrink-0 mt-1" />
-                  <div>
-                    <div className="font-semibold text-primary text-sm">Experience</div>
-                    <div className="text-sm text-charcoal">3 years full-time relevant work</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* FPAS Membership Info */}
-          <div className="bg-cool-gray rounded-2xl p-8 mb-12">
-            <div className="flex items-start space-x-4 mb-6">
-              <div className="w-12 h-12 bg-teal rounded-lg flex items-center justify-center flex-shrink-0">
-                <UserCheck className="w-6 h-6 text-white" />
-              </div>
-              <div>
-                <h3 className="text-2xl font-bold text-primary mb-2">
-                  FPAS Exam & Student Membership
-                </h3>
-                <p className="text-charcoal leading-relaxed">
-                  Before starting your CFP® journey, you must pass the Financial Planning Association of Singapore (FPAS) exam and become a student member. This exam covers the Rules and Regulations governing financial planning in Singapore.
-                </p>
-              </div>
-            </div>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div>
-                <h4 className="font-bold text-primary mb-3">What's Covered:</h4>
-                <ul className="space-y-2">
-                  <li className="flex items-start space-x-2">
-                    <CheckCircle className="w-4 h-4 text-teal flex-shrink-0 mt-1" />
-                    <span className="text-sm text-charcoal">Financial planning regulations in Singapore</span>
-                  </li>
-                  <li className="flex items-start space-x-2">
-                    <CheckCircle className="w-4 h-4 text-teal flex-shrink-0 mt-1" />
-                    <span className="text-sm text-charcoal">Professional conduct and ethics</span>
-                  </li>
-                  <li className="flex items-start space-x-2">
-                    <CheckCircle className="w-4 h-4 text-teal flex-shrink-0 mt-1" />
-                    <span className="text-sm text-charcoal">Client confidentiality requirements</span>
-                  </li>
-                </ul>
-              </div>
-              <div>
-                <h4 className="font-bold text-primary mb-3">Membership Benefits:</h4>
-                <ul className="space-y-2">
-                  <li className="flex items-start space-x-2">
-                    <CheckCircle className="w-4 h-4 text-teal flex-shrink-0 mt-1" />
-                    <span className="text-sm text-charcoal">Access to industry resources and updates</span>
-                  </li>
-                  <li className="flex items-start space-x-2">
-                    <CheckCircle className="w-4 h-4 text-teal flex-shrink-0 mt-1" />
-                    <span className="text-sm text-charcoal">Networking with financial planning professionals</span>
-                  </li>
-                  <li className="flex items-start space-x-2">
-                    <CheckCircle className="w-4 h-4 text-teal flex-shrink-0 mt-1" />
-                    <span className="text-sm text-charcoal">Eligibility for CFP® certification pathway</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          {/* Enrollment Process */}
-          <div className="mb-12">
-            <h3 className="text-3xl font-bold text-primary mb-8 text-center">
-              Your Enrollment Journey
+          {/* Enrollment Criteria Section */}
+          <div className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-2xl p-8 border border-primary/20 mb-12">
+            <h3 className="text-2xl font-bold text-primary mb-6 flex items-center">
+              <GraduationCap className="w-8 h-8 mr-3 text-gold" />
+              Enrollment Criteria
             </h3>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {enrollmentSteps.map((step) => (
-                <div key={step.step} className="bg-white rounded-xl p-6 border-2 border-primary/10 hover:border-primary/30 transition-all">
-                  <div className="flex items-center space-x-3 mb-4">
-                    <div className="w-10 h-10 bg-gradient-to-br from-primary to-primary-700 rounded-full flex items-center justify-center">
-                      <span className="text-white font-bold">{step.step}</span>
-                    </div>
-                    <h4 className="font-bold text-primary">{step.title}</h4>
-                  </div>
-                  <p className="text-sm text-charcoal">{step.description}</p>
+            <p className="text-lg text-charcoal mb-6">
+              Applicants who wish to apply for the CFP® Certification Education Program must fulfill the following criteria:
+            </p>
+            <ul className="space-y-4">
+              <li className="flex items-start bg-white p-4 rounded-lg shadow-sm">
+                <CheckCircle className="w-6 h-6 text-gold flex-shrink-0 mt-0.5 mr-4" />
+                <div>
+                  <span className="font-bold text-primary block mb-1">Academic Qualification</span>
+                  <span className="text-charcoal">GCE 'A' Level Certificate (i.e. 2 'A's and 2 'O's), or Diploma</span>
                 </div>
-              ))}
+              </li>
+              <li className="flex items-center justify-center text-slate-gray font-bold text-sm uppercase tracking-widest">
+                — OR —
+              </li>
+              <li className="flex items-start bg-white p-4 rounded-lg shadow-sm">
+                <Briefcase className="w-6 h-6 text-gold flex-shrink-0 mt-0.5 mr-4" />
+                <div>
+                  <span className="font-bold text-primary block mb-1">Work Experience</span>
+                  <span className="text-charcoal">Minimum 3 years of working experience in any profession</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          {/* Enrollment Procedures Section */}
+          <div className="mb-12">
+            <h3 className="text-2xl font-bold text-primary mb-6">Enrollment Procedures</h3>
+
+            {/* Important Notes */}
+            <div className="bg-cool-gray rounded-xl p-6 mb-8 border-l-4 border-gold">
+              <h4 className="font-bold text-primary mb-4 flex items-center">
+                <AlertCircle className="w-5 h-5 mr-2 text-gold" />
+                Important Notes
+              </h4>
+              <ul className="space-y-3 text-charcoal">
+                <li className="flex items-start">
+                  <span className="mr-2">•</span>
+                  <span>To meet the "Education" requirement, candidates must register with a FPAS Approved Education Provider (EP) to enrol for the program under Classroom Tutorial, or Self-study/Distance Learning option, before attempting the examination.</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="mr-2">•</span>
+                  <span>Candidates must register via FP who will process the course, exam and funding registration on your behalf.</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="mr-2">•</span>
+                  <span>Fees include course fee paid to FP and exam fee paid to FPAS; FP is acting as a collection agent on behalf of FPAS in exam registration.</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Module Fees Table */}
+            <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 mb-8">
+              <div className="bg-primary p-4 text-white font-bold text-lg">
+                Module Fees
+              </div>
+              <div className="overflow-x-auto">
+                <table className="w-full text-left border-collapse">
+                  <thead>
+                    <tr className="bg-gray-50 border-b border-gray-200">
+                      <th className="p-4 font-bold text-primary w-1/3">Module</th>
+                      <th className="p-4 font-bold text-primary">Fees Payable to FPAS (Including GST)</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-gray-200">
+                    <tr className="hover:bg-gray-50 transition-colors">
+                      <td className="p-4 font-semibold text-charcoal">Module 1</td>
+                      <td className="p-4 text-charcoal">
+                        $321 including GST <span className="text-sm text-slate-gray block mt-1">(applies to New Student registration. Subsequent M1 exam fee (upon retake) is $192.60)</span>
+                      </td>
+                    </tr>
+                    <tr className="hover:bg-gray-50 transition-colors">
+                      <td className="p-4 font-semibold text-charcoal">Module 2 - 5</td>
+                      <td className="p-4 text-charcoal">$192.60 including GST</td>
+                    </tr>
+                    <tr className="hover:bg-gray-50 transition-colors">
+                      <td className="p-4 font-semibold text-charcoal">Module 6</td>
+                      <td className="p-4 text-charcoal">$299.60 including GST</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div className="bg-primary/5 p-4 text-sm text-primary font-medium border-t border-primary/10">
+                Under the MAS Enhanced Training Support for IBF-STS Programs (i.e. CFP), exam fees will also enjoy IBF-STS Funding support.
+              </div>
+            </div>
+
+            {/* Student Type Toggles */}
+            <div className="space-y-4">
+              {/* New Students */}
+              <div className="border border-gray-200 rounded-xl overflow-hidden">
+                <button
+                  onClick={() => toggleSection('new-students')}
+                  className="w-full flex items-center justify-between p-6 bg-white hover:bg-gray-50 transition-colors text-left"
+                >
+                  <span className="text-xl font-bold text-primary">New Students</span>
+                  {openSection === 'new-students' ? (
+                    <ChevronUp className="w-6 h-6 text-primary" />
+                  ) : (
+                    <ChevronDown className="w-6 h-6 text-slate-gray" />
+                  )}
+                </button>
+                {openSection === 'new-students' && (
+                  <div className="p-6 bg-gray-50 border-t border-gray-200 animate-fade-in">
+                    <p className="mb-4 text-charcoal">
+                      If this is your first time signing up for the CFP® Certification Education Program, please fill up the <a href="https://fp-edu.com/course-information/cfp-course-registration/" target="_blank" rel="noopener noreferrer" className="text-gold font-bold hover:underline">CFP® Course Registration Form</a> and submit the following documents online:
+                    </p>
+                    <ol className="list-decimal pl-5 space-y-3 text-charcoal">
+                      <li>
+                        <strong>Local Students:</strong> NRIC or Passport identification<br />
+                        <strong>Foreign Students:</strong> Employment Pass or Student Pass
+                      </li>
+                      <li>Business card or Staff pass (if available)</li>
+                      <li>Student metric card/ entry confirmation letter (for Tertiary Students)</li>
+                      <li>Certificate of highest academic level attained (i.e. Degree/ Diploma)</li>
+                      <li>Exemption Letter issued by FPAS for module(s) granted exemption (if applicable)</li>
+                      <li>
+                        All our study materials will be available online via the LMS (e-learning portal). You do not need to come to our office. Course fee payment can be made online via PayNow UEN (199604795C) or via cheque mailed to our office. Please refer to the enrolment terms and conditions found in the course registration acknowledgement email we sent to you. Your course registration is only confirmed upon receipt of payment.
+                      </li>
+                    </ol>
+                  </div>
+                )}
+              </div>
+
+              {/* Existing FP Students */}
+              <div className="border border-gray-200 rounded-xl overflow-hidden">
+                <button
+                  onClick={() => toggleSection('existing-students')}
+                  className="w-full flex items-center justify-between p-6 bg-white hover:bg-gray-50 transition-colors text-left"
+                >
+                  <span className="text-xl font-bold text-primary">Existing FP Students</span>
+                  {openSection === 'existing-students' ? (
+                    <ChevronUp className="w-6 h-6 text-primary" />
+                  ) : (
+                    <ChevronDown className="w-6 h-6 text-slate-gray" />
+                  )}
+                </button>
+                {openSection === 'existing-students' && (
+                  <div className="p-6 bg-gray-50 border-t border-gray-200 animate-fade-in">
+                    <p className="mb-4 text-charcoal">
+                      For existing students, please submit the <a href="https://fp-edu.com/course-information/cfp-course-registration/" target="_blank" rel="noopener noreferrer" className="text-gold font-bold hover:underline">CFP® Course Registration Form</a> online with the respective course fees.
+                    </p>
+                    <p className="text-charcoal">
+                      Take note that we no longer provide the PassAssure Option. All our study materials will be available online via the LMS (e-learning portal). You do not need to come to our office. Course fee payment can be made online via PayNow UEN (199604795C) or via cheque mailed to our office. Please refer to the enrolment terms and conditions found in the course registration acknowledgement email we sent to you. Your course registration is only confirmed upon receipt of payment.
+                    </p>
+                  </div>
+                )}
+              </div>
+
+              {/* Foreign Students */}
+              <div className="border border-gray-200 rounded-xl overflow-hidden">
+                <button
+                  onClick={() => toggleSection('foreign-students')}
+                  className="w-full flex items-center justify-between p-6 bg-white hover:bg-gray-50 transition-colors text-left"
+                >
+                  <span className="text-xl font-bold text-primary">Foreign Students</span>
+                  {openSection === 'foreign-students' ? (
+                    <ChevronUp className="w-6 h-6 text-primary" />
+                  ) : (
+                    <ChevronDown className="w-6 h-6 text-slate-gray" />
+                  )}
+                </button>
+                {openSection === 'foreign-students' && (
+                  <div className="p-6 bg-gray-50 border-t border-gray-200 animate-fade-in">
+                    <ul className="list-disc pl-5 space-y-3 text-charcoal">
+                      <li>
+                        Foreign students who holds a valid Singapore Employment Pass or Student Pass may refer to procedures under <strong>"New Students"</strong> above.
+                      </li>
+                      <li>
+                        Foreign students who are not residing in Singapore are required to submit your supporting documents to FP for enrolment review before acceptance into the program. Please email supporting documents for enrolment review to us.
+                      </li>
+                    </ul>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
 
@@ -211,4 +225,3 @@ export default function EnrollmentCriteria() {
     </section>
   );
 }
-

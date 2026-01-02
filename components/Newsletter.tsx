@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Mail, CheckCircle, BookOpen, Bell, TrendingUp, Award } from 'lucide-react';
+import { Mail, CheckCircle, BookOpen, Bell, TrendingUp, Award, Loader2 } from 'lucide-react';
 
 export default function Newsletter() {
   const [formData, setFormData] = useState({
@@ -10,13 +10,44 @@ export default function Newsletter() {
     lastName: '',
     interest: 'General Information',
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    setIsSubmitted(true);
-    setTimeout(() => setIsSubmitted(false), 5000);
+    setIsSubmitting(true);
+    setError('');
+
+    try {
+      const response = await fetch('/api/newsletter', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setIsSubmitted(true);
+        // Reset form
+        setFormData({
+          email: '',
+          firstName: '',
+          lastName: '',
+          interest: 'General Information',
+        });
+      } else {
+        setError(result.message || 'An error occurred. Please try again.');
+      }
+    } catch (err) {
+      console.error('Newsletter submission error:', err);
+      setError('An error occurred. Please try again later.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -56,6 +87,12 @@ export default function Newsletter() {
           {/* Form */}
           {!isSubmitted ? (
             <form onSubmit={handleSubmit} className="bg-white rounded-2xl p-8 shadow-2xl">
+              {error && (
+                <div className="mb-6 bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg">
+                  {error}
+                </div>
+              )}
+
               <div className="grid md:grid-cols-2 gap-6 mb-6">
                 <div>
                   <label htmlFor="firstName" className="block text-sm font-semibold text-gray-700 mb-2">
@@ -68,6 +105,7 @@ export default function Newsletter() {
                     className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-primary-500 focus:outline-none transition-colors"
                     value={formData.firstName}
                     onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
+                    disabled={isSubmitting}
                   />
                 </div>
                 <div>
@@ -81,6 +119,7 @@ export default function Newsletter() {
                     className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-primary-500 focus:outline-none transition-colors"
                     value={formData.lastName}
                     onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
+                    disabled={isSubmitting}
                   />
                 </div>
               </div>
@@ -96,6 +135,7 @@ export default function Newsletter() {
                   className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-primary-500 focus:outline-none transition-colors"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  disabled={isSubmitting}
                 />
               </div>
 
@@ -108,6 +148,7 @@ export default function Newsletter() {
                   className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-primary-500 focus:outline-none transition-colors"
                   value={formData.interest}
                   onChange={(e) => setFormData({ ...formData, interest: e.target.value })}
+                  disabled={isSubmitting}
                 >
                   <option>CFP® Certification</option>
                   <option>SCFP-HNWI Advanced Certification</option>
@@ -119,10 +160,20 @@ export default function Newsletter() {
 
               <button
                 type="submit"
-                className="w-full bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all duration-200 hover:shadow-xl flex items-center justify-center"
+                disabled={isSubmitting}
+                className="w-full bg-primary-600 hover:bg-primary-700 disabled:bg-primary-400 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all duration-200 hover:shadow-xl flex items-center justify-center"
               >
-                <Mail className="mr-2 w-5 h-5" />
-                Subscribe Now
+                {isSubmitting ? (
+                  <>
+                    <Loader2 className="mr-2 w-5 h-5 animate-spin" />
+                    Subscribing...
+                  </>
+                ) : (
+                  <>
+                    <Mail className="mr-2 w-5 h-5" />
+                    Subscribe Now
+                  </>
+                )}
               </button>
 
               <p className="text-sm text-gray-500 text-center mt-4">
@@ -133,9 +184,15 @@ export default function Newsletter() {
             <div className="bg-white rounded-2xl p-12 shadow-2xl text-center">
               <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
               <h3 className="text-2xl font-bold text-gray-900 mb-2">Thank you for subscribing!</h3>
-              <p className="text-gray-600">
+              <p className="text-gray-600 mb-6">
                 Check your inbox for a welcome message and your first resource.
               </p>
+              <button
+                onClick={() => setIsSubmitted(false)}
+                className="text-primary-600 hover:text-primary-700 font-semibold"
+              >
+                Subscribe another email
+              </button>
             </div>
           )}
         </div>
@@ -143,5 +200,3 @@ export default function Newsletter() {
     </section>
   );
 }
-
-

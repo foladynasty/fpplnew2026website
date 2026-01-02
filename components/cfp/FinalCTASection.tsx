@@ -14,7 +14,7 @@ export default function FinalCTASection() {
               <div className="w-16 h-16 bg-gold rounded-xl flex items-center justify-center mb-6">
                 <ArrowRight className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-3xl font-bold mb-4">
+              <h3 className="text-3xl font-bold mb-4 text-gold">
                 Ready to Start Your Transformation?
               </h3>
               <p className="text-white/90 text-lg mb-6 leading-relaxed">
@@ -54,7 +54,7 @@ export default function FinalCTASection() {
               <div className="w-16 h-16 bg-teal rounded-xl flex items-center justify-center mb-6">
                 <MessageCircle className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-3xl font-bold mb-4">
+              <h3 className="text-3xl font-bold mb-4 text-gold">
                 Need Guidance First?
               </h3>
               <p className="text-white/90 text-lg mb-6 leading-relaxed">
@@ -65,7 +65,7 @@ export default function FinalCTASection() {
                   <Phone className="w-5 h-5 text-gold" />
                   <div>
                     <div className="text-sm opacity-80">Call us at</div>
-                    <a href="tel:+6512345678" className="font-bold text-lg hover:text-gold transition-colors">+65 1234 5678</a>
+                    <a href="tel:+6581117890" className="font-bold text-lg hover:text-gold transition-colors">+65 8111 7890</a>
                   </div>
                 </div>
                 <div className="flex items-center space-x-3 text-white/90">
@@ -83,10 +83,15 @@ export default function FinalCTASection() {
                   </div>
                 </div>
               </div>
-              <button className="inline-flex items-center justify-center w-full bg-white/20 hover:bg-white/30 backdrop-blur-sm border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg transition-all duration-200">
-                <Phone className="mr-2 w-5 h-5" />
+              <a
+                href="https://wa.me/6581117890?text=Hi%2C%20I%20would%20like%20to%20schedule%20a%20free%20consultation%20about%20the%20CFP%20program."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center w-full bg-white/20 hover:bg-white/30 backdrop-blur-sm border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg transition-all duration-200"
+              >
+                <MessageCircle className="mr-2 w-5 h-5" />
                 Schedule a Free Consultation
-              </button>
+              </a>
             </div>
           </div>
 

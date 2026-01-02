@@ -63,7 +63,7 @@ export const scfpModules: SCFPModule[] = [
     topics: [
       "Trust structures for HNWI (local and offshore)",
       "Foundation establishment and management",
-      "Private trust companies and family offices",
+      "Private trust companies and family businesses",
       "Cross-border estate planning considerations",
       "Asset protection strategies and structures",
       "Philanthropic planning and charitable giving vehicles"
@@ -143,7 +143,7 @@ export const scfpFAQs: SCFPFAQItem[] = [
     id: "faq-2",
     category: "Prerequisites",
     question: "Do I need CFP® certification to enroll?",
-    answer: "Yes, CFP® certification is the recommended prerequisite. Alternatively, you may qualify with equivalent professional experience serving affluent clients (typically 5+ years in private banking, family office, or wealth advisory) and relevant professional designations. Our admissions team will assess your eligibility on a case-by-case basis."
+    answer: "Yes, CFP® certification is the recommended prerequisite. Alternatively, you may qualify with equivalent professional experience serving affluent clients (typically 5+ years in private banking, family business advisory, or wealth advisory) and relevant professional designations. Our admissions team will assess your eligibility on a case-by-case basis."
   },
   {
     id: "faq-3",
@@ -222,7 +222,7 @@ export const scfpPricing: SCFPPricing[] = [
 export const whySCFPBenefits = [
   {
     title: "Serve Singapore's Wealthiest",
-    description: "Position yourself to advise ultra-high-net-worth individuals, family offices, and business dynasties with confidence and expertise.",
+    description: "Position yourself to advise ultra-high-net-worth individuals, family businesses, and business dynasties with confidence and expertise.",
     icon: "users"
   },
   {
@@ -236,8 +236,8 @@ export const whySCFPBenefits = [
     icon: "award"
   },
   {
-    title: "Family Office Opportunities",
-    description: "Gain expertise to work with single-family offices, multi-family offices, and private wealth advisory boutiques.",
+    title: "Family Business Opportunities",
+    description: "Gain expertise to work with family business owners, and private wealth advisory boutiques.",
     icon: "building"
   },
   {
@@ -254,34 +254,29 @@ export const whySCFPBenefits = [
 
 export const targetAudience = [
   {
-    title: "CFP® Professionals",
-    description: "Certified financial planners ready to specialize in high-net-worth advisory and elevate their practice.",
-    criteria: ["CFP® certification", "2+ years post-certification experience", "Desire to serve affluent clients"]
+    title: "Financial Planners",
+    description: "Licensed representatives looking to differentiate themselves amongst competitors as a specialist certified professional.",
+    criteria: ["Licensed Financial Planner", "Seeking competitive differentiation", "Desire for specialization"]
   },
   {
-    title: "Private Bankers",
-    description: "Private banking professionals seeking structured expertise in family advisory and wealth structuring.",
-    criteria: ["5+ years in private banking", "Experience with HNW clients", "Relevant professional qualifications"]
+    title: "Insurance Agents",
+    description: "Agents seeking highly rewarding career opportunities in the HNWIs and Family-Owned Business segment.",
+    criteria: ["Licensed Insurance Agent", "Focus on HNWI segment", "Career growth mindset"]
   },
   {
-    title: "Wealth Managers",
-    description: "Independent or institutional wealth managers advising successful entrepreneurs and wealthy families.",
-    criteria: ["Established wealth advisory practice", "Portfolio of affluent clients", "Desire for advanced specialization"]
-  },
-  {
-    title: "Family Office Advisors",
-    description: "Professionals working in or aspiring to join single-family or multi-family office environments.",
-    criteria: ["Experience with complex client situations", "Understanding of family dynamics", "Interest in holistic advisory"]
+    title: "Bancassurance Specialists",
+    description: "Existing practitioners looking to advance their career opportunities and find a significant boost to their career breakthrough.",
+    criteria: ["Bancassurance professional", "Seeking career advancement", "Ready for breakthrough"]
   }
 ];
 
 export const programDifferentiators = [
-  "Singapore's first specialized HNWI certification program",
-  "Dual certification: SCFP-HNWI™ + IBF-Advanced (Level II)",
-  "Learn from practitioners managing $1B+ in client assets",
-  "Real-world case studies from actual family office engagements",
+  "Specialised HNWI program contextualized for financial advisers",
+  "Dual certification: HNWI and Family-Owned Businesses™ Certification + IBF-Advanced (Level II) Certification",
+  "Learn from practitioners with actual experience planning for HNWI",
+  "Real-world case studies from actual family business clients",
   "Small cohort sizes for personalized attention and networking",
-  "Access to exclusive HNWI advisor community and events"
+  "Access to exclusive HNWI advisor community and alumni events"
 ];
 
 export const enrollmentProcess = [

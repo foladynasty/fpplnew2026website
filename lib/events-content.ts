@@ -306,7 +306,7 @@ export const upcomingEvents: CourseEvent[] = [
     highlights: [
       'NEW 2026 Launch',
       'Advanced HNWI advisory certification',
-      'Family office strategies',
+      'Family business strategies',
       'Limited cohort size',
       'Register interest now'
     ],
@@ -330,7 +330,7 @@ export function getEventsByType(type: EventType): CourseEvent[] {
 }
 
 export function getEventsByDateRange(startDate: string, endDate: string): CourseEvent[] {
-  return upcomingEvents.filter(event => 
+  return upcomingEvents.filter(event =>
     event.startDate >= startDate && event.startDate <= endDate
   );
 }
@@ -340,13 +340,13 @@ export function getUpcomingEvents(limit?: number): CourseEvent[] {
   const upcoming = upcomingEvents
     .filter(event => event.startDate >= today)
     .sort((a, b) => a.startDate.localeCompare(b.startDate));
-  
+
   return limit ? upcoming.slice(0, limit) : upcoming;
 }
 
 export function formatEventDate(dateString: string): string {
   const date = new Date(dateString);
-  return date.toLocaleDateString('en-SG', { 
+  return date.toLocaleDateString('en-SG', {
     day: 'numeric',
     month: 'long',
     year: 'numeric'

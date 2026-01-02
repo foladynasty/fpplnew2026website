@@ -1,13 +1,12 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: 'export',
+  output: 'standalone',  // Creates standalone build for easier deployment
   trailingSlash: true,
   images: {
     unoptimized: true,
   },
   eslint: {
-    // Disable ESLint during production builds
     ignoreDuringBuilds: true,
   },
 };

@@ -11,8 +11,8 @@ const slides = [
     subheadline: "Singapore's premier financial education provider since 1999",
     cta: "Find Your Program",
     ctaLink: "/events",
-    bgImage: "https://images.unsplash.com/photo-1565373679540-5c2b0e8d1e95?w=1920&q=80", // Singapore cityscape at sunset
-    overlayColor: "from-logo-dark/85 to-charcoal/75",
+    bgImage: "/slider%201.webp",
+    overlayColor: "from-primary/50 to-charcoal/40",
   },
   {
     id: 2,
@@ -21,8 +21,8 @@ const slides = [
     subheadline: "Join 20,000+ professionals who've transformed their careers with Singapore's #1 CFP® provider",
     cta: "Begin Your CFP® Transformation",
     ctaLink: "/cfp",
-    bgImage: "https://images.unsplash.com/photo-1525011268546-bf3f9b007f6a?w=1920&q=80", // Singapore Marina Bay skyline
-    overlayColor: "from-primary/80 to-primary/60",
+    bgImage: "/slider-2.webp",
+    overlayColor: "from-primary/50 to-primary/40",
   },
   {
     id: 3,
@@ -31,8 +31,8 @@ const slides = [
     subheadline: "Advanced certification for experienced advisors serving Singapore's wealthiest clients",
     cta: "Discover SCFP-HNWI",
     ctaLink: "/scfp-hnwi",
-    bgImage: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&q=80", // Modern Singapore business district
-    overlayColor: "from-purple/80 to-purple-800/70",
+    bgImage: "/slider-3.webp",
+    overlayColor: "from-purple/50 to-purple-800/40",
   },
   {
     id: 4,
@@ -41,8 +41,8 @@ const slides = [
     subheadline: "Practical CPD courses designed for immediate impact in your advisory practice",
     cta: "Explore CPD Courses",
     ctaLink: "/cpd",
-    bgImage: "https://images.unsplash.com/photo-1551836022-deb4988cc6c0?w=1920&q=80", // Professional business meeting
-    overlayColor: "from-teal/80 to-teal-700/70",
+    bgImage: "/slider%204.webp",
+    overlayColor: "from-teal/50 to-teal-700/40",
   },
   {
     id: 5,
@@ -51,8 +51,8 @@ const slides = [
     subheadline: "Customized corporate training solutions for financial institutions",
     cta: "Corporate Solutions",
     ctaLink: "/events",
-    bgImage: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&q=80", // Corporate team collaboration
-    overlayColor: "from-primary/85 to-primary-900/75",
+    bgImage: "/slider%205.webp",
+    overlayColor: "from-primary/50 to-primary-900/40",
   },
 ];
 
@@ -83,12 +83,11 @@ export default function HeroSlider() {
       {slides.map((slide, index) => (
         <div
           key={slide.id}
-          className={`absolute inset-0 transition-opacity duration-1000 ${
-            index === currentSlide ? 'opacity-100' : 'opacity-0'
-          }`}
+          className={`absolute inset-0 transition-opacity duration-1000 ${index === currentSlide ? 'opacity-100 z-10 pointer-events-auto' : 'opacity-0 z-0 pointer-events-none'
+            }`}
         >
           {/* Background Image with Blur */}
-          <div 
+          <div
             className="absolute inset-0 bg-cover bg-center"
             style={{
               backgroundImage: `url(${slide.bgImage})`,
@@ -100,7 +99,7 @@ export default function HeroSlider() {
           <div className={`absolute inset-0 bg-gradient-to-br ${slide.overlayColor}`} />
           {/* Additional dark overlay for better contrast */}
           <div className="absolute inset-0 bg-black/10" />
-          
+
           <div className="relative h-full container mx-auto px-4 flex items-center">
             <div className="max-w-3xl pl-8">
               {slide.badge && (
@@ -147,9 +146,8 @@ export default function HeroSlider() {
           <button
             key={index}
             onClick={() => goToSlide(index)}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${
-              index === currentSlide ? 'bg-white w-8' : 'bg-white/50 hover:bg-white/75'
-            }`}
+            className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentSlide ? 'bg-white w-8' : 'bg-white/50 hover:bg-white/75'
+              }`}
             aria-label={`Go to slide ${index + 1}`}
           />
         ))}

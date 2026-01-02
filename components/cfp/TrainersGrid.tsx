@@ -1,6 +1,6 @@
 'use client';
 
-import { Award, Linkedin } from 'lucide-react';
+import { Award, Linkedin, ArrowRight } from 'lucide-react';
 import { trainersData } from '@/lib/cfp-content';
 import { useState } from 'react';
 
@@ -42,52 +42,51 @@ export default function TrainersGrid() {
           </div>
 
           {/* Trainers Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
-            {displayedTrainers.map((trainer) => (
-              <div
-                key={trainer.id}
-                className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"
-              >
-                {/* Image Placeholder */}
-                <div className="bg-gradient-to-br from-primary to-primary-700 h-48 flex items-center justify-center">
-                  <div className="w-32 h-32 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
-                    <Award className="w-16 h-16 text-white" />
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+            {displayedTrainers.map((trainer, index) => {
+              const isFeatured = index < 3;
+              return (
+                <div
+                  key={trainer.id}
+                  className={`bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group ${isFeatured ? 'border-2 border-gold' : 'border-2 border-gray-200'
+                    }`}
+                >
+                  {isFeatured && (
+                    <div className="bg-gold text-white text-xs font-bold px-4 py-2 text-center flex items-center justify-center gap-2">
+                      <Award className="w-4 h-4" />
+                      FEATURED TRAINER
+                    </div>
+                  )}
+
+                  <div className="p-6">
+                    <h3 className="text-xl font-bold text-primary mb-2 group-hover:text-teal transition-colors">
+                      {trainer.name}
+                    </h3>
+                    <p className="text-sm text-gold font-semibold mb-3 leading-tight">{trainer.title}</p>
+
+                    <p className="text-xs text-slate-gray uppercase tracking-wide mb-4 border-t border-gray-200 pt-3">
+                      {trainer.experience}
+                    </p>
+
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {trainer.credentials.map((credential, idx) => (
+                        <span
+                          key={idx}
+                          className="bg-primary/10 text-primary px-2 py-1 rounded text-xs font-semibold"
+                        >
+                          {credential}
+                        </span>
+                      ))}
+                    </div>
+
+                    <button className="flex items-center justify-center gap-2 bg-primary hover:bg-primary-700 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors w-full">
+                      View Profile
+                      <ArrowRight className="w-4 h-4" />
+                    </button>
                   </div>
                 </div>
-
-                {/* Content */}
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-primary mb-1">
-                    {trainer.name}
-                  </h3>
-                  <p className="text-sm font-semibold text-gold mb-3">{trainer.title}</p>
-                  
-                  {/* Credentials */}
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {trainer.credentials.map((credential, idx) => (
-                      <span
-                        key={idx}
-                        className="text-xs font-semibold bg-primary/10 text-primary px-3 py-1 rounded-full"
-                      >
-                        {credential}
-                      </span>
-                    ))}
-                  </div>
-
-                  {/* Experience */}
-                  <p className="text-sm text-slate-gray mb-4">{trainer.experience}</p>
-
-                  {/* Bio */}
-                  <p className="text-sm text-charcoal leading-relaxed mb-4">{trainer.bio}</p>
-
-                  {/* LinkedIn (placeholder) */}
-                  <button className="text-primary hover:text-primary-700 transition-colors flex items-center space-x-2">
-                    <Linkedin className="w-4 h-4" />
-                    <span className="text-sm font-semibold">View Profile</span>
-                  </button>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
 
           {/* Show More Button */}

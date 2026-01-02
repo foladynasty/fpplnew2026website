@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Send, CheckCircle } from 'lucide-react';
+import { Send, CheckCircle, Loader2 } from 'lucide-react';
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -13,6 +13,7 @@ export default function ContactForm() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({
@@ -24,31 +25,22 @@ export default function ContactForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setError('');
 
     try {
-      // Submit to FormSubmit.co - Replace YOUR_EMAIL with your actual email
-      const response = await fetch('https://formsubmit.co/YOUR_EMAIL_HERE', {
+      const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Accept': 'application/json'
         },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          phone: formData.contactNumber,
-          subject: formData.subject,
-          message: formData.message,
-          _subject: `New Contact Form Submission: ${formData.subject || 'General Enquiry'}`,
-          _template: 'table'
-        })
+        body: JSON.stringify(formData),
       });
 
-      if (response.ok) {
-        setIsSubmitting(false);
-        setIsSubmitted(true);
+      const result = await response.json();
 
-        // Reset form after 3 seconds
+      if (result.success) {
+        setIsSubmitted(true);
+        // Reset form after delay
         setTimeout(() => {
           setIsSubmitted(false);
           setFormData({
@@ -58,13 +50,14 @@ export default function ContactForm() {
             subject: '',
             message: ''
           });
-        }, 3000);
+        }, 5000);
       } else {
-        throw new Error('Form submission failed');
+        setError(result.message || 'Failed to submit. Please try again.');
       }
-    } catch (error) {
-      console.error('Form submission error:', error);
-      alert('There was an error submitting the form. Please try again or email us directly.');
+    } catch (err) {
+      console.error('Contact form error:', err);
+      setError('An error occurred. Please try again or email us directly.');
+    } finally {
       setIsSubmitting(false);
     }
   };
@@ -90,6 +83,12 @@ export default function ContactForm() {
         Fill out the form below and we'll respond as soon as possible.
       </p>
 
+      {error && (
+        <div className="mb-6 bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg">
+          {error}
+        </div>
+      )}
+
       <form onSubmit={handleSubmit} className="space-y-5">
         {/* Name */}
         <div>
@@ -103,7 +102,8 @@ export default function ContactForm() {
             value={formData.name}
             onChange={handleChange}
             required
-            className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-primary-600 focus:outline-none transition-colors"
+            disabled={isSubmitting}
+            className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-primary-600 focus:outline-none transition-colors disabled:bg-gray-100"
             placeholder="Enter your full name"
           />
         </div>
@@ -120,7 +120,8 @@ export default function ContactForm() {
             value={formData.email}
             onChange={handleChange}
             required
-            className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-primary-600 focus:outline-none transition-colors"
+            disabled={isSubmitting}
+            className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-primary-600 focus:outline-none transition-colors disabled:bg-gray-100"
             placeholder="your.email@example.com"
           />
         </div>
@@ -137,7 +138,8 @@ export default function ContactForm() {
             value={formData.contactNumber}
             onChange={handleChange}
             required
-            className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-primary-600 focus:outline-none transition-colors"
+            disabled={isSubmitting}
+            className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-primary-600 focus:outline-none transition-colors disabled:bg-gray-100"
             placeholder="+65 XXXX XXXX"
           />
         </div>
@@ -152,17 +154,18 @@ export default function ContactForm() {
             name="subject"
             value={formData.subject}
             onChange={handleChange}
-            className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-primary-600 focus:outline-none transition-colors"
+            disabled={isSubmitting}
+            className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-primary-600 focus:outline-none transition-colors disabled:bg-gray-100"
           >
             <option value="">Select a subject</option>
-            <option value="cfp-enquiry">CFP® Certification Enquiry</option>
-            <option value="scfp-enquiry">SCFP-HNWI Program Enquiry</option>
-            <option value="cpd-enquiry">CPD Courses Enquiry</option>
-            <option value="corporate-training">Corporate Training Solutions</option>
-            <option value="student-support">Student Support</option>
-            <option value="funding-enquiry">IBF-STS Funding Enquiry</option>
-            <option value="general">General Enquiry</option>
-            <option value="other">Other</option>
+            <option value="CFP Enquiry">CFP® Certification Enquiry</option>
+            <option value="SCFP-HNWI Enquiry">SCFP-HNWI Program Enquiry</option>
+            <option value="CPD Enquiry">CPD Courses Enquiry</option>
+            <option value="Corporate Training">Corporate Training Solutions</option>
+            <option value="Student Support">Student Support</option>
+            <option value="IBF Funding Enquiry">IBF-STS Funding Enquiry</option>
+            <option value="General Enquiry">General Enquiry</option>
+            <option value="Other">Other</option>
           </select>
         </div>
 
@@ -177,8 +180,9 @@ export default function ContactForm() {
             value={formData.message}
             onChange={handleChange}
             required
+            disabled={isSubmitting}
             rows={6}
-            className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-primary-600 focus:outline-none transition-colors resize-none"
+            className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-primary-600 focus:outline-none transition-colors resize-none disabled:bg-gray-100"
             placeholder="Tell us how we can help you..."
           />
         </div>
@@ -187,13 +191,12 @@ export default function ContactForm() {
         <button
           type="submit"
           disabled={isSubmitting}
-          className={`w-full flex items-center justify-center gap-2 bg-gradient-to-r from-primary-600 to-teal text-white px-8 py-4 rounded-lg font-bold text-lg transition-all duration-200 hover:shadow-xl ${
-            isSubmitting ? 'opacity-50 cursor-not-allowed' : 'hover:scale-105'
-          }`}
+          className={`w-full flex items-center justify-center gap-2 bg-gradient-to-r from-primary-600 to-teal text-white px-8 py-4 rounded-lg font-bold text-lg transition-all duration-200 hover:shadow-xl ${isSubmitting ? 'opacity-50 cursor-not-allowed' : 'hover:scale-105'
+            }`}
         >
           {isSubmitting ? (
             <>
-              <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
+              <Loader2 className="w-5 h-5 animate-spin" />
               Sending...
             </>
           ) : (
@@ -211,4 +214,3 @@ export default function ContactForm() {
     </div>
   );
 }
-

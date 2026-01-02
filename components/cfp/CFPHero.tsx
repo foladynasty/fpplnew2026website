@@ -31,14 +31,14 @@ export default function CFPHero() {
           </div>
 
           {/* Main Headline */}
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-blue-100">
             Your Journey to CFP® Certification
             <span className="block mt-2 text-gold">Starts Here</span>
           </h1>
 
           {/* Subheadline */}
           <p className="text-xl md:text-2xl text-white/90 mb-10 max-w-3xl mx-auto leading-relaxed">
-            Join 20,000+ professionals who've transformed their careers with the globally recognized gold standard in financial planning
+            Achieve the globally recognized CFP® certification through Singapore's most established training partner.
           </p>
 
           {/* CTAs */}
@@ -105,11 +105,7 @@ export default function CFPHero() {
               <div className="text-3xl font-bold text-gold">26 Years</div>
               <div className="text-sm text-white/80">Of Excellence</div>
             </div>
-            <div className="hidden sm:block w-px h-12 bg-white/20"></div>
-            <div>
-              <div className="text-3xl font-bold text-gold">20,000+</div>
-              <div className="text-sm text-white/80">Graduates</div>
-            </div>
+
             <div className="hidden sm:block w-px h-12 bg-white/20"></div>
             <div>
               <div className="text-3xl font-bold text-gold">#1</div>

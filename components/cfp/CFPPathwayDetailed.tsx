@@ -8,21 +8,25 @@ export default function CFPPathwayDetailed() {
 
   const pathwayData = {
     afp: {
-      title: 'AFP®',
-      fullName: 'Associate Financial Planner',
+      title: <>AFP<sup>CM</sup></>,
+      fullName: 'Associate Financial Planner (IBFQ)',
       duration: '3-6 months',
-      modules: 2,
-      description: 'Foundation level certification for aspiring financial planners. Master the fundamentals of financial planning and begin your professional journey.',
+      modules: 1,
+      description: 'Introductory level certification obtained after successful completion of Module 1 of the CFP® certification education program. It certifies that you are competent to recommend general financial planning strategies and advise on the selection and use of appropriate financial products.',
       requirements: [
         'Minimum diploma or degree in any discipline',
         'FPAS student membership',
         'Pass FPAS Rules & Regulations exam'
       ],
       topics: [
-        'Financial Planning Process & Ethics',
-        'Insurance & Risk Management Basics',
-        'Investment Fundamentals',
-        'Introduction to Retirement Planning'
+        'Financial Planning Process & Cash Management',
+        'Time Value of Money & Business Statistics',
+        'Basic Investment Concepts & Economic Structure',
+        'Investment Planning Products',
+        'Retirement Planning Basics',
+        'Risk Management and Insurance Planning',
+        'Income Tax and Estate Planning',
+        'Code of Ethics and Regulatory Controls'
       ],
       outcomes: [
         'Understand financial planning principles',
@@ -32,22 +36,20 @@ export default function CFPPathwayDetailed() {
       ]
     },
     awp: {
-      title: 'AWP®',
-      fullName: 'Associate Wealth Planner',
+      title: <>AWP<sup>CM</sup></>,
+      fullName: 'Associate Wealth Planner (Intermediate Level)',
       duration: '6-9 months',
       modules: 3,
-      description: 'Intermediate level specializing in wealth planning strategies. Develop expertise in investment planning and portfolio management.',
+      description: 'Intermediate level certification obtained after successfully completing Modules 1, 4 & 5 of the CFP® certification education program. It certifies that you have the expertise to advise on retirement planning, wealth accumulation and preservation strategies.',
       requirements: [
-        'Completed AFP® certification',
+        'Completed AFP® certification (Module 1)',
         'FPAS membership in good standing',
         'Minimum 1 year relevant work experience (recommended)'
       ],
       topics: [
-        'Advanced Investment Planning',
-        'Portfolio Management & Asset Allocation',
-        'Tax Planning Strategies',
-        'Estate Planning Fundamentals',
-        'Wealth Accumulation Strategies'
+        'Module 1: Foundations in Financial Planning',
+        'Module 4: Investment Planning',
+        'Module 5: Retirement Planning'
       ],
       outcomes: [
         'Design comprehensive investment portfolios',
@@ -58,30 +60,30 @@ export default function CFPPathwayDetailed() {
     },
     cfp: {
       title: 'CFP®',
-      fullName: 'Certified Financial Planner',
-      duration: '9-12 months',
+      fullName: 'CERTIFIED FINANCIAL PLANNER™ (IBFA)',
+      duration: '12-18 months',
       modules: 6,
-      description: 'The global gold standard in financial planning. Master comprehensive financial planning across all disciplines and serve clients at the highest level.',
+      description: 'Advanced level certification - the most highly sought after professional designation globally. CFP® practitioners are qualified to provide professional advice on all aspects of financial/wealth planning and write comprehensive financial plans that meet strict international standards.',
       requirements: [
-        'Completed AFP® and AWP® certifications',
+        'Completed all 6 Modules within 7 years',
         'Bachelor\'s degree (or equivalent)',
         '3 years of full-time relevant work experience',
-        'FPAS professional membership'
+        'Agree to abide by Code of Ethics and Practice Standards'
       ],
       topics: [
-        'Comprehensive Financial Planning',
-        'Advanced Tax & Estate Planning',
-        'Retirement & CPF Optimization',
-        'Risk Management & Insurance Strategies',
-        'Investment Planning & Portfolio Construction',
-        'Ethics, Professional Standards & Practice Management'
+        'Module 1: Foundations in Financial Planning',
+        'Module 2: Risk Management and Insurance Planning',
+        'Module 3: Tax Planning and Estate Planning',
+        'Module 4: Investment Planning',
+        'Module 5: Retirement Planning',
+        'Module 6: Financial Plan Construction & Professional Responsibilities'
       ],
       outcomes: [
         'Create comprehensive financial plans',
         'Serve high-net-worth clients',
         'Practice as independent financial planner',
         'Command premium advisory fees',
-        'Global career opportunities'
+        'Global career opportunities with international recognition'
       ]
     }
   };
@@ -110,37 +112,24 @@ export default function CFPPathwayDetailed() {
             {/* Desktop Timeline */}
             <div className="hidden md:block">
               <div className="relative">
-                {/* Connecting Line */}
-                <div className="absolute top-16 left-0 right-0 h-1 bg-gradient-to-r from-primary via-primary to-gold"></div>
-                
+
                 {/* Journey Steps */}
                 <div className="grid grid-cols-3 gap-8 relative">
                   {/* AFP */}
                   <button
                     onClick={() => setSelectedLevel('afp')}
-                    className="text-center group"
+                    className="text-center group relative"
                   >
-                    <div className="relative inline-block mb-6">
-                      <div className={`w-32 h-32 rounded-full flex items-center justify-center shadow-xl relative z-10 transition-all ${
-                        selectedLevel === 'afp' 
-                          ? 'bg-gradient-to-br from-primary to-primary-700 ring-4 ring-primary/30' 
-                          : 'bg-gradient-to-br from-primary/60 to-primary-600'
-                      }`}>
-                        <div className="text-center">
-                          <div className="text-3xl font-bold text-white mb-1">1</div>
-                          <div className="text-xs text-white/90 font-semibold">LEVEL</div>
-                        </div>
-                      </div>
-                      <div className="absolute -right-12 top-1/2 -translate-y-1/2 text-primary">
-                        <ArrowRight className="w-8 h-8" />
-                      </div>
+                    {/* Arrow */}
+                    <div className="absolute -right-12 top-1/2 -translate-y-1/2 text-primary z-10">
+                      <ArrowRight className="w-8 h-8" />
                     </div>
-                    <div className={`bg-white rounded-xl p-6 shadow-lg border-2 transition-all ${
-                      selectedLevel === 'afp' 
-                        ? 'border-primary/40 shadow-primary/20' 
-                        : 'border-primary/20 group-hover:border-primary/30'
-                    }`}>
-                      <h4 className="text-xl font-bold text-primary mb-2">AFP®</h4>
+                    <div className={`bg-white rounded-xl p-6 shadow-lg border-2 transition-all ${selectedLevel === 'afp'
+                      ? 'border-primary/40 shadow-primary/20'
+                      : 'border-primary/20 group-hover:border-primary/30'
+                      }`}>
+                      <div className="inline-block bg-primary text-white text-xs font-bold px-3 py-1 rounded-full mb-3">LEVEL 1</div>
+                      <h4 className="text-xl font-bold text-primary mb-2">AFP<sup>CM</sup></h4>
                       <p className="text-sm font-semibold text-charcoal mb-2">Foundation Level</p>
                       <div className="inline-block bg-primary/10 px-4 py-2 rounded-full">
                         <p className="text-sm font-bold text-primary">3-6 months</p>
@@ -151,29 +140,18 @@ export default function CFPPathwayDetailed() {
                   {/* AWP */}
                   <button
                     onClick={() => setSelectedLevel('awp')}
-                    className="text-center group"
+                    className="text-center group relative"
                   >
-                    <div className="relative inline-block mb-6">
-                      <div className={`w-32 h-32 rounded-full flex items-center justify-center shadow-xl relative z-10 transition-all ${
-                        selectedLevel === 'awp' 
-                          ? 'bg-gradient-to-br from-primary to-primary-700 ring-4 ring-primary/30' 
-                          : 'bg-gradient-to-br from-primary/60 to-primary-600'
-                      }`}>
-                        <div className="text-center">
-                          <div className="text-3xl font-bold text-white mb-1">2</div>
-                          <div className="text-xs text-white/90 font-semibold">LEVEL</div>
-                        </div>
-                      </div>
-                      <div className="absolute -right-12 top-1/2 -translate-y-1/2 text-gold">
-                        <ArrowRight className="w-8 h-8" />
-                      </div>
+                    {/* Arrow */}
+                    <div className="absolute -right-12 top-1/2 -translate-y-1/2 text-gold z-10">
+                      <ArrowRight className="w-8 h-8" />
                     </div>
-                    <div className={`bg-white rounded-xl p-6 shadow-lg border-2 transition-all ${
-                      selectedLevel === 'awp' 
-                        ? 'border-primary/40 shadow-primary/20' 
-                        : 'border-primary/20 group-hover:border-primary/30'
-                    }`}>
-                      <h4 className="text-xl font-bold text-primary mb-2">AWP®</h4>
+                    <div className={`bg-white rounded-xl p-6 shadow-lg border-2 transition-all ${selectedLevel === 'awp'
+                      ? 'border-primary/40 shadow-primary/20'
+                      : 'border-primary/20 group-hover:border-primary/30'
+                      }`}>
+                      <div className="inline-block bg-primary text-white text-xs font-bold px-3 py-1 rounded-full mb-3">LEVEL 2</div>
+                      <h4 className="text-xl font-bold text-primary mb-2">AWP<sup>CM</sup></h4>
                       <p className="text-sm font-semibold text-charcoal mb-2">Wealth Specialist</p>
                       <div className="inline-block bg-primary/10 px-4 py-2 rounded-full">
                         <p className="text-sm font-bold text-primary">6-9 months</p>
@@ -184,28 +162,16 @@ export default function CFPPathwayDetailed() {
                   {/* CFP */}
                   <button
                     onClick={() => setSelectedLevel('cfp')}
-                    className="text-center group"
+                    className="text-center group relative"
                   >
-                    <div className="relative inline-block mb-6">
-                      <div className={`w-32 h-32 rounded-full flex items-center justify-center shadow-2xl relative z-10 transition-all ${
-                        selectedLevel === 'cfp' 
-                          ? 'bg-gradient-to-br from-gold to-gold-700 ring-4 ring-gold/30' 
-                          : 'bg-gradient-to-br from-gold/60 to-gold-600'
+                    <div className={`rounded-xl p-6 shadow-lg border-2 transition-all ${selectedLevel === 'cfp'
+                      ? 'bg-gradient-to-br from-gold/10 to-gold/5 border-gold/40'
+                      : 'bg-white border-gold/20 group-hover:border-gold/30'
                       }`}>
-                        <div className="text-center">
-                          <div className="text-3xl font-bold text-white mb-1">3</div>
-                          <div className="text-xs text-white/90 font-semibold">GOAL</div>
-                        </div>
+                      <div className="inline-flex items-center gap-2 bg-gold text-white text-xs font-bold px-3 py-1 rounded-full mb-3">
+                        <Award className="w-4 h-4" />
+                        <span>LEVEL 3</span>
                       </div>
-                      <div className="absolute -top-2 -right-2 bg-white rounded-full p-1 shadow-lg">
-                        <Award className="w-6 h-6 text-gold" />
-                      </div>
-                    </div>
-                    <div className={`rounded-xl p-6 shadow-lg border-2 transition-all ${
-                      selectedLevel === 'cfp' 
-                        ? 'bg-gradient-to-br from-gold/10 to-gold/5 border-gold/40' 
-                        : 'bg-white border-gold/20 group-hover:border-gold/30'
-                    }`}>
                       <h4 className="text-xl font-bold text-gold mb-2">CFP®</h4>
                       <p className="text-sm font-semibold text-charcoal mb-2">Gold Standard</p>
                       <div className="inline-block bg-gold/20 px-4 py-2 rounded-full">
@@ -221,31 +187,28 @@ export default function CFPPathwayDetailed() {
             <div className="md:hidden flex gap-3 mb-8">
               <button
                 onClick={() => setSelectedLevel('afp')}
-                className={`flex-1 py-3 px-4 rounded-lg font-bold transition-all ${
-                  selectedLevel === 'afp' 
-                    ? 'bg-primary text-white' 
-                    : 'bg-white text-primary border-2 border-primary/20'
-                }`}
+                className={`flex-1 py-3 px-4 rounded-lg font-bold transition-all ${selectedLevel === 'afp'
+                  ? 'bg-primary text-white'
+                  : 'bg-white text-primary border-2 border-primary/20'
+                  }`}
               >
-                AFP®
+                AFP<sup>CM</sup>
               </button>
               <button
                 onClick={() => setSelectedLevel('awp')}
-                className={`flex-1 py-3 px-4 rounded-lg font-bold transition-all ${
-                  selectedLevel === 'awp' 
-                    ? 'bg-primary text-white' 
-                    : 'bg-white text-primary border-2 border-primary/20'
-                }`}
+                className={`flex-1 py-3 px-4 rounded-lg font-bold transition-all ${selectedLevel === 'awp'
+                  ? 'bg-primary text-white'
+                  : 'bg-white text-primary border-2 border-primary/20'
+                  }`}
               >
-                AWP®
+                AWP<sup>CM</sup>
               </button>
               <button
                 onClick={() => setSelectedLevel('cfp')}
-                className={`flex-1 py-3 px-4 rounded-lg font-bold transition-all ${
-                  selectedLevel === 'cfp' 
-                    ? 'bg-gold text-white' 
-                    : 'bg-white text-gold border-2 border-gold/20'
-                }`}
+                className={`flex-1 py-3 px-4 rounded-lg font-bold transition-all ${selectedLevel === 'cfp'
+                  ? 'bg-gold text-white'
+                  : 'bg-white text-gold border-2 border-gold/20'
+                  }`}
               >
                 CFP®
               </button>
@@ -275,7 +238,7 @@ export default function CFPPathwayDetailed() {
                 <BookOpen className="w-8 h-8 text-primary" />
                 <div>
                   <div className="text-sm text-slate-gray">Modules</div>
-                  <div className="text-lg font-bold text-primary">{current.modules} Core Modules</div>
+                  <div className="text-lg font-bold text-primary">{current.modules} Core Module{current.modules > 1 ? 's' : ''}</div>
                 </div>
               </div>
               <div className="flex items-center space-x-3 bg-cool-gray rounded-lg p-4">
@@ -343,4 +306,5 @@ export default function CFPPathwayDetailed() {
     </section>
   );
 }
+
 

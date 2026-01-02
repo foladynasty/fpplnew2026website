@@ -79,9 +79,8 @@ export default function SCFPModules() {
                       </div>
                     </div>
                     <ChevronDown
-                      className={`w-6 h-6 text-purple ml-4 transition-transform flex-shrink-0 ${
-                        openModule === module.id ? 'transform rotate-180' : ''
-                      }`}
+                      className={`w-6 h-6 text-purple ml-4 transition-transform flex-shrink-0 ${openModule === module.id ? 'transform rotate-180' : ''
+                        }`}
                     />
                   </button>
 
@@ -143,27 +142,7 @@ export default function SCFPModules() {
             </div>
           </div>
 
-          {/* Capstone Project Info */}
-          <div className="bg-white rounded-2xl p-8 shadow-lg border-2 border-purple/10 mb-8">
-            <h3 className="text-2xl font-bold text-purple mb-4">Capstone Project & Assessment</h3>
-            <p className="text-charcoal mb-6 leading-relaxed">
-              The program culminates in a comprehensive capstone project where you'll develop a complete wealth advisory plan for a simulated ultra-high-net-worth client family. This integrates learning from all modules and demonstrates your mastery of advanced HNWI advisory concepts.
-            </p>
-            <div className="grid md:grid-cols-3 gap-6">
-              <div className="bg-cool-gray rounded-lg p-4">
-                <div className="font-bold text-purple mb-2">Assessment Type</div>
-                <div className="text-sm text-charcoal">Module exams + Capstone project</div>
-              </div>
-              <div className="bg-cool-gray rounded-lg p-4">
-                <div className="font-bold text-purple mb-2">Capstone Format</div>
-                <div className="text-sm text-charcoal">Written plan + presentation</div>
-              </div>
-              <div className="bg-cool-gray rounded-lg p-4">
-                <div className="font-bold text-purple mb-2">Duration</div>
-                <div className="text-sm text-charcoal">12-15 months total</div>
-              </div>
-            </div>
-          </div>
+
 
           {/* CTA */}
           <div className="text-center">

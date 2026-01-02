@@ -1,4 +1,4 @@
-import { Sparkles, Award, TrendingUp, Users, BookOpen, ArrowRight } from 'lucide-react';
+import { Sparkles, Award, TrendingUp, Users, BookOpen, ArrowRight, Download } from 'lucide-react';
 
 export default function SCFPHNWISection() {
   return (
@@ -44,7 +44,7 @@ export default function SCFPHNWISection() {
                     <strong className="text-purple">Option 1:</strong> Take individual courses for immediate skill development and CPD hours
                   </p>
                   <p className="text-charcoal">
-                    <strong className="text-purple">Option 2:</strong> Complete all 5 courses plus capstone for full SCFP-HNWI™ certification
+                    <strong className="text-purple">Option 2:</strong> Complete all 5 courses for full SCFP-HNWI™ certification
                   </p>
                 </div>
               </div>
@@ -62,8 +62,26 @@ export default function SCFPHNWISection() {
                     <BookOpen className="w-6 h-6 text-purple" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-primary mb-1">5 Advanced Courses</h4>
-                    <p className="text-charcoal text-sm">Strategic Wealth Management • Trust & Estate Planning • Tax Strategies • Alternative Investments • Family Business Governance</p>
+                    <h4 className="font-semibold text-primary mb-2">6-Module Program (5 Core + 1 Elective)</h4>
+                    <div className="text-sm text-charcoal space-y-4">
+                      <div>
+                        <p className="font-semibold text-purple mb-1">Core Modules (All Required):</p>
+                        <ul className="list-disc pl-5 space-y-1">
+                          <li>Segmentation & Targeting for Effective Positioning & Propositions</li>
+                          <li>Strategies for Advising High-Net-Worth Individuals</li>
+                          <li>Products Propositions and Structures for Wealthy Individuals</li>
+                          <li>Financial Planning for SME Businesses</li>
+                          <li>Customer Onboarding & Ethical Culture in Financial Advisory (E-learning)</li>
+                        </ul>
+                      </div>
+                      <div>
+                        <p className="font-semibold text-purple mb-1">Elective Module (Choose One):</p>
+                        <ul className="list-disc pl-5 space-y-1">
+                          <li><strong>Module 6A:</strong> Financial Planning for Gig Economy Workers in Singapore</li>
+                          <li><strong>Module 6B:</strong> Retirement Planning for High-Net-Worth Individuals and Business Owners</li>
+                        </ul>
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div className="flex items-start space-x-4">
@@ -72,7 +90,7 @@ export default function SCFPHNWISection() {
                   </div>
                   <div>
                     <h4 className="font-semibold text-primary mb-1">Premium Positioning</h4>
-                    <p className="text-charcoal">Serve ultra-high-net-worth individuals and family enterprises with confidence</p>
+                    <p className="text-charcoal">Serve high-net-worth individuals and family enterprises with confidence</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-4">
@@ -106,34 +124,7 @@ export default function SCFPHNWISection() {
             </div>
 
             {/* Program Highlights */}
-            <div className="bg-gradient-to-br from-purple to-purple-800 rounded-2xl p-8 text-white mb-10">
-              <h3 className="text-2xl font-bold mb-4">Five Advanced Courses</h3>
-              <div className="grid md:grid-cols-2 gap-4 mb-6">
-                <div className="flex items-start gap-2">
-                  <span className="text-gold mt-1">→</span>
-                  <span className="text-white/90">Strategic Wealth Management for HNWI</span>
-                </div>
-                <div className="flex items-start gap-2">
-                  <span className="text-gold mt-1">→</span>
-                  <span className="text-white/90">Advanced Trust & Estate Planning</span>
-                </div>
-                <div className="flex items-start gap-2">
-                  <span className="text-gold mt-1">→</span>
-                  <span className="text-white/90">Tax Planning for Wealthy Clients</span>
-                </div>
-                <div className="flex items-start gap-2">
-                  <span className="text-gold mt-1">→</span>
-                  <span className="text-white/90">Alternative Investments</span>
-                </div>
-                <div className="flex items-start gap-2">
-                  <span className="text-gold mt-1">→</span>
-                  <span className="text-white/90">Family Business Governance</span>
-                </div>
-              </div>
-              <p className="text-lg leading-relaxed text-white/90">
-                Each course can be taken individually or combine all five for the full SCFP-HNWI™ certification with IBF-Advanced (Level II) credentials.
-              </p>
-            </div>
+
 
             {/* Program Details */}
             <div className="grid md:grid-cols-3 gap-6 mb-10">
@@ -158,14 +149,15 @@ export default function SCFPHNWISection() {
               href="/scfp-hnwi#courses"
               className="inline-flex items-center justify-center bg-purple hover:bg-purple-700 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all duration-200 hover:shadow-xl hover:scale-105"
             >
-              View Individual Courses
+              Learn more about SCFP
               <ArrowRight className="ml-2 w-5 h-5" />
             </a>
             <a
               href="/scfp-hnwi#modules"
               className="inline-flex items-center justify-center border-2 border-gold text-gold hover:bg-gold hover:text-white px-8 py-4 rounded-lg font-bold text-lg transition-all duration-200"
             >
-              Full Certification Program
+              <Download className="mr-2 w-5 h-5" />
+              Download Program Brochure
             </a>
           </div>
         </div>

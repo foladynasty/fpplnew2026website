@@ -1,94 +1,203 @@
-# Plesk Deployment Guide for Next.js Website
+# Financial Perspectives Website - Plesk Deployment Guide
+
+## Overview
+This guide covers deploying the Next.js website to Plesk with Node.js on Windows (IIS with iisnode).
+
+---
 
 ## Prerequisites
-Your Plesk hosting MUST support Node.js (version 18 or higher).
+- Plesk hosting with Node.js enabled
+- Node.js 18+ on your local machine
+- Access to Plesk File Manager
 
-## Files to Upload to Plesk
+---
 
-### Required Files and Folders:
+## Quick Deployment Steps
 
-1. **`.next/`** folder (entire folder - this contains your built application)
-2. **`public/`** folder (contains images and static assets)
-3. **`node_modules/`** folder (all dependencies) OR run `npm install` on server
-4. **`package.json`** (defines dependencies and scripts)
-5. **`package-lock.json`** (locks dependency versions)
-6. **`next.config.ts`** or **`next.config.js`** (Next.js configuration)
+### Step 1: Build the Project Locally
 
-### Optional but Recommended:
-7. **`.eslintrc.json`** (if you want to run linting on server)
-
-## Deployment Steps for Plesk with Node.js:
-
-### Step 1: Compress Files for Upload
-Create a ZIP file containing:
-- `.next/` folder
-- `public/` folder
-- `package.json`
-- `package-lock.json`
-- `next.config.ts`
-- `next.config.js`
-
-### Step 2: Upload to Plesk
-1. Log into your Plesk control panel
-2. Go to **Files** > **File Manager**
-3. Navigate to your domain's root directory (usually `httpdocs` or `public_html`)
-4. Upload and extract the ZIP file
-
-### Step 3: Install Dependencies (if you didn't upload node_modules)
-1. In Plesk, go to **Node.js** settings for your domain
-2. Open the terminal or use SSH
-3. Run: `npm install --production`
-
-### Step 4: Configure Node.js Application in Plesk
-1. Go to **Node.js** section in Plesk
-2. Set **Application Mode**: Production
-3. Set **Application Root**: Your domain directory
-4. Set **Application Startup File**: `node_modules/next/dist/bin/next`
-5. Set **Custom Environment Variables** (if needed):
-   - `NODE_ENV=production`
-6. Set **Arguments**: `start`
-7. Click **Enable Node.js** and **Restart App**
-
-### Step 5: Configure Domain
-- Make sure your domain points to the correct directory
-- The application will run on the port Plesk assigns (usually proxied through Apache/Nginx)
-
-## Alternative: Static Export (If Node.js is NOT available)
-
-If your Plesk hosting does NOT support Node.js, you need to export as static HTML:
-
-### Modify next.config.ts:
-```typescript
-const nextConfig = {
-  output: 'export',
-  images: {
-    unoptimized: true,
-  },
-};
-```
-
-### Then rebuild:
 ```bash
+# Navigate to project folder
+cd c:\Users\folad\Downloads\Antigravity\fpwebsite2026a\fpstatic2026website
+
+# Clean previous build and rebuild
+Remove-Item -Recurse -Force .next -ErrorAction SilentlyContinue
 npm run build
 ```
 
-This creates an `out/` folder with static HTML files that can be uploaded to any hosting.
+### Step 2: Prepare Deployment Folder
+
+After build completes, create the deployment folder:
+
+```powershell
+# Set paths
+$standalonePath = ".next\standalone\Downloads\Antigravity\fpwebsite2026a\fpstatic2026website"
+
+# Create fresh deployment folder
+Remove-Item -Recurse -Force "plesk-deploy" -ErrorAction SilentlyContinue
+New-Item -ItemType Directory -Force "plesk-deploy"
+
+# Copy standalone build
+Copy-Item -Recurse -Force "$standalonePath\*" "plesk-deploy\"
+
+# Copy static files (IMPORTANT!)
+Copy-Item -Recurse -Force ".next\static" "plesk-deploy\.next\static"
+
+# Copy public folder
+Copy-Item -Recurse -Force "public" "plesk-deploy\public"
+```
+
+### Step 3: Create/Update Configuration Files
+
+Ensure these files exist in `plesk-deploy/`:
+
+**server.js** - Already included from standalone build
+
+**web.config** - Create if not exists:
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <system.webServer>
+    <handlers>
+      <add name="iisnode" path="server.js" verb="*" modules="iisnode" />
+    </handlers>
+    <rewrite>
+      <rules>
+        <rule name="StaticPublic" stopProcessing="true">
+          <match url="^(.*)$" />
+          <conditions>
+            <add input="{REQUEST_FILENAME}" matchType="IsFile" />
+          </conditions>
+          <action type="None" />
+        </rule>
+        <rule name="NextStatic" stopProcessing="true">
+          <match url="^_next/static/(.*)$" />
+          <conditions>
+            <add input="{DOCUMENT_ROOT}\.next\static\{R:1}" matchType="IsFile" />
+          </conditions>
+          <action type="Rewrite" url=".next/static/{R:1}" />
+        </rule>
+        <rule name="DynamicContent">
+          <match url="(.*)" />
+          <conditions>
+            <add input="{REQUEST_FILENAME}" matchType="IsFile" negate="true" />
+          </conditions>
+          <action type="Rewrite" url="server.js" />
+        </rule>
+      </rules>
+    </rewrite>
+    <iisnode loggingEnabled="true" devErrorsEnabled="true" />
+  </system.webServer>
+</configuration>
+```
+
+**.env** - Copy from `.env.local` with production values
+
+### Step 4: Upload to Plesk
+
+1. **ZIP** the `plesk-deploy` folder contents (not the folder itself)
+2. Log into **Plesk** control panel
+3. Go to **File Manager** → your domain folder (e.g., `/fp2026staging.fp-edu.com/`)
+4. **Delete** existing files (except `.env` if you want to keep it)
+5. **Upload** the ZIP file
+6. **Extract** the ZIP in place
+
+### Step 5: Configure Node.js in Plesk
+
+1. Go to **Websites & Domains** → your domain → **Node.js**
+2. Configure:
+   - **Node.js Version:** 18.x or higher
+   - **Application Mode:** Production
+   - **Application Root:** Your domain folder
+   - **Application Startup File:** `server.js`
+3. Click **Enable Node.js** (if not already enabled)
+4. Click **Restart App**
+
+### Step 6: Verify Deployment
+
+Visit your site URL and check:
+- [ ] Homepage loads with styling
+- [ ] Navigation works
+- [ ] All pages load correctly
+- [ ] Images display properly
+
+---
+
+## Environment Variables
+
+Create a `.env` file on the server with:
+
+```
+NODE_ENV=production
+WORDPRESS_API_URL=https://fppl.fp-edu.com
+ENDORSAL_API_KEY=your-endorsal-api-key
+NEXT_PUBLIC_SITE_URL=https://your-domain.com
+MAILCHIMP_API_KEY=your-mailchimp-key
+MAILCHIMP_LIST_ID=your-list-id
+SMTP_HOST=your-smtp-server
+SMTP_PORT=587
+SMTP_USER=your-email
+SMTP_PASS=your-password
+NOTIFICATION_EMAIL=notifications@your-domain.com
+```
+
+---
+
+## Folder Structure on Server
+
+```
+/your-domain.com/
+├── .next/
+│   ├── server/
+│   ├── static/         ← CSS, JS, fonts
+│   └── *.json files
+├── node_modules/       ← Bundled dependencies
+├── public/             ← Images, favicon, etc.
+├── .env                ← Environment variables
+├── package.json
+├── server.js           ← Application entry point
+└── web.config          ← IIS configuration
+```
+
+---
 
 ## Troubleshooting
 
-### Port Issues
-- Plesk usually handles port mapping automatically
-- If you need to specify a port, check Plesk Node.js settings
+### Site shows 404 error
+- Verify `server.js` is set as Application Startup File
+- Check that Node.js is enabled
+- Verify files are in the correct folder (not in a subfolder)
 
-### File Permissions
-- Ensure `.next/` folder has read permissions
-- Ensure `public/` folder has read permissions
+### CSS/Styling not loading
+- Ensure `.next/static` folder was copied
+- Verify `web.config` is in place
+- Clear browser cache (Ctrl+Shift+R)
 
-### Memory Issues
-- Next.js apps can be memory-intensive
-- Ensure your Plesk plan has at least 512MB RAM allocated to Node.js
+### Port permission denied error
+- Remove any hardcoded ports in server.js
+- Ensure server.js uses `process.env.PORT`
 
-## Testing
-After deployment, visit your domain. The site should load.
-If you see errors, check Plesk logs under **Logs** section.
+### iisnode errors
+- Remove `nodeProcessCommandLine` from web.config
+- Let Plesk use its default Node.js path
 
+---
+
+## Quick Update Deployment
+
+For small updates (after initial deployment):
+
+1. Make changes locally
+2. Run `npm run build`
+3. Upload only changed files:
+   - `.next/` folder
+   - Any changed public files
+4. Restart App in Plesk
+
+---
+
+## Contact
+
+For deployment issues or questions, refer to this guide or check Plesk documentation.
+
+Last updated: January 2026

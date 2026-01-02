@@ -1,7 +1,6 @@
 'use client';
 
-import { DollarSign, TrendingUp, Phone, ArrowRight, CheckCircle } from 'lucide-react';
-import { scfpPricing } from '@/lib/scfp-content';
+import { DollarSign, Phone, ArrowRight, CheckCircle } from 'lucide-react';
 
 export default function SCFPInvestment() {
   return (
@@ -21,45 +20,78 @@ export default function SCFPInvestment() {
             </p>
           </div>
 
-          {/* Contact for Pricing Card */}
-          <div className="bg-white rounded-2xl p-12 mb-12 shadow-lg border-2 border-purple/20 text-center">
-            <div className="flex justify-center mb-6">
-              <div className="w-20 h-20 bg-purple/10 rounded-full flex items-center justify-center">
-                <DollarSign className="w-10 h-10 text-purple" />
-              </div>
+
+
+          {/* Contact for Fees & Funding - Replaces Pricing Table */}
+          <div className="bg-gradient-to-br from-purple to-purple-800 rounded-2xl p-8 md:p-12 mb-16 shadow-2xl text-center relative overflow-hidden group">
+            <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+              <DollarSign className="w-64 h-64 text-white" />
             </div>
-            <h3 className="text-3xl font-bold text-purple mb-4">Contact Us for Course Fee & Funding Information</h3>
-            <p className="text-lg text-charcoal mb-8 max-w-2xl mx-auto">
-              Get detailed information about program fees, flexible payment plans, and IBF-STS funding assistance. Our course advisors are ready to help you plan your investment.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="https://wa.me/6581117890"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center bg-purple hover:bg-purple-700 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all duration-200 hover:shadow-xl"
-              >
-                <Phone className="mr-2 w-5 h-5" />
-                WhatsApp Us: 81117890
-              </a>
-              <a
-                href="mailto:info@fp-edu.com"
-                className="inline-flex items-center justify-center border-2 border-purple text-purple hover:bg-purple hover:text-white px-8 py-4 rounded-lg font-bold text-lg transition-all duration-200"
-              >
-                Email for Details
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </a>
+            <div className="relative z-10">
+              <h3 className="text-3xl font-bold text-white mb-6">Invest in Your Professional Growth</h3>
+              <p className="text-xl text-purple-100 mb-8 max-w-3xl mx-auto leading-relaxed">
+                Unlock exclusive pricing and funding opportunities for the inaugural cohort. Contact our dedicated program advisors to receive the full fee structure and personalized IBF funding consultation.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-6 justify-center">
+                <a
+                  href="https://wa.me/6581117890"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center bg-gold hover:bg-gold-600 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all duration-200 hover:shadow-xl hover:scale-105"
+                >
+                  <Phone className="mr-2 w-5 h-5" />
+                  WhatsApp Us
+                </a>
+                <a
+                  href="mailto:info@fp-edu.com"
+                  className="inline-flex items-center justify-center bg-white/10 backdrop-blur-sm border-2 border-white text-white hover:bg-white hover:text-purple px-8 py-4 rounded-lg font-bold text-lg transition-all duration-200"
+                >
+                  Request Fee Schedule
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </a>
+              </div>
+              <p className="mt-6 text-sm text-purple-200">
+                *Advisors available Mon-Fri, 9am - 6pm SGT
+              </p>
+            </div>
+          </div>
+
+          {/* Funding Information */}
+          <div className="bg-white rounded-2xl p-8 mb-12 shadow-lg border-2 border-purple/10">
+            <div className="flex items-start space-x-4 mb-6">
+              <div className="w-12 h-12 bg-purple/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                <DollarSign className="w-6 h-6 text-purple" />
+              </div>
+              <div>
+                <h3 className="text-2xl font-bold text-purple mb-2">Funding Support</h3>
+                <p className="text-charcoal leading-relaxed text-sm">
+                  This Program has been accredited under the Skills Framework for Financial Services and is eligible for funding under the IBF Standards Training Scheme (IBF-STS), subject to all eligibility criteria being met.
+                </p>
+                <div className="mt-4 bg-purple/5 p-4 rounded-lg">
+                  <p className="text-charcoal text-sm leading-relaxed mb-4">
+                    Participants are advised to assess the suitability of the course and its relevance to his/her business activities or job roles.
+                  </p>
+                  <p className="text-charcoal text-sm leading-relaxed mb-4">
+                    The IBF-STS is available to eligible entities and individuals based on the prevalent funding eligibility, quantum and caps. IBF-STS provides up to 70% course fee subsidy support for direct training costs subject to a cap of S$3,000 per candidate per course subject to all eligibility criteria being met.
+                  </p>
+                  <a href="https://www.ibf.org.sg" target="_blank" rel="noopener noreferrer" className="text-purple font-bold hover:underline text-sm inline-flex items-center">
+                    Find out more on www.ibf.org.sg
+                    <ArrowRight className="ml-1 w-3 h-3" />
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
 
           {/* What's Included */}
-          <div className="bg-white rounded-2xl p-10 mb-12 shadow-lg">
+          <div className="bg-white rounded-2xl p-10 shadow-lg border-t-4 border-gold">
             <h3 className="text-2xl font-bold text-purple mb-6 text-center">What's Included in Your Investment</h3>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="space-y-3">
                 <div className="flex items-start space-x-3">
                   <CheckCircle className="w-5 h-5 text-gold flex-shrink-0 mt-0.5" />
-                  <span className="text-charcoal">All module materials and textbooks</span>
+                  <span className="text-charcoal">All module materials</span>
                 </div>
                 <div className="flex items-start space-x-3">
                   <CheckCircle className="w-5 h-5 text-gold flex-shrink-0 mt-0.5" />
@@ -77,10 +109,6 @@ export default function SCFPInvestment() {
               <div className="space-y-3">
                 <div className="flex items-start space-x-3">
                   <CheckCircle className="w-5 h-5 text-gold flex-shrink-0 mt-0.5" />
-                  <span className="text-charcoal">Capstone project guidance and review</span>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <CheckCircle className="w-5 h-5 text-gold flex-shrink-0 mt-0.5" />
                   <span className="text-charcoal">Dual certification upon completion</span>
                 </div>
                 <div className="flex items-start space-x-3">
@@ -95,76 +123,25 @@ export default function SCFPInvestment() {
             </div>
           </div>
 
-          {/* IBF Funding Info */}
-          <div className="grid md:grid-cols-2 gap-8 mb-12">
-            <div className="bg-white rounded-xl p-8 shadow-md">
-              <div className="flex items-center space-x-3 mb-6">
-                <div className="w-12 h-12 bg-teal rounded-lg flex items-center justify-center">
-                  <DollarSign className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold text-purple">IBF-STS Funding</h3>
-              </div>
-              <p className="text-charcoal mb-4 leading-relaxed text-sm">
-                As an IBF-Advanced (Level II) program, SCFP-HNWI qualifies for IBF Standards Training Scheme funding for eligible Singapore Citizens and PRs.
-              </p>
-              <ul className="space-y-2">
-                <li className="flex items-center space-x-2 text-sm">
-                  <CheckCircle className="w-4 h-4 text-teal" />
-                  <span className="text-charcoal">Up to 70% course fee support</span>
-                </li>
-                <li className="flex items-center space-x-2 text-sm">
-                  <CheckCircle className="w-4 h-4 text-teal" />
-                  <span className="text-charcoal">For financial sector professionals</span>
-                </li>
-                <li className="flex items-center space-x-2 text-sm">
-                  <CheckCircle className="w-4 h-4 text-teal" />
-                  <span className="text-charcoal">We assist with application</span>
-                </li>
-              </ul>
-            </div>
-
-            <div className="bg-white rounded-xl p-8 shadow-md">
-              <div className="flex items-center space-x-3 mb-6">
-                <div className="w-12 h-12 bg-purple rounded-lg flex items-center justify-center">
-                  <TrendingUp className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold text-purple">ROI on Your Investment</h3>
-              </div>
-              <p className="text-charcoal mb-4 leading-relaxed text-sm">
-                HNWI specialists command significantly higher compensation and client fees compared to generalist advisors.
-              </p>
-              <div className="space-y-3">
-                <div className="bg-cool-gray rounded-lg p-3">
-                  <div className="text-xl font-bold text-purple">40-60%</div>
-                  <div className="text-xs text-charcoal">Higher earning potential</div>
-                </div>
-                <div className="bg-cool-gray rounded-lg p-3">
-                  <div className="text-xl font-bold text-purple">2-3x</div>
-                  <div className="text-xs text-charcoal">Premium client fees</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* CTA */}
-          <div className="text-center">
-            <p className="text-lg text-slate-gray mb-6">
-              Questions about investment or funding eligibility?
-            </p>
+          {/* Final CTA */}
+          <div className="mt-16 text-center">
+            <h3 className="text-2xl font-bold text-purple mb-6">
+              Ready to elevate your practice?
+            </h3>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="tel:+6512345678"
+                href="#enrollment"
                 className="inline-flex items-center justify-center bg-purple hover:bg-purple-700 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all duration-200 hover:shadow-xl hover:scale-105"
               >
-                <Phone className="mr-2 w-5 h-5" />
-                Speak with Advisor
+                Apply Now
+                <ArrowRight className="ml-2 w-5 h-5" />
               </a>
               <a
-                href="#faqs"
+                href="/brochures/scfp-full-program.pdf"
+                download
                 className="inline-flex items-center justify-center border-2 border-purple text-purple hover:bg-purple hover:text-white px-8 py-4 rounded-lg font-bold text-lg transition-all duration-200"
               >
-                View FAQs
-                <ArrowRight className="ml-2 w-5 h-5" />
+                Download Brochure
               </a>
             </div>
           </div>
@@ -173,4 +150,3 @@ export default function SCFPInvestment() {
     </section>
   );
 }
-

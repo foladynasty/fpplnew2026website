@@ -14,11 +14,11 @@ export default function SCFPFinalCTA() {
               <div className="w-16 h-16 bg-gold rounded-xl flex items-center justify-center mb-6">
                 <Sparkles className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-3xl font-bold mb-4">
+              <h3 className="text-3xl font-bold mb-4 text-purple-100">
                 Register for Q1 2026 Launch
               </h3>
               <p className="text-white/90 text-lg mb-6 leading-relaxed">
-                Be among the first cohort of Singapore's SCFP-HNWI certified specialists. Limited to 25-30 participants for personalized attention and elite peer networking.
+                Be among the first cohort of Singapore's SCFP-HNWI certified specialists. Limited to 15 participants for personalized attention and elite peer networking.
               </p>
               <ul className="space-y-3 mb-8">
                 <li className="flex items-center space-x-3">
@@ -54,7 +54,7 @@ export default function SCFPFinalCTA() {
               <div className="w-16 h-16 bg-teal rounded-xl flex items-center justify-center mb-6">
                 <Calendar className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-3xl font-bold mb-4">
+              <h3 className="text-3xl font-bold mb-4 text-purple-100">
                 Attend Free Preview Webinar
               </h3>
               <p className="text-white/90 text-lg mb-6 leading-relaxed">
@@ -114,7 +114,7 @@ export default function SCFPFinalCTA() {
                   <Users className="w-5 h-5 text-gold" />
                   <span className="font-bold text-white">Limited Seats</span>
                 </div>
-                <p className="text-xs text-white/70">25-30 participants per cohort</p>
+                <p className="text-xs text-white/70">15 participants per cohort</p>
               </div>
             </div>
           </div>

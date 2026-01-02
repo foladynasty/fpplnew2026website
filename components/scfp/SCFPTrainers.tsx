@@ -5,25 +5,25 @@ import { Award } from 'lucide-react';
 export default function SCFPTrainers() {
   const trainers = [
     {
-      name: "Dr. Patricia Ng",
-      title: "Program Director & Lead Faculty",
-      credentials: ["CFP®", "CFA", "PhD in Finance"],
-      experience: "Former Head of Private Banking, managing $2B+ in HNWI assets",
-      bio: "Dr. Ng has advised Singapore's wealthiest families for over 20 years, specializing in multi-generational wealth planning and family office structures."
+      name: "Ronald Wong",
+      title: "MBA, CFP®, CHFC®, CWM®, CHMA, AEPP, STEP ASSOCIATE",
+      credentials: ["CFP®", "MFA", "Comprehensive Planning"],
+      experience: "INSTRUCTOR FOR CFP AND CPD PROGRAMS (MFA)",
+      bio: "An experienced instructor specializing in comprehensive financial planning and wealth management with extensive expertise in high-net-worth advisory."
     },
     {
-      name: "Richard Tan",
-      title: "Family Business Advisory Specialist",
-      credentials: ["CFP®", "CPA", "MBA"],
-      experience: "20+ years in family business succession and governance",
-      bio: "Richard has guided over 50 family enterprises through generational transitions, from $50M to $1B+ valuations."
+      name: "Bernard Soh",
+      title: "CFP®, MPA(SMU DEAN'S LIST), INSEAD MBA, B ENG (HONS)",
+      credentials: ["CFP®", "Wealth Management", "INSEAD MBA"],
+      experience: "INSTRUCTOR FOR CFP PROGRAM",
+      bio: "Specializes in wealth management and general management consulting with a strong academic background from top institutions."
     },
     {
-      name: "Melissa Wong",
-      title: "Estate & Trust Structures Expert",
-      credentials: ["CFP®", "TEP", "LLM in Trust Law"],
-      experience: "18+ years in sophisticated wealth structuring",
-      bio: "Melissa specializes in cross-border estate planning and trust structures for ultra-high-net-worth individuals and families."
+      name: "Aaron Graham Tay",
+      title: "BSC(BANKING & FINANCE), CFP®, CERTIFIED BEHAVIORAL & CAREER CONSULTANT™",
+      credentials: ["CFP®", "Behavioral Finance", "Career Consulting"],
+      experience: "INSTRUCTOR FOR CFP PROGRAM",
+      bio: "Expert in behavioral finance and career consulting, bringing a unique psychological perspective to financial planning and client advisory."
     }
   ];
 
@@ -40,7 +40,7 @@ export default function SCFPTrainers() {
               Learn from Practitioners
             </h2>
             <p className="text-xl text-slate-gray max-w-3xl mx-auto leading-relaxed">
-              Our faculty consists of seasoned HNWI advisors and family office professionals who bring real-world experience from managing billions in client assets.
+              Our faculty consists of seasoned HNWI advisors and family business professionals who bring real-world experience from managing portfolios for high-net-worth individuals.
             </p>
           </div>
 
@@ -57,7 +57,7 @@ export default function SCFPTrainers() {
                 <div className="p-6">
                   <h3 className="text-xl font-bold text-purple mb-1">{trainer.name}</h3>
                   <p className="text-sm font-semibold text-gold mb-3">{trainer.title}</p>
-                  
+
                   <div className="flex flex-wrap gap-2 mb-4">
                     {trainer.credentials.map((credential, idx) => (
                       <span key={idx} className="text-xs font-semibold bg-purple/10 text-purple px-3 py-1 rounded-full">
@@ -92,7 +92,7 @@ export default function SCFPTrainers() {
                 </div>
                 <div>
                   <h4 className="font-bold text-purple mb-2">Real Case Studies</h4>
-                  <p className="text-sm text-charcoal">Learn from actual (anonymized) family office and HNWI advisory engagements.</p>
+                  <p className="text-sm text-charcoal">Learn from actual (anonymized) family business and HNWI advisory engagements.</p>
                 </div>
               </div>
               <div className="flex items-start space-x-4">
@@ -101,7 +101,7 @@ export default function SCFPTrainers() {
                 </div>
                 <div>
                   <h4 className="font-bold text-purple mb-2">Network Access</h4>
-                  <p className="text-sm text-charcoal">Benefit from faculty connections in Singapore's HNWI and family office ecosystem.</p>
+                  <p className="text-sm text-charcoal">Benefit from faculty connections in Singapore's HNWI and family business ecosystem.</p>
                 </div>
               </div>
               <div className="flex items-start space-x-4">

@@ -42,7 +42,7 @@ const courses = [
     title: "Holistic Estate & Legacy Planning (HELP)",
     challenge: "High-net-worth clients need sophisticated estate planning. Can you guide them through trusts, succession, and multi-generational wealth transfer?",
     solution: "Master the full spectrum of estate planning—from wills and trusts to philanthropy and legacy preservation. Serve your wealthy clients at the highest level.",
-    perfectFor: "Advisors Serving HNWIs, Family Offices, Aging Clients",
+    perfectFor: "Advisors Serving HNWIs, Family Businesses, Aging Clients",
     details: "Workshop Format | 10 CPD Hours | Case Study-Based Learning",
     color: "from-orange-500 to-red-600",
   },
@@ -111,7 +111,7 @@ export default function CPDCourses() {
                     href={`/cpd/${course.slug}`}
                     className="block text-center bg-teal hover:bg-teal-600 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200 hover:shadow-lg"
                   >
-                    Learn More & Register
+                    Learn More
                   </Link>
                 </div>
               </div>
@@ -124,7 +124,7 @@ export default function CPDCourses() {
               href="/cpd"
               className="inline-flex items-center justify-center bg-teal hover:bg-teal-600 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all duration-200 hover:shadow-xl hover:scale-105"
             >
-              View All CPD Courses & Upcoming Dates
+              View All CPD Courses
               <ArrowRight className="ml-2 w-5 h-5" />
             </Link>
           </div>

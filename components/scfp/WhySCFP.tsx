@@ -40,7 +40,7 @@ export default function WhySCFP() {
               Why SCFP-HNWI?
             </h2>
             <p className="text-xl text-slate-gray max-w-3xl mx-auto leading-relaxed">
-              Position yourself as Singapore's go-to specialist for ultra-high-net-worth individuals, family offices, and multi-generational wealth planning.
+              Position yourself as Singapore's go-to specialist for ultra-high-net-worth individuals, family businesses, and multi-generational wealth planning.
             </p>
           </div>
 
@@ -63,7 +63,7 @@ export default function WhySCFP() {
 
           {/* Program Differentiators */}
           <div className="bg-gradient-to-br from-purple to-purple-800 rounded-2xl p-10 mb-12 text-white">
-            <h3 className="text-2xl font-bold mb-6 text-center">
+            <h3 className="text-2xl font-bold mb-6 text-center text-purple-100">
               What Makes This Program Different
             </h3>
             <div className="grid md:grid-cols-2 gap-4">
@@ -88,7 +88,7 @@ export default function WhySCFP() {
               <span className="bg-white px-4 py-2 rounded-full text-sm font-semibold text-purple">CFP® Professionals</span>
               <span className="bg-white px-4 py-2 rounded-full text-sm font-semibold text-purple">Private Bankers</span>
               <span className="bg-white px-4 py-2 rounded-full text-sm font-semibold text-purple">Wealth Managers</span>
-              <span className="bg-white px-4 py-2 rounded-full text-sm font-semibold text-purple">Family Office Advisors</span>
+              <span className="bg-white px-4 py-2 rounded-full text-sm font-semibold text-purple">Family Business Advisors</span>
             </div>
           </div>
 
