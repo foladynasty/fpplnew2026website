@@ -53,12 +53,16 @@ if (-not (Test-Path $standalonePath)) {
 # Backup web.config and .env if they exist
 $webConfigBackup = $null
 $envBackup = $null
+$serverJsBackup = $null
 
 if (Test-Path "plesk-deploy\web.config") {
     $webConfigBackup = Get-Content "plesk-deploy\web.config" -Raw
 }
 if (Test-Path "plesk-deploy\.env") {
     $envBackup = Get-Content "plesk-deploy\.env" -Raw
+}
+if (Test-Path "plesk-deploy\server.js") {
+    $serverJsBackup = Get-Content "plesk-deploy\server.js" -Raw
 }
 
 # Clear and recreate plesk-deploy (except .git files)
@@ -90,6 +94,12 @@ if ($webConfigBackup) {
 if ($envBackup) {
     Set-Content "plesk-deploy\.env" $envBackup
     Write-Host "      Restored .env" -ForegroundColor Gray
+}
+
+# Restore server.js (Critical for IISNode compatibility)
+if ($serverJsBackup) {
+    Set-Content "plesk-deploy\server.js" $serverJsBackup
+    Write-Host "      Restored server.js (IISNode Fix)" -ForegroundColor Gray
 }
 
 Write-Host "      plesk-deploy folder updated!" -ForegroundColor Green

@@ -39,7 +39,7 @@ export default function FinalCTA() {
 
             {/* Right Column */}
             <div className="bg-gradient-to-br from-primary-600 to-blue-700 rounded-2xl p-8 shadow-lg text-white">
-              <h3 className="text-3xl font-bold mb-4">
+              <h3 className="text-3xl font-bold mb-4 text-cyan-100">
                 Ready to Start?
               </h3>
               <p className="text-white/90 leading-relaxed mb-6">
@@ -47,7 +47,7 @@ export default function FinalCTA() {
               </p>
 
               <a
-                href="#programs"
+                href="/cpd"
                 className="inline-flex items-center justify-center w-full bg-white text-primary-600 hover:bg-gray-100 px-6 py-3 rounded-lg font-bold transition-all duration-200 hover:shadow-lg"
               >
                 <BookOpen className="mr-2 w-5 h-5" />
